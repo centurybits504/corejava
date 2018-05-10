@@ -1,0 +1,44 @@
+Annotation:
+Java Annotation is nothing but  a tag represents the metadata attached to java elements like class, interface, methods, variables, enums, another annotations 
+to indicate some additional 
+information which can be used by the compiler and JVM.
+An annotation gives data about a program. It is not part of the program itself and no direct effect on the operation of the code.
+Annotations are alternate option to XML and java-marker-interfaces, because they provide additional information.
+
+Uses of Annotations:
+Annotations uses the runtime process.
+Software tools can process annotation information to generate code, XML files.
+Annotations helps the compiler to detect errors or suppress warnings.
+
+Rules for defining Java annotations:
+Annotation declaration should start with an sign like @, following with an interface keyword, following with the annotation name.
+Method declarations should not have any throws clauses.
+Method declarations should not have any parameters.
+Return types of the method should be one of the following:-
+	primitives
+	String
+	Class
+	enum
+	array of the above types
+
+Java specifies the set of annotations which are built into the language. 	
+Some of the Built-In Java Annotations used in java code:
+@Override : Checks that the function is an override. Causes a compile warning if the function is not found in one of the parent classes.
+@Deprecated : Marks the function as absolute. Causes a compile warning if the f unction is used. When we want to inform the 
+compiler that a method is deprecated we can use this. 
+So, when a method is annotated with @Deprecated and that method is found used in some place, then the compiler generates a warning.
+@SuppressWarnings :  Instructs the compiler to suppress the compile time warnings specified in the annotation parameters. 
+@SafeVarargs :  when applied to a method or constructor, asserts that the code does not perform potentially unsafe operations on its varargsparameter. 
+When this annotation type is used, unchecked warnings relating to varargs usage are suppressed.
+@FunctionalInterface : Introduced in Java SE 8, indicates that the type declaration is intended to be a functional interface, as defined by the Java Language
+ Specification.
+
+Some of the Built-In Java Annotations used in other annotations:
+@Retention:  Specifies how the marked annotation is stored. Whether in code only, compiled into the class, or available at runtime through reflection.
+@Inherited:  Marks another annotation to be inherited to subclasses of annotated class (by default annotations are not inherited to subclasses).
+@Documented:  Marks another annotation for inclusion in the documentation.
+@Target:  Marks another annotation to restrict what kind of java elements the annotation may be applied.
+
+
+
+	

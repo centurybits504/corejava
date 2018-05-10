@@ -1,0 +1,10 @@
+Multiple Exception Handling:
+
+In MultipleCatchBlocksExample.java example we have multiple catch blocks , to eliminate duplicate code java 7 have single catch multiple exception handling.
+
+	/*Syntax*/
+	try{
+		//statements	
+	}catch(Exceptionclass | Exceptionclass obj){
+		//statements
+	}

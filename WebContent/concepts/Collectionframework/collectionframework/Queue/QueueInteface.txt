@@ -1,0 +1,28 @@
+Queue Interface:
+
+All Superinterfaces:
+    Collection<E>, Iterable<E> 
+All Known Subinterfaces:
+    BlockingDeque<E>, BlockingQueue<E>, Deque<E>, TransferQueue<E> 
+All Known Implementing Classes:
+    AbstractQueue, ArrayBlockingQueue, ArrayDeque, ConcurrentLinkedDeque, ConcurrentLinkedQueue, DelayQueue, LinkedBlockingDeque, LinkedBlockingQueue, LinkedList, LinkedTransferQueue, PriorityBlockingQueue, PriorityQueue, SynchronousQueue 	
+	
+A Queue represents arrangement of elements in FIFO(First-In-First-Order) Order, 
+which means an element that is stored as a first element into the queue will be removed first from the collection.
+
+If we want to represent a group of individual objects, prior to processing then we should go for Queue collection.
+
+Methods Of Queue Interface:
+boolean 	add(E e)
+Inserts the specified element into this queue if it is possible to do so immediately without violating capacity restrictions, returning true upon success and throwing an IllegalStateException if no space is currently available.
+E 	element()
+Retrieves, but does not remove, the head of this queue.
+boolean 	offer(E e)
+Inserts the specified element into this queue if it is possible to do so immediately without violating capacity restrictions.
+E 	peek()
+Retrieves, but does not remove, the head of this queue, or returns null if this queue is empty.
+E 	poll()
+Retrieves and removes the head of this queue, or returns null if this queue is empty.
+E 	remove()
+Retrieves and removes the head of this queue.
+

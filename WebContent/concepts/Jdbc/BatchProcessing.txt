@@ -1,0 +1,120 @@
+Batch Processing:
+Batch processing is the execution of a series of jobs in a program.
+In java instead of executing a single query, we can execute a batch(group) of queries.
+To do batch processing in java we have methods from java.sql.Statement and java.sql.PreparedStatement interface's.
+If any operation failed in batch processing then java.sql.BatchUpdate Exception will be thrown.
+When we want to cancel all the operation of the batch when one operation failed then apply batch processing with transaction management.
+In Batch Processing only non-select operations are allowed.
+
+Steps for batch processing:
+1: Register and Loading the driver class
+2: Creating connection between java application and the database.
+3: By default "Auto Commit" is true. So we have set auto commit property as "false" by using setAutoCommit(false) method of "Connection" interface. 
+4: Creating either statement,PreparedStatement as per the requirement to execute queries.
+5: Add queries to batch using method addBatch(Sqlquery) of statement/prepareStatement interface's.
+6: Executing batch queries using executeBatch() method of statement/prepareStatement interface's.
+7: In step 3, we made "Auto Commit" property as false. So we have to commit the transaction  by using commit() method of "Connection" interface.
+8: Finally release the Statement/PreparedStatement/connection object's using close() method of Statement/PreparedStatement/Connection interface's.
+
+Advantages:
+Increase the performance of an application.
+
+Methods from Statement interface to do batch processing:
+void 	addBatch(String sql) : Adds the given SQL command to the current list of commmands for this Statement object.
+int[] 	executeBatch() : Submits a batch of commands to the database for execution and if all commands execute successfully, returns an array of update counts.
+
+Methods from PreparedStatement interface to do batch processing:
+void 	addBatch(String sql) : Adds the given SQL command to the current list of commmands for this PreparedStatement object.
+int[] 	executeBatch() : Submits a batch of commands to the database for execution and if all commands execute successfully, returns an array of update counts.
+
+----------------
+/*Batch Processing Example : Statement Interface*/
+package Jdbc;
+
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.Statement;
+
+/*Batch Processing Example : Statement Interface*/
+public class StatementBatchProcessingExample {
+	public static void main(String[] args) {
+		Connection conn=null;
+		Statement stmt = null;
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			conn=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root","root");
+			conn.setAutoCommit(false);
+			stmt=(Statement) conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+			
+			stmt.addBatch("INSERT INTO employee(id, first_name, last_name, start_date, end_date, salary, city, description) VALUES (10,'A','a','1996-09-24','1996-9-24',50000,'A_city','A_desc')");
+			stmt.addBatch("INSERT INTO employee(id, first_name, last_name, start_date, end_date, salary, city, description) VALUES (11,'B','b','1996-09-24','1996-9-24',50000,'A_city','B_desc')");
+			
+			int[] _status = stmt.executeBatch();
+			conn.commit();
+			System.out.println("STATUS OF BATCHPROCESSING : " +_status.length);
+			
+			stmt.close();
+			conn.close();
+		}catch(ClassNotFoundException cnfe)
+		{
+			System.out.println(cnfe.getMessage());
+		}catch(SQLException sqle){
+			System.out.println(sqle.getMessage());
+		}
+	}
+}
+
+
+
+/*Batch Processing Example : PreparedStatement Interface*/
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.PreparedStatement;
+
+/*Batch Processing Example : PreparedStatement Interface*/
+public class PrepareStatement_2 {
+	public static void main(String[] args) {
+			Connection conn=null;
+			PreparedStatement psmt = null;
+			try{
+				Class.forName("com.mysql.jdbc.Driver");
+				conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root","root");
+				conn.setAutoCommit(false);
+
+				psmt=(PreparedStatement) conn.prepareStatement("INSERT INTO employee(id, first_name, last_name, start_date, end_date, salary, city, description) VALUES (?,?,?,?,?,?,?,?)");
+				psmt.setInt(1, 11);
+				psmt.setString(2,"AAAA");
+				psmt.setString(3,"aa");
+				psmt.setString(4,"1996-09-24");
+				psmt.setString(5,"1996-09-24");
+				psmt.setInt(6, 50000);
+				psmt.setString(7, "AA_City");
+				psmt.setString(8, "AAAA_desc");
+				psmt.addBatch();
+				
+				psmt.setInt(1, 111);
+				psmt.setString(2,"BBBB");
+				psmt.setString(3,"bb");
+				psmt.setString(4,"1996-09-24");
+				psmt.setString(5,"1996-09-24");
+				psmt.setInt(6, 500001);
+				psmt.setString(7, "BB_City");
+				psmt.setString(8, "BBBB_desc");
+				psmt.addBatch();
+				
+				int[] _status =psmt.executeBatch();
+				conn.commit();
+				System.out.println("STATUS OF BATCHPROCESSING : " +_status.length);
+
+				psmt.close();
+				conn.close();
+			}catch(ClassNotFoundException cnfe){
+				System.out.println(cnfe.getMessage());
+			}catch (SQLException sqle) {
+					System.out.println(sqle.getMessage());	
+			}
+	}
+}

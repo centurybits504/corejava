@@ -1,0 +1,336 @@
+New features in J2SE 1.4:
+XML Processing:
+In java jdk have 2 built in parsers for XML Processing - DOM and SAX.
+
+DOM XML Parser:
+This is the simplest java XML Parser. 
+It loads the entire XML file into the memory and parses.
+DOM XML Parser is slow because it loads entire XML file and also consumes a lot of memory.
+
+SAX XML Parser:
+SAX parser is work's differently with DOM parser, it does not load any XML document into memory and create some object representation of the XML document. 
+SAX parser use callback function to informs clients of the XML document structure.
+
+Some other XML parsers for XML processing are JAXB, JDOM XML Parser.
+--
+Java Print Service:
+The Java Print Service API allows printing on all Java platforms including those requiring a small footprint, such as a Java ME profile, but also supports the java.awt.print.PrinterJob API. The Java Print Service API includes an extensible print attribute set based on the standard attributes specified in the Internet Printing Protocol (IPP) 1.1 from the IETF. With the attributes, client and server applications can discover and select printers that have the capabilities specified by the attributes. In addition to the included StreamPrintService, which allows applications to transcode data to different formats, third parties can dynamically install their own print services through the Service Provider Interface.
+API Specification
+
+The Java Print Service API consists of these four packages:
+javax.print:
+Provides the principal classes and interfaces for the Java Print Service API.
+javax.print.attribute:
+Provides classes and interfaces that describe the types of Java Print Service attributes and how they can be collected into attribute sets.
+javax.print.attribute.standard:
+Contains classes defining specific printing attributes.
+javax.print.event:
+Contains event classes and listener interfaces for monitoring print services and the progress of a specific print job.
+
+--
+Logging API:
+Logging is the process of writing log messages during the execution of a program to a central place. 
+This logging allows you to report and persist error and warning messages as well as info messages (e.g., runtime statistics) so that the messages can later be retrieved and analyzed.
+The object which performs the logging in applications is typically just called Logger.
+Java contains the Java Logging API.
+The java.util.logging package provides the logging capabilities via the Logger class.
+
+In java.util.logging.Level defines the different levels of java logging. 
+There are seven levels of logging in java.
+1) SEVERE(highest level)
+2) WARNING
+3) INFO
+4) CONFIG
+5) FINE
+6) FINER
+7) FINEST (lowest level)
+There are two other logging levels:
+OFF that will turn off all logging.
+ALL that will log all the messages.
+	
+--
+Java Web Start:
+Java Web Start software provides the power to launch full-featured applications with a single click. Users can download and launch applications, such as a complete spreadsheet program or an Internet chat client, without going through lengthy installation procedures.
+Java Web Start software is installed as part of the JRE software. Users do not have to install Java Web Start software separately or perform additional tasks to use Java Web Start applications.
+Java Web Start software provides Java developers and users with many deployment advantages:
+1) With Java Web Start software, you can place a single Java application on a web server for deployment to a wide variety of platforms, including Windows, Linux, and Solaris.
+2) Java Web Start software supports multiple, simultaneous versions of the Java platform. An application can request a specific version of the Java Runtime Environment (JRE) software without conflicting with the needs of other applications.
+3) Users can create a desktop shortcut to launch a Java Web Start application outside a browser.
+4) Java Web Start software takes advantage of the inherent security of the Java platform. By default, applications have restricted access to local disk and network resources.
+5) Applications launched with Java Web Start software are cached locally for improved performance.
+6) Updates to a Java Web Start application are automatically downloaded when the application is run standalone from the user's desktop.
+--
+JDBC 3.0 API:
+Jdbc 3.0 features:
+JDBC 3.0 adds some functionality to the core API.
+JDBC 3.0 features are present only in a Java 2 version 1.4 or higher environment.
+
+JDBC 3.0 features are:
+New DatabaseMetaData methods:
+	See java.sql.DatabaseMetaData interface: supported JDBC 3.0 methods.
+Retrieval of parameter metadata:
+	See java.sql.ParameterMetaData interface: supported JDBC 3.0 methods and java.sql.PreparedStatement interface: supported JDBC 3.0 methods.
+Retrieval of auto-generated keys:
+	See java.sql.Statement interface: supported JDBC 3.0 methods and java.sql.DatabaseMetaData interface: supported JDBC 3.0 methods.
+Savepoints:
+	See java.sql.Savepoint interface and java.sql.Connection interface: supported JDBC 3.0 methods.
+HOLD Cursors:
+	See java.sql.DatabaseMetaData interface: supported JDBC 3.0 methods.
+--
+Assertions:
+An assertion is a statement in the Java programming language that enables you to test your assumptions about your program.
+--
+Preferences API:
+The java.util.prefs package provides a way for applications to store and retrieve user and system preference and configuration data. The data is stored persistently in an implementation-dependent backing store. There are two separate trees of preference nodes, one for user preferences and one for system preferences.
+--
+Chained Exception:
+An application often responds to an exception by throwing another exception. In effect, the first exception causes the second exception. 
+It can be very helpful to know when one exception causes another. Chained Exceptions help the programmer do this.
+
+The following are the methods and constructors in Throwable that support chained exceptions.
+Throwable getCause()
+Throwable initCause(Throwable)
+Throwable(String, Throwable)
+Throwable(Throwable)
+
+--
+IPv6 Support:
+The Internet Protocol is one of the fundamental protocols used for the Internet.
+IPv6 was developed by the Internet Engineering Task Force (IETF) to deal with the long-anticipated problem of IPv4 address exhaustion.
+IPv6 is intended to replace IPv4.
+With the release of J2SE 1.4 in February 2002, Java began supporting IPv6 on Solaris and Linux. Support for IPv6 on Windows was added with J2SE 1.5. 
+IPv6 also called IPng (IP new generation).
+In IPv6, there are three types of addresses -- unicast, multicast, and anycast.
+--
+Regular Expressions:
+Regular expressions are abridged(shorten without losing the sense) form of code for evaluating and manipulating strings.
+Regular expressions are used to validate email address, mobile numbers, passwords etc.
+In java package java.util.regex have classes that suppport regular expressions.
+--
+Image I/O API:
+The Java Image I/O API, developed through JSR-015, provides a pluggable architecture for working with images stored in files and accessed across the network. It offers substantially more flexibility and power than the previous APIs for loading and saving images.
+The API provides a framework for the addition of format-specific plugins. Plug-ins for several common formats are included with Java Image I/O, but third parties can use this API to create their own plugins to handle special formats.
+The Java Image I/O API Specification consists of the following packages:
+javax.imageio - the basic classes and interfaces for describing the contents of image files, including metadata and thumbnails; controlling the image reading and writing process; performing transcoding between formats; and reporting errors.
+javax.imageio.event - interfaces for dealing with synchronous notification of events during the reading and writing of images.
+javax.imageio.metadata - classes and interfaces for reading and writing image metadata.
+javax.imageio.plugins.bmp - a support class for the built-in BMP reader and writer plug-ins.
+javax.imageio.plugins.jpeg - some support classes for the built-in JPEG reader and writer plug-ins.
+javax.imageio.spi - service-provider interfaces for: readers, writers, transcoders; and includes a runtime registry.
+javax.imageio.stream - classes and interfaces for low-level I/O from files and streams.
+
+
+----------------
+
+New features in J2SE 5.0
+
+Generics :
+By using generics,
+	collections can hold only one type of objects(by this we ensure Type-safety of collection).
+	eleminate type-casting while retrieving of elements from collection.	
+	
+Enhanced for Loop :
+The enhanced for-loop is a popular feature introduced with the Java SE platform in version 5.0. 
+Its simple structure allows one to simplify code by presenting for-loops that visit each element of an array/collection without explicitly expressing how one goes from element to element.
+	/*Syntax*/	
+	for (dataType variable: arrayName){
+	//statements
+	}
+
+Autoboxing/Unboxing:
+Autoboxing:  Converting a primitive datatype into an object is called boxing.
+Integer intObject = new Integer(1234);
+
+Auto-Unboxing:
+Converting an object into it's corresponding primitive datatype is called unboxing.
+int intvalue = intObject.intValue();
+
+
+Typesafe Enums
+
+Varargs
+Static Import
+Metadata (Annotations)
+Instrumentation
+
+-----------------
+
+New features in Java SE 6
+
+Scripting Language Support:
+Java 6 introduces scripting engine support in to Java. 
+With this support - Java can calls scripting languages &  Scripting languages can call Java.
+Mozilla's Java Javascript implementation engine(Rhino) is shipped with Sun's Java 6.
+
+--
+JDBC 4.0 API:
+JDBC 4.0 adds some functionality to the core API.
+JDBC 4.0 features are present only in a JDK 1.6 or higher environment.
+JDBC 4.0 features are:
+DataSources: 
+	To support the JDBC 4.0 ease of development, Derby introduces new implementations of javax.sql.DataSource. See javax.sql.DataSource interface: JDBC 4.0 features.
+Autoloading of JDBC drivers: 
+	In earlier versions of JDBC, applications had to manually register drivers before requesting Connections. With JDBC 4.0, applications no longer need to issue a Class.forName() on the driver name; instead, the DriverManager will find an appropriate JDBC driver when the application requests a Connection.
+SQLExceptions: 
+	JDBC 4.0 introduces refined subclasses of SQLException. See Refined subclasses of SQLException.
+Wrappers:
+	JDBC 4.0 introduces the concept of wrapped JDBC objects. This is a formal mechanism by which application servers can look for vendor-specific extensions inside standard JDBC objects like Connections, Statements, and ResultSets. For Derby, this is a vacuous exercise because Derby does not expose any of these extensions.
+Statement events:
+	With JDBC 4.0, Connection pools can listen for Statement closing and Statement error events. New methods were added to javax.sql.PooledConnection: addStatementEventListener and removeStatementEventListener.
+Streaming APIs:
+	JDBC 4.0 adds new overloads of the streaming methods in CallableStatement, PreparedStatement, and ResultSet. These are the setXXX and updateXXX methods which take java.io.InputStream and java.io.Reader arguments. The new overloads allow you to omit the length arguments or to specify long lengths.
+New methods:
+	New methods were added to the following interfaces: javax.sql.Connection, javax.sql.DatabaseMetaData, and javax.sql.Statement.
+--
+Java Compiler API:
+Java Compiler API API provides programmatic access to the Java compiler itself and allows developers to compile Java classes from source files on the fly from application code.
+This API provides programmatic access to the Java compiler itself and allows developers to compile Java classes from source files on the fly from application code.
+Java developers have the ability to directly plug into syntax parsing phase and post-analyze Java source code being compiled. 
+It is a very powerful API which is heavily utilized by many static code analysis tools.
+--
+ Pluggable Annotation Processing API:
+Java 6 has introduced a new JSR called JSR 269, which is the Pluggable Annotation Processing API. With this API, now it is possible for the Application Developers to write a Customized Annotation Processor which can be plugged-in to the code to operate on the set of Annotations that appear in a Source File.
+--
+Native PKI, Java GSS, Kerberos and LDAP support:
+--
+Integrated Web Services:
+One of the most exciting new features of the Java Platform, Standard Edition 6 (Java SE 6) is support for the Java API for XML Web Services (JAX-WS), version 2.0. 
+JAX-WS 2.0 is the center of a newly rearchitected API stack for web services, which also includes Java Architecture for XML Binding (JAXB) 2.0 and SOAP with Attachments API for Java (SAAJ) 1.3.
+
+-----------------
+New features in Java SE 7
+
+Strings in switch Statement:
+Evaluating String variables with a switch statement have been implemented in Java SE 7.
+--
+Type Inference for Generic Instance Creation:
+You can replace the type arguments required to invoke the constructor of a generic class with an empty set of type parameters (<>) as long as the compiler can infer the type arguments from the context. 
+This pair of angle brackets is informally called the diamond.
+For example, consider the following variable declaration:
+List<String> list = new ArrayList<String>();
+In Java SE 7, you can substitute the parameterized type of the constructor with an empty set of type parameters (<>): 
+List<String> list = new ArrayList<>();
+The angle brackets <> are informally called the diamond operator. 
+The Java compiler can infer the types based on the left-hand side (thus the term type inference). 
+This is a simple language improvement but it greatly simplifies generic instance creation and saves us a lot of code.
+
+--
+Multiple Exception Handling:
+In MultipleCatchBlocksExample.java example we have multiple catch blocks , to eliminate duplicate code java 7 have single catch multiple exception handling.
+	/*Syntax*/
+	try{
+		//statements	
+	}catch(Exceptionclass | Exceptionclass obj){
+		//statements
+	}
+
+--
+Support for Dynamic Languages:
+--
+Try with Resources:
+The try-with-resources statement ensures that each resource is closed at the end of the statement. 
+Any object that implements java.lang.AutoCloseable, which includes all objects which implement java.io.Closeable, can be used as a resource.
+--
+Java nio Package:
+--
+Binary Literals:
+In Java SE 7, the integral types (byte, short, int, and long) can also be expressed using the binary number system. 
+To specify a binary literal, add the prefix 0b or 0B to the number.
+
+underscore in numeric Literals:
+	We can place underscores between digits of any numeric literal like int, byte, short, float, long, double. 
+	Using underscores in numeric literals will allow you to divide them in groups for better readability.
+	
+--	
+Diamond Syntax:
+In Java SE 7 and later, you can replace the type arguments required to invoke the constructor of a generic class with an empty set of type arguments (<>).
+This pair of angle brackets, <>, is informally called the diamond. 
+Purpose of the diamond operator is to simplify instantiation of generic classes.
+ArrayList<String> list = new ArrayList<String>();
+
+This can be replaced with this below line of code:
+ArrayList<String> list = new ArrayList<>();
+
+The compiler can determine (or) infer, the type arguments from the context.
+--
+
+Automatic null Handling:
+
+---------------
+New features in Java SE 8
+
+Lambda Expressions:
+
+
+--
+Pipelines and Streams:
+Stream is a sequence of elements supporting sequential and parallel aggregate operations.
+Java is inheritably sequential and there is no direct mean to introduce parallel processing at library level, stream API is going to fill that gap.
+Java 8 is bringing on new Streams API java.util.stream package, which allow you to process elements of Java Collections in parallel.
+By using this, you can filter elements of collection on given criterion.
+For example:
+If you have a List of orders, you can filter buy orders with sell orders, filter orders based upon there quantity and price and so on.
+
+Important points about Java 8 Stream API:
+1)Stream API allows you to process Collection both sequentially and parallel. This is also useful for bulk data operation.
+
+//List of employes
+List<Employess> empList =  getListOfOrders();
+
+// sequential version
+Stream<Employess> sequentialstream = empList.stream();
+
+//parallel version
+Stream<Employess> parallelStream = empList.parallelStream();
+
+2) One of the important think to note is that Stream do not modify the original source. 
+For every operation, a new Stream is created and original collection remains unmodified.
+
+3) Stream operations are mainly divided into two categories : intermediate and terminal operations. 
+Intermediate operations such as filter() or map() returns a new Stream, while terminal operations such as Stream.forEach() produce a result or side effect. After the terminal operation, the stream pipeline is considered consumed, and can no longer be used.
+
+4) Intermediate operations are also of two types stateless and stateful. As name suggests, stateless operations doesn't retain any state from previously processed element, filter() and map() are two examples of stateless intermediate operation. On the other hand distinct() and sorted() are example of stateful operations, which can have state from previously processed elements, while processing new elements.
+	
+--
+Date and Time API:
+Existing java jdk has been inadequate for the date and time use for ordinary developers.
+For example, the existing classes (such as java.util.Date and SimpleDateFormatter) aren’t thread-safe, leading to potential concurrency issues for users when writing date-handling code.
+Some of the date and time classes also exhibit quite poor API design. For example, years in java.util.Date start at 1900, months start at 1, and days start at 0—not very intuitive.
+These are some of issues with existing Date and Time API's.
+
+The project(Java SE 8 Date and Time) has been led jointly by the author of Joda-Time (Stephen Colebourne) and Oracle, under JSR 310, and will appear in the new Java SE 8 package java.time.
+
+The new API is driven by three core ideas: 
+1)Immutable-value classes:
+Existing API puts the burden on developers to use them in a thread-safe manner and to think about concurrency problems in their day-to-day development of date-handling code. 
+The new API avoids this issue by ensuring that all its core classes are immutable and represent well-defined values.
+2)Domain-driven design:
+The new API models its domain very precisely with classes that represent different use cases for Date and Time closely. 
+This differs from previous Java libraries that were quite poor in that regard. For example, java.util.Date represents an instant on the timeline—a wrapper around the number of milli-seconds since the UNIX epoch—but if you call toString(), the result suggests that it has a time zone, causing confusion among developers.
+3)Separation of chronologies:
+The new API allows people to work with different calendaring systems in order to support the needs of users in some areas of the world, such as Japan or Thailand, that don’t necessarily follow ISO-8601.
+It does so without imposing additional burden on the majority of developers, who need to work only with the standard chronology.
+--
+Default Methods:
+
+Type Annotations
+Nashhorn JavaScript Engine:
+Until Java SE 7, JDKs shipped with a JavaScript scripting engine based on Mozilla Rhino. Java SE 8 will instead ship with a new engine called Oracle Nashorn, which is based on JSR 292 and invokedynamic. It provides better compliance with the ECMA normalized JavaScript specification and better runtime performance through invokedynamic-bound call sites.
+Oracle Nashorn is an ECMA-compliant implementation of the language.
+While Oracle Nashorn runs ECMA-compliant JavaScript, it is important to note that objects normally accessible in a web browser are not available, for example, console, window, and so on.
+
+--	
+Concurrent Accumulators:
+
+    Parallel operations
+    PermGen Error Removed
+    TLS SNI
+------------------
+	
+	
+-------------
+When you should use java.io and when should you prefer java.nio ?
+Scalability will probably drive your choice of package. java.net will require one thread per socket. Coding it will be significantly easier. java.nio is much more efficient, but is difficult to code around.
+You may get better scalability once you are dealing with tens of thousands of connections, but at lower numbers you’ll probably get better throughput with blocking IO.
+When working with SSL java.nio is not some thing easy to deal with
+Important : If you are working with either of the packages, it is not a good idea to create the framework from scratch until and unless you have a compelling reason to do so.	

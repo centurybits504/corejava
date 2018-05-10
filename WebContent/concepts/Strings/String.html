@@ -1,0 +1,38 @@
+
+String is a class in java.lan package.<br>
+In java all classes are considered as datatypes.so we can consider String as a datatypes also.<br>
+Because a class is also called as datatype.<br>
+<br>
+There are 2 ways to create Strings in java.<br>
+1) String str = \"Hello\"; //by string literal<br>
+2) String str = new String(\"Hello\"); //by new keyword<br>
+<br>
+String objects are stored in the special memory called String Constant Pool,
+where  new object are not created if object already exist in the String Constant Pool.<br>
+This helps in memory management of java.<br>
+<br>
+
+Difference Between String str ="Hello";	 and String str = new String("Hello"); ?<br>
+In  String str ="Hello"; - assignment operator is used to assigh the string literal to the string variable str.<br>
+JVM first check whether the same object is already available in the String Constant Pool.<br>
+If the object is available in the String Constant Pool, then jvm creates reference to it.<br>
+If the object is not available in the String Constant Pool, then jvm creates new object with the content "Hello".<br>
+<br>
+In String str = new String(\"Hello\");  -  new  keyword is used to create the String object.<br>
+In this case JVM  always creates a new object without checking in the String Constant Pool.<br>
+<br>
+String objects are immutable objects whose objects cannot be modified.<br>
+<br><br>
+
+---------------
+
+
+
+
+
+
+
+
+	
+	
+	

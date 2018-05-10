@@ -1,0 +1,16 @@
+Jdbc 3.0 features:
+JDBC 3.0 adds some functionality to the core API.
+JDBC 3.0 features are present only in a Java 2 version 1.4 or higher environment.
+
+JDBC 3.0 features are:
+New DatabaseMetaData methods:
+	See java.sql.DatabaseMetaData interface: supported JDBC 3.0 methods.
+Retrieval of parameter metadata:
+	See java.sql.ParameterMetaData interface: supported JDBC 3.0 methods and java.sql.PreparedStatement interface: supported JDBC 3.0 methods.
+Retrieval of auto-generated keys:
+	See java.sql.Statement interface: supported JDBC 3.0 methods and java.sql.DatabaseMetaData interface: supported JDBC 3.0 methods.
+Savepoints:
+	See java.sql.Savepoint interface and java.sql.Connection interface: supported JDBC 3.0 methods.
+HOLD Cursors:
+	See java.sql.DatabaseMetaData interface: supported JDBC 3.0 methods.
+	

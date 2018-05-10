@@ -1,0 +1,90 @@
+Steps to connect to the database using java:
+1: Register and Loading the driver class
+2: Creating connection between java application and the database.
+3: Creating either statement,PreparedStatement,CallableStatement as per the requirement to execute queries.
+4: Executing queries
+5: Closing connection
+
+1: Register and Loading the driver class:
+	forName() method of "Class" class is used to register the driver class.
+	forName() method is used to dynamically load the driver class.
+	/*Syntax*/
+	public static void forName(String classname)throws ClassNotFoundException  
+
+	Registering the MYSQL Driver:
+	Class.forName("oracle.jdbc.driver.OracleDriver");  
+
+2: Creating connection between java application and the database:
+	The static method of DriverManager's class is used to establish with the database.
+	/*Syntax*/
+	1) public static Connection getConnection(String url)throws SQLException  
+	2) public static Connection getConnection(String url,String name,String password)throws SQLException  
+
+	Establishing connection with MySQL database:
+	Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root","root");  
+
+3: Creating either Statement,PreparedStatement,CallableStatement object's as per the requirement to execute queries:
+
+   Creating Statement object:
+   /*Syntax*/
+   Statement createStatement()throws SQLException  
+   /*Example*/
+   Statement stmt=connection.createStatement();
+			(or)
+   Creating PreparedStatement Object:
+   /*Syntax*/
+   PreparedStatement 	prepareStatement(String sql)throws SQLException 
+   /*Example*/
+   PreparedStatement psmt = (PreparedStatement)connection.prepareStatement(String query);
+			(or)
+   Creating CallableStatement Object:
+   /*Syntax*/
+   CallableStatement 	prepareCall(String sql)throws SQLException
+   /*Example*/
+   CallableStatement cstmt=conn.prepareCall("{call myProc()}");
+
+4: Executing queries:
+	
+	Methods in Statement interface to execute SQL queries,
+		boolean 	execute(...);
+		int[] 	executeBatch();
+		ResultSet 	executeQuery(...);
+		int 	executeUpdate(...);
+	Example: Using execute(...) method,
+	stmt.execute("SELECT * FROM EMPLOYEE");	
+	
+	Methods in PreparedStatement interface to execute SQL queries,
+		boolean 	execute();
+		ResultSet 	executeQuery();
+		int 	executeUpdate();
+	Example: Using execute(...) method,
+	psmt.execute("SELECT * FROM EMPLOYEE");	
+	
+	Methods in CallableStatement interface to execute SQL queries,
+		boolean 	execute();
+		ResultSet 	executeQuery();
+		int 	executeUpdate();
+	Example: Using execute(...) method,
+	psmt.execute("SELECT * FROM EMPLOYEE");	
+	
+	Note : Statement subinterfaces are PreparedStatement and CallableStatement interfaces. So methods are inherited.
+
+5: Closing connection:
+	
+	Connection interface have close() method to close the connection between the "Java Program" and the "Database".
+	Statement, PreparedStatement, CallableStatement, ResultSet object's will be closed automatically after closing connection.
+	/*Syntax*/
+	connection.close();
+
+	
+	
+		
+	
+		
+   
+
+
+
+
+
+  

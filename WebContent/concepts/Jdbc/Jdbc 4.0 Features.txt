@@ -1,0 +1,20 @@
+Jdbc 4.0 Features:
+JDBC 4.0 adds some functionality to the core API.
+JDBC 4.0 features are present only in a JDK 1.6 or higher environment.
+
+JDBC 4.0 features are:
+DataSources: 
+	To support the JDBC 4.0 ease of development, Derby introduces new implementations of javax.sql.DataSource. See javax.sql.DataSource interface: JDBC 4.0 features.
+Autoloading of JDBC drivers: 
+	In earlier versions of JDBC, applications had to manually register drivers before requesting Connections. With JDBC 4.0, applications no longer need to issue a Class.forName() on the driver name; instead, the DriverManager will find an appropriate JDBC driver when the application requests a Connection.
+SQLExceptions: 
+	JDBC 4.0 introduces refined subclasses of SQLException. See Refined subclasses of SQLException.
+Wrappers:
+	JDBC 4.0 introduces the concept of wrapped JDBC objects. This is a formal mechanism by which application servers can look for vendor-specific extensions inside standard JDBC objects like Connections, Statements, and ResultSets. For Derby, this is a vacuous exercise because Derby does not expose any of these extensions.
+Statement events:
+	With JDBC 4.0, Connection pools can listen for Statement closing and Statement error events. New methods were added to javax.sql.PooledConnection: addStatementEventListener and removeStatementEventListener.
+Streaming APIs:
+	JDBC 4.0 adds new overloads of the streaming methods in CallableStatement, PreparedStatement, and ResultSet. These are the setXXX and updateXXX methods which take java.io.InputStream and java.io.Reader arguments. The new overloads allow you to omit the length arguments or to specify long lengths.
+New methods:
+	New methods were added to the following interfaces: javax.sql.Connection, javax.sql.DatabaseMetaData, and javax.sql.Statement.
+	

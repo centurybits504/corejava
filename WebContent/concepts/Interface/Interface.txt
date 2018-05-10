@@ -1,0 +1,48 @@
+Interface:
+
+An interface is a collection of abstract methods. 
+A class implements an interface, thereby inheriting the abstract methods of the interface.
+ 
+An interface is different from a class in following ways:
+1)You cannot instantiate an interface.
+2)An interface does not contain any constructors.
+3)All of the methods in an interface are abstract.
+4)An interface cannot contain instance fields. The only fields that can appear in an interface must be declared both static and final.
+5)An interface is not extended by a class; it is implemented by a class.
+6)An interface can extend multiple interfaces.
+7)An interface which is declared within another interface (or) class is known as nested interface.
+
+Interfaces have the following properties:
+1)An interface is implicitly abstract. You do not need to use the abstract keyword when declaring an interface.
+2)Each method in an interface is also implicitly abstract, so the abstract keyword is not needed.
+3)Methods in an interface are implicitly public.
+
+For implementation interfaces, there are several rules:
+1)A class can implement more than one interface at a time.
+2)A class can extend only one class, but implement many interfaces.
+3)An interface can extend another interface, similarly to the way that a class can extend another class.
+
+For overriding methods defined in interfaces there are several rules to be followed:
+1)Checked exceptions should not be declared on implementation methods other than the ones declared by the interface method or subclasses of those declared by the interface method.
+2)The signature of the interface method and the same return type or subtype should be maintained when overriding the methods.
+3)An implementation class itself can be abstract and if so interface methods need not be implemented.
+
+
+
+
+
+
+------------------
+Why multiple inheritance is not supported in case of class but it is supported in case of interface?
+Multiple inheritance is not supported in case of class.
+But it is supported in case of interface because there is no ambiguity as implmentation is provided by the implementation class if both interface have same methods.
+
+Why multiple inheritance is supported in case of class?
+
+
+
+
+
+
+
+

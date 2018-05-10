@@ -1,0 +1,199 @@
+Collection Interface:
+Collection interface is a group of objects, with dupliates of objects are  allowed.
+Collection interface is the root interface for the java collection hierarchy.
+Collection interface is sub-interface of Iterable interface.
+
+Collection interface extended by the List, Set, Queue interfaces.
+List interface implementation classes are ArrayList, LinkedList, Vector.
+Set interface implementation classes are AbstractSet, ConcurrentSkipListSet, CopyOnWriteArraySet, EnumSet, HashSet, JobStateReasons, LinkedHashSet, TreeSet.
+Queue interface implementation classes are AbstractQueue, ArrayBlockingQueue, ArrayDeque, ConcurrentLinkedDeque, ConcurrentLinkedQueue, DelayQueue, LinkedBlockingDeque, LinkedBlockingQueue, LinkedList, LinkedTransferQueue, PriorityBlockingQueue, PriorityQueue, SynchronousQueue.
+
+Collection interface represents a group of objects. Some collections allows duplicates while other's don't.
+Collection interface represents both ordered and unordered elements.
+Collection interface is defined in the java.util.* package.
+
+
+The declaration of the Collection interface:
+public interface Collection<T>{
+}
+<T> in syntax tells that, the declared inteface is a generic interface i.e, 
+when you declare a collection instance you should specify the type of object contained in the collection.
+
+Java Collection Framework Hierarchy :
+The java.util package contains all the classes and interfaces for Collection framework.
+				<imgage>Collection Framework Hierarchy</image>		
+
+
+Collection Interface Methods:
+public boolean add(Object element) : It is used to insert an element in this collection.
+public boolean addAll(Collection c) : It is used to insert the specified collection elements in the invoking collection.
+public boolean remove(Object element) : It is used to delete an element from this collection.
+public boolean removeAll(Collection c) : It is used to delete all the elements of specified collection from the invoking collection.
+public Iterator iterator() : It	returns an iterator.
+public Object[] toArray() : It	converts collection into array.
+public boolean isEmpty() : It	checks if collection is empty.
+public boolean equals(Object element) : It matches two collection.
+public int hashCode() : It returns the hashcode number for collection.				
+public void clear() : It	removes the total no of element from the collection.
+public boolean contains(Object element) : It	is used to search an element.
+public boolean containsAll(Collection c) : It	is used to search the specified collection in this collection.
+public boolean retainAll(Collection c) : It is used to delete all the elements of invoking collection except the specified collection.
+public int size() : It	return the total number of elements in the collection.
+
+Example : CollectionExample
+
+/*Collection interface example*/
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+
+public class CollectionExample {
+	public static void main(String[] args){
+		/*Creating he collection of ArrayList*/
+		Collection c = new ArrayList();
+		
+		/*Adding data to the collection*/
+		c.add("A");
+		c.add("B");
+		
+		/*Creating the iterator for traversing of elements inthe collection*/
+		Iterator it = c.iterator();
+		while(it.hasNext()){
+			String str = (String)it.next();
+			System.out.println(str);
+		}
+		
+	}
+}
+
+
+/*
+ Here we are extending Collection interface and providing implementation to it's methods
+ Here MyList interface is like List ,
+ MyArrayList is like ArrayList class
+ */
+import java.util.Collection;
+import java.util.Iterator;
+
+interface MyList extends Collection {
+	// All Methods From Collection Interface.
+}
+
+class MyArrayList implements MyList {
+	private transient Object[] elementData;
+	private int size;
+	int modCount = 0;
+
+	public MyArrayList(int initialCapacity) {
+		super();
+		if (initialCapacity < 0)
+			throw new IllegalArgumentException("Illegal Capacity: "
+					+ initialCapacity);
+		this.elementData = (Object[]) new String[initialCapacity];
+	}
+
+	public void ensureCapacity(int minCapacity) {
+		modCount++;
+		int oldCapacity = elementData.length;
+		if (minCapacity > oldCapacity) {
+			Object oldData[] = elementData;
+			int newCapacity = (oldCapacity * 3) / 2 + 1;
+			if (newCapacity < minCapacity)
+				newCapacity = minCapacity;
+			elementData = (String[]) new String[newCapacity];
+			System.arraycopy(oldData, 0, elementData, 0, size);
+		}
+	}
+
+	public boolean add(Object arg0) {
+		ensureCapacity(size + 1); // Increments modCount!!
+		elementData[size++] = arg0;
+
+		return false;
+
+	}
+
+	public Object[] getmylistdata()// I have written this method
+	{
+		return elementData;
+	}
+
+	public boolean addAll(Collection arg0) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void clear() {
+		// TODO Auto-generated method stub
+
+	}
+
+	public boolean contains(Object arg0) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean containsAll(Collection arg0) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean isEmpty() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public Iterator iterator() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean remove(Object arg0) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean removeAll(Collection arg0) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean retainAll(Collection arg0) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public int size() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public Object[] toArray() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object[] toArray(Object[] arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
+// user class
+public class CollectionExample {
+	public static void main(String[] args) {
+		MyArrayList s = new MyArrayList(10);// initial capacity of array
+		s.add("A");
+		s.add("B");
+		Object[] ss = s.getmylistdata();
+		for (Object myobj : ss) {
+			System.out.println(myobj);
+		}
+	}
+}
+
+
+----------------------
+Can we store a primitive data type into a collection?
+No. Collection can store only objects.
+

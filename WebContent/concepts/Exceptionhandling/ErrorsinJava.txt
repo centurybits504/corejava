@@ -1,0 +1,24 @@
+Errors in Java:
+Errors in java is of 3 types.
+	1) Compile-time errors
+	2) Runtime errors
+	3) Logical errors
+
+1) Compile-time errors:
+	These are syntatical errors found inthe code due to which a program fails to compile.
+	
+2) Runtime errors:
+	Runtime errors can be defined as an abnormal event that occurs during program execution and interrupt's the normal flow of execution.
+	Runtime error's are n't detected by the JVM at tuntime.
+
+3) Logical errors:
+	These errors depict flaws inthe logical of the program.
+	
+	
+	
+--------------------
+ErrorsInJava_CompileTimeError_Example
+ErrorsInJava_RunTimeError_Example
+ErrorsInJava_LogicalError_Example
+-------------------	
+

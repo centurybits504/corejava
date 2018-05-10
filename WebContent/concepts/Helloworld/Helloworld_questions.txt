@@ -1,0 +1,57 @@
+What if the main method is declared as private?
+The program compiles properly but at runtime it will give "Main method not public." message.
+
+What if the static modifier is removed from the signature of the main method?
+Program compiles. But at runtime throws an error "NoSuchMethodError".
+
+What if I write static public void instead of public static void?
+Program compiles and runs properly.
+
+What if I do not provide the String array as the argument to the method?
+Program compiles but throws a runtime error "NoSuchMethodError".
+
+What environment variables do I need to set on my machine in order to be able to run Java programs?
+CLASSPATH and PATH are the two variables.
+What is the first argument of the String array in main method?
+The String array is empty. It does not have any element. This is unlike C/C++ where the first element
+by default is the program name.
+
+If I do not provide any arguments on the command line, then the String array of Main
+method will be empty or null?
+It is empty. But not null.
+
+How can one prove that the array is not null but empty using one line of code?
+Print args.length. It will print 0. That means it is empty. But if it would have been null then it would
+have thrown a NullPointerException on attempting to print args.length.
+
+Can an application have multiple classes having main method?
+Yes it is possible. While starting the application we mention the class name to be run. The JVM will look
+for the Main method only in the class whose name you have mentioned. Hence there is not conflict
+amongst the multiple classes having main method.
+
+Can I have multiple main methods in the same class?
+No the program fails to compile. The compiler says that the main method is already defined in the class.
+
+Explain System.out.println("Hello World"); statement?
+System is the final class from java.lang package.It cann't be instantiated.
+System has 3 static fields:
+	1)out: It is instance of PrintStream class, which is used for default output(stdout).
+	2)err: It is instance of PrintStream class, which is used for error(stderr).
+	3)in : It is an instance of InputStream class, which is used to read from the console(stdin), by default keyboard.
+
+	In System.out, "out" is an instance of "PrintStream".
+"out" is a static member variable in System class, so we're accessing class name.
+println("Hello World") is method of PrintStream and is used to print the string which is given to the method.so we're using object of PrintStream class(Here out)
+to access println(String str) method.		
+		out.println().
+Here we cann't  directly access "out" object, because it is static member in "System" class.
+Hence we have to access with class name i.e, System.out
+Finally we can write System.out.println("Hello World");
+
+
+
+
+
+
+
+

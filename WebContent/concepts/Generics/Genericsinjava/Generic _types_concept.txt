@@ -1,0 +1,116 @@
+Generic Types:
+
+Generic Class:
+A generic type is a generic class (or) interface that is parameterized over types.
+A generic class represents a class that is type-safe .This means a generic class can act on any data-type.
+Similary a generic interface is also type-safe and hence it can any data-type.
+Generic classes and interfaces are also called "parameterized types", because they use a parameter that determines which data-types they should work upon.
+
+When a generic class (or)  generic interface is written, the programmer need not to re-write the same class (or) interface whenever he want to use the class (or) the interface
+with a new data-type.
+
+A generic type represents a class (or) a interface that is type-safe. They can  on any data-type.
+
+A non-generic version of class (Shape) that operates on objects of any type. 
+public class Shape {
+    private Object object;
+    public void set(Object object) { this.object = object; }/*can take object of any type*/
+    public Object get() { return object; }/*can return object of any type*/
+}
+
+A generic version of class (Shape) that operates on objects of any type. 
+A generic class is defined with the following format:
+class name<T1, T2, ..., Tn> { /* ... */ }
+The type parameter section, delimited by angle brackets (<>), follows the class name. It specifies the type parameters  T1, T2, ..., and Tn.
+
+public class Shape<T> {
+    // T stands for "Type"
+    private T t;
+    public void set(T t) { this.t = t; }/*can take object of any type*/
+    public T get() { return t; }/*can return object of any type*/
+}
+A type variable can be any non-primitive type you specify: any class type, any interface type, any array type, or even another type variable.
+------------------------------------------------------------
+Generic Interface:
+This same technique can be applied to create generic interfaces.
+A generic version of interface (Shape) that operates on objects of any type. 
+A generic interface is defined with the following format:
+interface name<T1, T2, ..., Tn> { /* ... */ }
+The type parameter section, delimited by angle brackets (<>), follows the interface name. It specifies the type parameters T1, T2, ..., and Tn.
+
+
+interface Shape<T> {
+    // T stands for "Type"
+    private T t;
+    public void set(T t) { this.t = t; }/*can take object of any type*/
+}
+A type variable can be any non-primitive type you specify: any class type, any interface type, any array type, or even another type variable.
+
+------------------------------------------------------------
+
+Type Parameter Naming Conventions:
+
+By convention, type parameter names are single, uppercase letters. 
+This stands in sharp contrast to the variable naming conventions that you already know about, and with good reason:
+Without this convention, it would be difficult to tell the difference between a type variable and an ordinary class or interface name.
+The most commonly used type parameter names are:
+
+E - Element (used extensively by the Java Collections Framework)
+K - Key
+N - Number
+T - Type
+V - Value
+S,U,V etc. - 2nd, 3rd, 4th types
+
+------------------------------------------------------------
+
+Invoking and Instantiating a Generic Type:
+public class Shape<T> {
+	Box<Integer> integerBox;	
+ }
+ 
+------------------------------------------------------------
+
+The Diamond
+ 
+In Java SE 7 and later, you can replace the type arguments required to invoke the constructor of a generic class with an empty set of type arguments (<>).
+This pair of angle brackets, <>, is informally called the diamond. 
+Purpose of the diamond operator is to simplify instantiation of generic classes.
+ArrayList<String> list = new ArrayList<String>();
+
+This can be replaced with this below line of code:
+ArrayList<String> list = new ArrayList<>();
+
+The compiler can determine (or) infer, the type arguments from the context.
+
+------------------------------------------------------------
+
+Multiple Type Parameters
+
+A generic class(or)interface can have multiple type parameters.
+class Shape<T,k> {
+/*Class with multiple type parameters*/
+}
+
+interface Shape<T,k> {
+/*interface with multiple type parameters*/
+}
+
+
+------------------------------------------------------------
+
+Parameterized Types:
+Type-parameter(T) can be replaced with a parameterized type(List<String>).
+For example:
+Shape<String, RectangleBox<Integer>> p = new Shape<>("Rectangle", new RectangleBox<Integer>(...));
+/*Here parameterize-type is RectangleBox<Integer> */
+
+------------------------------------------------------------
+
+
+
+
+
+What is Strategy Pattern?
+The strategy pattern is a software design pattern that enables an algorithm's behavior to be selected at runtime.
+Strategy Pattern is also known as the policy pattern.

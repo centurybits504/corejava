@@ -1,0 +1,130 @@
+Retrieving elements from collection:
+There are 4 ways to retrieve elements from the collection:
+1: Using For-Each loop
+2: Using Iterator interface
+3: Using ListIterator interface
+4: Using Enumeration interface
+
+1: For-Each loop is like "for" loop which repeatedly executes a group of statements for each element of the collection.
+		for(Object obj : collectionObject){
+			/*group of statements*/
+		}
+
+2: Using Iterator: Iterator is an interface that contains methods to retrieve the elements one-by-one from a collection object.
+Methods OF Iterator:
+	1) boolean hasNext(): returns true if the iterator has more elements.
+	2) element next(): returns the next element in the iterator.
+	3) void remove(): this method returns the last element returned by the collection.
+	
+3: Using ListIterator: ListIterator is an interface that contains methods to retrieve from a collection object, both in
+forward and reverse directions.
+
+Methods OF ListIterator:
+1)void 	add(E e): Inserts the specified element into the list (optional operation).
+2)boolean 	hasNext(): Returns true if this list iterator has more elements when traversing the list in the forward direction.
+3)boolean 	hasPrevious(): Returns true if this list iterator has more elements when traversing the list in the reverse direction.
+4)E 	next(): Returns the next element in the list and advances the cursor position.
+5)int 	nextIndex(): Returns the index of the element that would be returned by a subsequent call to next().
+6)E 	previous(): Returns the previous element in the list and moves the cursor position backwards.
+7)int 	previousIndex(): Returns the index of the element that would be returned by a subsequent call to previous().
+8)void 	remove(): Removes from the list the last element that was returned by next() or previous() (optional operation).
+9)void 	set(E e):Replaces the last element returned by next() or previous() with the specified element (optional operation).
+
+4: Using Enumeration interface:
+Enumeration interface is used to retrieve elements one-by-one like the iterator.
+Enumeration is legacy interface.
+Enumeration interface methods are used to iterate legacy classes such as Vector and Properties.
+
+Methods Of Enumeration interface:
+	1)boolean 	hasMoreElements(): Tests if this enumeration contains more elements.
+	2)E 	nextElement(): Returns the next element of this enumeration if this enumeration object has at least one more element to provide.
+	
+---------------------
+/*For-Each Example Using ArrayList Collection*/
+public class Vehicales {
+	public static void main(String a[]){
+       List list = new ArrayList();
+       list.add("Bus");
+       list.add("Bike");
+       list.add("Car");
+
+        for(Object str : list){
+	          System.out.println(str);
+			  }
+       }
+   }
+}	
+
+/*Iterator Example Using ArrayList Collection*/
+public class Vehicales {
+	public static void main(String a[]){
+       List list = new ArrayList();
+       list.add("Bus");
+       list.add("Bike");
+       list.add("Car");
+
+       Iterator iterator = list.iterator(); 
+       while (iterator.hasNext()){
+          String str = iterator.next()
+		  System.out.println(str);
+		  }
+       }
+   }
+}	
+
+/*ListIterator Example Using ArrayList Collection*/
+public class Vehicales {
+	public static void main(String a[]){
+       List list = new ArrayList();
+       list.add("Bus");
+       list.add("Bike");
+       list.add("Car");
+
+		ListIterator listiterator = list.listIterator();
+		while (listiterator.hasNext()) {
+			System.out.println(listiterator.next());
+		}    
+		}
+   }
+}
+
+/*Enumeration Example Using Vector Collection*/
+public class VectorExample {
+	public static void main(String[] args) {
+		Vector<String> vector = new Vector<String>();
+		vector.add("A");
+		vector.add("B");
+		vector.add("C");
+		
+		Enumeration<String> e1 = vector.elements();
+		while(e1.hasMoreElements())
+		{
+			System.out.println(e1.nextElement());
+		}
+	}
+}
+
+
+-----------------------
+What is the difference between Iterator and ListIterator?
+Both are used to retrieve elements from a collection.
+Iterator can retrieve the elements only in forward direction.
+ListIterator can retrieve the elements in forward and backward directions.
+So ListIterator is prefered over Iterator interface.
+
+
+What is the difference between Iterator and Enumeration?
+Enumeration don't have method to remove elements from collection.
+Iterator have remove() method to remove elements from collection.
+Enumeration is use for only legacy classes like Vector.
+Iterator is applicable for all Collection's.
+
+What is the use of Cursors in java and mention types?
+To retrieve objects one by one from Collection we have to use cursors.
+There are 3 types of cursors :
+1. Enumeration (Ver 1.0)
+2. Iterator	(Ver 1.2)
+3. ListIterator	(Ver 1.2)
+
+ 
+ 

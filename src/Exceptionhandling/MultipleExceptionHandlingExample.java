@@ -1,0 +1,18 @@
+package Exceptionhandling;
+
+/*Handling Multiple Exceptions*/
+/*In MultipleCatchBlocksExample.java example we have multiple catch blocks , to eliminate duplicate code java 7 have this*/
+public class MultipleExceptionHandlingExample {
+
+	public static void main(String[] args) {
+		 
+		try {
+			System.out.println(1 / 0);
+			int[] _intarry = {100,200,300,400};
+			System.out.println(_intarry[5]);
+		} catch (ArrayIndexOutOfBoundsException | ArithmeticException e) {
+			e.printStackTrace();
+		}
+	}
+
+}

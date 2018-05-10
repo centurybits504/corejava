@@ -1,0 +1,21 @@
+StringBuilder Class:
+StringBuilder Class has been added in jdk 1.5 which has same features like StringBuffer class.
+StringBuilder class objects are mutable as mutable as are the StringBuffer objects.
+
+Creating Object of StringBuilder Class:
+1) StringBuilder sb = new StringBuilder("Hello");
+2)StringBuilder sb = new StringBuilder();
+3)StringBuilder sb = new StringBuilder(20);
+
+StringBuilder Methods:
+public void ensureCapacity(int minimumCapacity):	It	is used to ensure the capacity at least equal to the given minimum.
+public char charAt(int index):	It	is used to return the character at the specified position.
+public int capacity():	It	is used to return the current capacity.
+public int length():	It	is used to return the length of the string i.e. total number of characters.
+public String substring(int beginIndex):	It	is used to return the substring from the specified beginIndex.
+public String substring(int beginIndex, int endIndex):	It is used to return the substring from the specified beginIndex and endIndex.
+public StringBuilder append(String str):	It	is used to append the specified string with this string. The append() method is overloaded like append(char), append(boolean), append(int), append(float), append(double) etc.
+public StringBuilder insert(int offset, String str):	It	is used to insert the specified string with this string at the specified position. The insert() method is overloaded like insert(int, char), insert(int, boolean), insert(int, int), insert(int, float), insert(int, double) etc.
+public StringBuilder replace(int startIndex, int endIndex, String str):	It	is used to replace the string from specified startIndex and endIndex.
+public StringBuilder delete(int startIndex, int endIndex):	It	is used to delete the string from specified startIndex and endIndex.
+public StringBuilder reverse():	It	is used to reverse the string.

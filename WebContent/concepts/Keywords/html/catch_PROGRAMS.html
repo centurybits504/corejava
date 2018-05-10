@@ -1,0 +1,34 @@
+<html><head><meta name="viewport" content="width=device-width, initial-scale=1.0"><style media="screen" type="text/css">/*<![CDATA[*/@import 'stylesheet.css';/*]]>*/</style>
+<link rel="StyleSheet" type="text/css" href="file:///android_asset/style.css">
+</head>
+<body>
+
+ 
+
+ 
+<div id="wrapper">
+<br>
+
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>package</span><span style='color:#7f0055; '> Keywords</span><span style='color:#7f0055; '>;</span>
+
+<span style='color:#3f7f59; '>/*Catch Keyword Example : ArithmeticException*/</span>
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> CatchKeyWordExample {
+	<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args) {
+		<span style='color:#7f0055; font-weight:bold; '>int</span> num=10,result;
+		<span style='color:#7f0055; font-weight:bold; '>try</span>{
+			<span style='color:#3f7f59; '>/*Here java.lang.ArithmeticException  will occur*/</span>
+			result = num/0;
+		}<span style='color:#7f0055; font-weight:bold; '>catch</span>(<span style='color:#7f0055; font-weight:bold; '>ArithmeticException</span> ae){
+			<span style='color:#3f7f59; '>/*Here we catch the excetion and prints root cause for this exception*/</span>
+			ae.printStackTrace();
+		}
+		<span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Executing Remaining Statement's After trying and catching exception "</span>);
+	}
+}
+
+
+<span style='color:#3f7f59; '>/*-----------------------------------------------*/</span>
+</pre>
+
+</div>
+<br>

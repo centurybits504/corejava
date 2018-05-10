@@ -1,0 +1,13 @@
+Nested Try Blocks:
+Sometimes in our code, part of a code block may cause one error and the entire code block itself may cause another error, in such cases nested try blocks are used.
+
+	/*Syntax*/
+	try{
+		try{
+		}catch(MostspecificexceptionClass object){
+		}
+		try{
+		}catch(MostgenericexceptionClass object){
+		}
+	}catch(ExceptionClass object){
+	}

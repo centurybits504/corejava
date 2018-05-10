@@ -1,0 +1,54 @@
+Exceptions and Types:
+Basically an exception is a runtime error.
+Then there araises a doubt: cann't I call compile-time error an exception?
+The answer is "no", you cann't call compile- time errors as exceptions, they come under errors.
+
+All exceptions are declared as Classes in java.
+All exceptions occur only at runtime.
+Some exceptions are detected at compile-time and some others are detected at runtime.
+
+Types of exceptions:
+Checked Exceptions:
+	Exceptions that are checked at compile time by the java compiler are called Checked Exceptions.
+	Java uses try & catch blocks to handle checked exceptions.
+	Some of the checked exceptions are:
+		IOException, ClassNotFoundException, InstantiationException
+Unchecked Exceptions:
+	Exceptions that are checked at run time by the JVM are called Unchecked Exceptions
+	Some of the Unchecked Exceptions are:
+	ArithmeticException, NullPointerException, ClassCastException, IllegalArgumentException.
+
+Throwable is a class that represents all errors and exceptions which occur in java.
+Exception is the super class of all exceptions in java.
+
+Hierarchy of Java Exception classes:
+<image> exceptionhierarchy.jpg <image>
+
+
+Classification of exceptions:
+1) Built-in Exceptions
+2) User-defined Exceptions
+		
+1) Built-in Exceptions:
+   Built-in Exceptions are the exceptions which are already available in java.
+Like ArthimaticExceptions, ArrayIndexOutofBoundException, IOException etc
+   
+2) User-defined Exceptions:
+   Some times the built-in exceptions in java are not able to describe a certain situation.
+In such cases, programmer can create his own exceptions, which we call 'user-defined exceptions'.
+
+----------------
+
+----------------
+Why do we need exception handing mechanism?
+
+    
+
+
+
+
+
+
+
+
+

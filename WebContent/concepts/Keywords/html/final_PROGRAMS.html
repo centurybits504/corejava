@@ -1,0 +1,209 @@
+<html><head><meta name="viewport" content="width=device-width, initial-scale=1.0"><style media="screen" type="text/css">/*<![CDATA[*/@import 'stylesheet.css';/*]]>*/</style>
+<link rel="StyleSheet" type="text/css" href="file:///android_asset/style.css">
+</head>
+<body>
+
+ 
+
+ 
+<div id="wrapper"><br>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>package</span><span style='color:#7f0055; '> Keywords</span><span style='color:#7f0055; '>;</span>
+
+<span style='color:#3f7f59; '>/*		final keyword to variable	*/</span>
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> FloatKeywordExample {
+
+	<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args) {
+		<span style='color:#7f0055; font-weight:bold; '>float</span> f = 10;
+		<span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(f);
+	}
+}
+<span style='color:#3f7f59; '>/*-----------------------------------------------*/</span>
+</pre>
+</div><br>
+
+
+<div id="wrapper"><br>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>package</span><span style='color:#7f0055; '> Keywords</span><span style='color:#7f0055; '>;</span>
+
+<span style='color:#3f7f59; '>/*Final keyword: cannot extend final class */</span>
+<span style='color:#7f0055; font-weight:bold; '>final</span> <span style='color:#7f0055; font-weight:bold; '>class</span> Final_1{
+	
+}
+<span style='color:#3f7f59; '>/* The type FinalKeywordCannotExtendClass cannot subclass the final class Final_1 */</span>
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> FinalKeywordCannotExtendClass <span style='color:#7f0055; font-weight:bold; '>extends</span> Final_1{
+
+	<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args) {
+	}
+}
+
+<span style='color:#3f7f59; '>/*-----------------------------------------------*/</span>
+</pre>
+</div><br>
+
+
+<div id="wrapper"><br>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>package</span><span style='color:#7f0055; '> Keywords</span><span style='color:#7f0055; '>;</span>
+
+<span style='color:#3f7f59; '>/*Final keyword: cannot override final methods */</span>
+<span style='color:#3f7f59; '>/*final methods can be inherited, but cannot override it*/</span>
+<span style='color:#7f0055; font-weight:bold; '>class</span> Final_2{
+	<span style='color:#7f0055; font-weight:bold; '>final</span> <span style='color:#7f0055; font-weight:bold; '>void</span> display(){
+		<span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"display() in Final_2"</span>);
+	}
+} 
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> FinalKeywordCannotOverrideMethods <span style='color:#7f0055; font-weight:bold; '>extends</span> Final_2{
+
+	<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args) {
+
+	}
+	<span style='color:#3f7f59; '>/*COMPILE TIME ERROR :  Cannot override the final method from Final_2 class*/</span>
+	@Override
+	<span style='color:#7f0055; font-weight:bold; '>void</span> display(){
+		<span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Overridding display()"</span>);
+	}
+	
+}
+
+<span style='color:#3f7f59; '>/*-----------------------------------------------*/</span>
+</pre>
+</div><br>
+
+
+<div id="wrapper"><br>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>package</span><span style='color:#7f0055; '> Keywords</span><span style='color:#7f0055; '>;</span>
+
+<span style='color:#3f7f59; '>/*Final keyword: Blank final field intialization in constructor (or) in instance-block */</span>
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> FinalKeywordExampleBlankFinalVariable {
+
+	<span style='color:#7f0055; font-weight:bold; '>final</span> <span style='color:#7f0055; font-weight:bold; '>int</span> alpha, beta;
+	{
+		alpha = 100;
+	}
+	FinalKeywordExampleBlankFinalVariable() {
+	<span style='color:#3f7f59; '>/*The blank final field alpha may not have been initialized in constructor*/</span>
+		beta = 200;
+	}
+	<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args) {
+		<span style='color:#3f7f59; '>// </span><span style='color:#ffffff; background:#808000; '>TODO Auto-generated method stub</span>
+
+	}
+
+}
+<span style='color:#3f7f59; '>/*-----------------------------------------------*/</span>
+</pre>
+</div><br>
+
+
+<div id="wrapper"><br>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>package</span><span style='color:#7f0055; '> Keywords</span><span style='color:#7f0055; '>;</span>
+
+<span style='color:#3f7f59; '>/* Final keyword: constructor cannot be final */</span>
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> FinalKeywordExampleFinalConstructor {
+	
+	<span style='color:#3f7f59; '>/*COMPILE TIME ERROR : Illegal modifier for the constructor in type FinalKeywordExampleFinalConstructor; only public, protected &amp; private are permitted*/</span>
+	<span style='color:#7f0055; font-weight:bold; '>final</span> FinalKeywordExampleFinalConstructor() {
+		
+	}
+	<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args) {
+
+	}
+
+}
+<span style='color:#3f7f59; '>/*-----------------------------------------------*/</span>
+</pre>
+</div><br>
+
+
+<div id="wrapper"><br>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>package</span><span style='color:#7f0055; '> Keywords</span><span style='color:#7f0055; '>;</span>
+
+<span style='color:#3f7f59; '>/*Final keyword: cannot change FinalParameter */</span>
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> FinalKeywordExampleFinalParameter {
+	
+	<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>void</span> display(<span style='color:#7f0055; font-weight:bold; '>final</span> <span style='color:#7f0055; font-weight:bold; '>String</span> name){
+		<span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(name);
+		<span style='color:#3f7f59; '>/*COMPILE TIME ERROR : The final local variable name cannot be assigned. It must be blank and not using a compound assignment*/</span>
+		name =  <span style='color:#2a00ff; '>"Hai.."</span> + name ;
+		<span style='color:#7f0055; font-weight:bold; '>System</span>.out.println();
+	}	
+	<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args) {
+
+	}
+
+}
+<span style='color:#3f7f59; '>/*-----------------------------------------------*/</span>
+</pre>
+</div><br>
+
+
+<div id="wrapper"><br>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>package</span><span style='color:#7f0055; '> Keywords</span><span style='color:#7f0055; '>;</span>
+
+<span style='color:#3f7f59; '>/*Final Keyword Example :  immutable final variable manipulation in Java*/</span>
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> FinalKeywordExampleImmutableFinalFieldManipulation {
+
+	FinalKeywordExampleImmutableFinalFieldManipulation(){
+		<span style='color:#3f7f59; '>/*Here we cann't change the reference(Here str) of StringBuffer, but we can change the content of str(a final immutable field)   */</span>
+		<span style='color:#7f0055; font-weight:bold; '>final</span> <span style='color:#7f0055; font-weight:bold; '>StringBuffer</span> str = <span style='color:#7f0055; font-weight:bold; '>new</span> <span style='color:#7f0055; font-weight:bold; '>StringBuffer</span>();		<span style='color:#3f7f59; '>//Here str is n't primitive type</span>
+		str.append(<span style='color:#2a00ff; '>"A"</span>);
+		<span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(str);
+		str.append(<span style='color:#2a00ff; '>"AA"</span>);
+		<span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(str);
+		
+		<span style='color:#3f7f59; '>/*COMPILE TIME ERROR : 	we cann't change the reference(Here str) of StringBuffer*/</span>
+		str = <span style='color:#7f0055; font-weight:bold; '>new</span> <span style='color:#7f0055; font-weight:bold; '>StringBuffer</span>(<span style='color:#2a00ff; '>"AAA"</span>); <span style='color:#3f7f59; '>/* not possible to re-assign to str field */</span>
+		
+	}
+	 
+	<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args) {
+		<span style='color:#7f0055; font-weight:bold; '>new</span> FinalKeywordExampleImmutableFinalFieldManipulation();
+
+	}
+
+}
+
+<span style='color:#3f7f59; '>/*-----------------------------------------------*/</span>
+</pre>
+</div><br>
+
+
+<div id="wrapper"><br>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>package</span><span style='color:#7f0055; '> Keywords</span><span style='color:#7f0055; '>;</span>
+
+<span style='color:#3f7f59; '>/*Final keyword: Static Blank final field intialization in constructor */</span>
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> FinalKeywordExampleStaticBlankFinalVariable {
+
+	<span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>final</span> <span style='color:#7f0055; font-weight:bold; '>int</span> alpha;
+	<span style='color:#3f7f59; '>/*static blank final fields can be initialized only in static blocks */</span>
+	<span style='color:#7f0055; font-weight:bold; '>static</span>{
+		alpha = 100;
+	}
+	<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args) {
+		
+	}
+
+}
+<span style='color:#3f7f59; '>/*-----------------------------------------------*/</span>
+</pre>
+</div><br>
+
+
+<div id="wrapper"><br>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>package</span><span style='color:#7f0055; '> Keywords</span><span style='color:#7f0055; '>;</span>
+
+<span style='color:#3f7f59; '>/*Final Keyword: cannot change the value of final variables*/</span>
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> FinalKeywordFinalVariablevalueChanging {
+
+	<span style='color:#7f0055; font-weight:bold; '>final</span> <span style='color:#7f0055; font-weight:bold; '>int</span> alpha = 100;
+	<span style='color:#3f7f59; '>/*COMPILE TIME ERROR : The final field alpha cannot be assigned*/</span>
+	<span style='color:#7f0055; font-weight:bold; '>public</span> FinalKeywordFinalVariablevalueChanging() {
+		alpha = 200;
+	}
+
+	<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args) {
+	}
+
+}
+<span style='color:#3f7f59; '>/*-----------------------------------------------*/</span>
+</pre>
+</div><br>

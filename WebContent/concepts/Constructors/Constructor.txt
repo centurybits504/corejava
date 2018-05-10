@@ -1,0 +1,112 @@
+Constructor:
+A constructor is a special method that is used to initialize an object and to make inheritance possible.
+Java constructor is invoked at the time of object creation.
+
+To declare a constructor,
+	Constructor name must be same as the class name
+	Constructor must have no explicit return type
+
+	
+Types of constructor:
+	1)Default-Constructor
+	2)Parameterized-Constructor
+
+1)Default-Constructor:
+	Default-Constructor is used to initialize the instance variables of the class with default values.
+	Every class has a constructor, even if you don't specify a constructor excplicitly, compiler will automatically provides 
+	default-constructor.
+	Default-Constructor is also called as no-argument constructor.
+	/*syntax*/
+	MyClass(){//Here MyClass is the class name
+		//body
+	}
+
+2)Parameterized-Constructor:
+	Constructor with arguments is known as parameterized constructor.
+	Parameterized Constructor is used to initialize the instance variables of the class with user-defined values.
+	/*syntax*/
+	MyClass(String str){//Here MyClass is the class name
+		//body
+	}
+
+Points to remember:
+Constructor name must be same as the class name.
+Constructor will invoke when we create object for the class.
+Constructor don't have any return type, but it returns the current class instance.Yet constructor signature cannot have any return type.
+Constructors are two types, default(no-argument) constructors and parametarized constructors.
+If we don't provide any constructor, compiler automatically creates default-constructor.
+this() - is used to communicate from one constructor to another constructor in the same class, which is called constructor chaining.
+super() - is used to communicate with super class constructor.
+Constructors can be overloaded.
+We can copy the values of one object to another using constructor.
+If we're writting parametarized constructor then we should also write no-argument constructor.Otherwise compile-time will occur.
+static modifier is not allowed in constructor.
+In constructors only final is permitted(by default fields are final).
+We can also perform other operation in the constructor(like object creation, calling methods, starting a thread) as we perform in the method.
+--------------
+ 
+
+	
+
+
+
+
+
+
+
+
+
+-------------
+Why constructor is a special type of method?
+Because it has same name of class and excplicitly don't have any return type.
+
+How inheritance is possible with constructor?
+
+
+Why compiler provides default-constructor?
+To provide default values to instance variables.
+
+What is the difference between method and constructor?
+
+Why constructor returns current class instance?
+
+Why we have to write no-argument constructor along with parametarized constructor?
+
+Why static fields are not allowed in constructor?
+Constructor is used to initialize the variables of the object.
+static keyword is not related to the object.
+So their is not point in using static to fields in constructor.
+
+Why final is allowed for fields in constructor?
+
+why not a constructor be static?
+A java constructor is always non "static" because,
+The purpose of the constructor is only to initialize/construct the object, and to make inheritance possible. 
+To do these we need to use the two useful java keywords (cum non-static variables) such as this and super. We will use 'this' to initialize the object. We/Java will use super(ofcourse super()) to invoke super class constructor so that super object(or Object class) created first then the child object(hence the inheritance) If the constructor is static then we cant use that two keywords(non-static variables) inside the constructor(As we know non-static stuff cant be referenced from static context).
+So constructors should not be static.
+
+What are instance variables of class?
+Instance variables are declared in a class, but outside a method, constructor or any block.
+Instance variable belongs to the instance of a class or you can say that instance variable belongs to the object.
+Instance variable have separate value of each and every instance of the class.
+Class MyClass {
+
+     /*this public instance variable is visible for any child class*/ 
+       public String name = "A";
+
+     /*this private instance variable is visible for only  MyClass class*/ 
+       private int age = 100;
+}
+
+
+What are local variables of class?
+Class variable belongs to the class.
+class variable is created by adding “static” keyword before the variable.
+Also called static variable.
+And most important class variable maintain a single shared value for all instance of a class, even if no instance object of the class exists.
+Class MyClass
+		/* alpha variable is Same for all instance of this class*/
+       public static int alpha = 2;
+}
+
+Why this() must be first statement in constructor chaining?

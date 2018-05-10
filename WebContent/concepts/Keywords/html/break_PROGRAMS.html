@@ -1,0 +1,63 @@
+<html><head><meta name="viewport" content="width=device-width, initial-scale=1.0"><style media="screen" type="text/css">/*<![CDATA[*/@import 'stylesheet.css';/*]]>*/</style>
+<link rel="StyleSheet" type="text/css" href="file:///android_asset/style.css">
+</head>
+<body>
+
+ 
+
+ 
+<div id="wrapper">
+<br>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>package</span><span style='color:#7f0055; '> Keywords</span><span style='color:#7f0055; '>;</span>
+
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> BreakExampleWithForLoop {
+	<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args) {
+		 <span style='color:#7f0055; font-weight:bold; '>int</span> limit = 4;
+		 <span style='color:#7f0055; font-weight:bold; '>for</span>(<span style='color:#7f0055; font-weight:bold; '>int</span> i=1;i&lt;=10;i++){
+			 <span style='color:#7f0055; font-weight:bold; '>if</span>(i==limit){
+				 <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"i values : "</span>+i);
+				 <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Exiting From For Loop when 'i' equals to 'limit' , Using break"</span>);
+				 <span style='color:#7f0055; font-weight:bold; '>break</span>;
+			 }
+			 <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"i values : "</span>+i);
+		 }
+	}
+}
+
+<span style='color:#3f7f59; '>/*-----------------------------------------------*/</span>
+</pre>
+
+
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>package</span><span style='color:#7f0055; '> Keywords</span><span style='color:#7f0055; '>;</span>
+
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> BreakExampleWithSwitch {
+	<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args) {
+        <span style='color:#7f0055; font-weight:bold; '>String</span> defaultDay = <span style='color:#7f0055; font-weight:bold; '>null</span>;
+        <span style='color:#7f0055; font-weight:bold; '>int</span> defaultDayIndex = 4;
+        <span style='color:#7f0055; font-weight:bold; '>switch</span> (defaultDayIndex) {
+            <span style='color:#7f0055; font-weight:bold; '>case</span> 1:  defaultDay = <span style='color:#2a00ff; '>"Monday"</span>;
+                     <span style='color:#7f0055; font-weight:bold; '>break</span>;
+            <span style='color:#7f0055; font-weight:bold; '>case</span> 2:  defaultDay = <span style='color:#2a00ff; '>"Tuesday"</span>;
+                     <span style='color:#7f0055; font-weight:bold; '>break</span>;
+            <span style='color:#7f0055; font-weight:bold; '>case</span> 3:  defaultDay = <span style='color:#2a00ff; '>"Wednesday"</span>;
+                     <span style='color:#7f0055; font-weight:bold; '>break</span>;
+            <span style='color:#7f0055; font-weight:bold; '>case</span> 4:  defaultDay = <span style='color:#2a00ff; '>"Thursday"</span>;
+                     <span style='color:#7f0055; font-weight:bold; '>break</span>;
+            <span style='color:#7f0055; font-weight:bold; '>case</span> 5:  defaultDay = <span style='color:#2a00ff; '>"Friday"</span>;
+                     <span style='color:#7f0055; font-weight:bold; '>break</span>;
+            <span style='color:#7f0055; font-weight:bold; '>case</span> 6:  defaultDay = <span style='color:#2a00ff; '>"Saturday"</span>;
+                     <span style='color:#7f0055; font-weight:bold; '>break</span>;
+            <span style='color:#7f0055; font-weight:bold; '>case</span> 7:  defaultDay = <span style='color:#2a00ff; '>"Sunday"</span>;
+                     <span style='color:#7f0055; font-weight:bold; '>break</span>;
+            <span style='color:#7f0055; font-weight:bold; '>default</span>: defaultDay = <span style='color:#2a00ff; '>"Unknown Day"</span>;
+                     <span style='color:#7f0055; font-weight:bold; '>break</span>;
+        }
+        <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Weekday : "</span>+defaultDay);
+	}
+}
+
+<span style='color:#3f7f59; '>/*-----------------------------------------------*/</span>
+</pre>
+
+</div>
+<br>

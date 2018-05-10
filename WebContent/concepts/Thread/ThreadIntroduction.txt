@@ -1,0 +1,65 @@
+Thread Introduction:
+In computer terminology process (or) thread are associated with the program execution.
+
+A Process can be defined as, program under execution.
+A Thread can be defined as a part of the program under execution.
+Thus a process can be defined as a set of threads that execute's simultaneously.
+
+The way the statements are executed by cpu (or) processor is of 2 types:
+1) Single tasking
+   Single tasking means execution of only one task at a time.
+   In Single tasking only one task is given to the processor at a time. This means we're wasting a lot of processor time and micro-processor has to sit idle for a long time.This is the drawback of single-tasking.
+   <imgae>singletasking</image>
+   
+2) Multi tasking
+   Multi tasking means execution of multiple tasks at a time.
+   To use the processor's time in an optimum way(processor is not sitting in idle), we can give it several jobs at a time. This is called multi-tasking.	
+   
+
+Based on the handling different tasks/processes, multi-tasking can be classified in 2 subtypes.
+	i)Process-based multi-tasking
+	  In Process-based multi-tasking, several programs are handled (or) executed simultaneously by the processor.
+	  <image>Process-based multi-tasking</image>
+	ii)Thread-based multi-tasking  
+	  In Thread-based multi-tasking, several parts of the program are handled (or) executed simultaneously by the processor.
+	<image>Thread-based multi-tasking</image>
+	
+Thread:
+	A Thread is a small dispatchable unit of the program. Each thread can be imagined as an individual process that can execute 
+a separate set of statements.
+A Thread is also called as "execution-context".
+A Thread (or) execution-context, is composed of 3 main parts.
+i)A virtual CPU
+ii)Code that CPU executes
+iii)Data on which the code works
+		<imageThread<image>
+
+i)A virtual CPU: In java programming, the virtual CPU is encapsulated in a instance of the "Thread" class.
+When a thread is constructed, the code and the data that define it's context are specified by the object passed to it's constructor.
+
+ii)Code that CPU executes:  Code can be shared by multiple threads, independent of data. Two threads can the same code when they are instance of same class.
+
+iii)Data on which the code works: Data can be shared by multiple threads, independent of code. Two threads can share the same data when they share access to a common object.
+
+Threads are light-weight when compared to processes, because they utilize minimum resources(less memory & less processor time) of the system.
+
+Uses Of Threads:
+Used to design server side programs.
+Used in games coding & animation.
+
+Types Of Threads:
+On basis of execution threads can be classified into 2 types:
+i)Single-tasking
+ii)Multi-tasking
+
+	
+	  
+	  
+---------
+What is Task?
+Task means doing some calculation, processing etc.
+
+Difference between Process & Thread?
+
+
+

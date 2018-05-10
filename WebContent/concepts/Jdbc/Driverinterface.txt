@@ -1,0 +1,32 @@
+Driver Interface:
+Driver inteface is from java.sql package.
+The interface that every driver class must implement.
+The Java SQL framework allows for multiple database drivers.
+Each driver should supply a class that implements the Driver interface.
+The DriverManager will try to load as many drivers as it can find and then for any given connection request, it will ask each driver in turn to try to connect to the target URL.
+It is strongly recommended that each Driver class should be small and standalone so that the Driver class can be loaded and queried without bringing in vast quantities of supporting code.
+When a Driver class is loaded, it should create an instance of itself and register it with the DriverManager. This means that a user can load and register a driver by calling 
+
+For Example:
+	The driver class for oracle database is oracle.jdbc.driver.OracleDriver
+	The driver class for MySQL database is com.mysql.jdbc.Driver
+	The driver class for DB2 database is COM.ibm.db2.jdbc.net.DB2Driver
+	
+Methods:
+boolean 	acceptsURL(String url)
+Retrieves whether the driver thinks that it can open a connection to the given URL.
+Connection 	connect(String url, Properties info)
+Attempts to make a database connection to the given URL.
+int 	getMajorVersion()
+Retrieves the driver's major version number.
+int 	getMinorVersion()
+Gets the driver's minor version number.
+Logger 	getParentLogger()
+Return the parent Logger of all the Loggers used by this driver.
+DriverPropertyInfo[] 	getPropertyInfo(String url, Properties info)
+Gets information about the possible properties for this driver.
+boolean 	jdbcCompliant()
+Reports whether this driver is a genuine JDBC Compliant driver. 
+	
+	
+	

@@ -1,0 +1,89 @@
+ResultSetMetaData Interface:
+Data about data is called "Metadata".
+Similarly data about the data available in ResultSet object is called "ResultSetMetaData".
+ResultSetMetaData Interface provides methods to get meta-data(total-column-count,column-name,column-type etc) for data in  ResultSet Object.
+How to get the object of ResultSetMetaData:
+The getMetaData() method of ResultSet interface returns the object of ResultSetMetaData. 
+
+All Superinterfaces:
+    Wrapper 
+All Known Subinterfaces:
+    RowSetMetaData 
+All Known Implementing Classes:
+    RowSetMetaDataImpl 
+
+public interface ResultSetMetaData extends Wrapper{
+}
+
+	
+Methods:
+String 	getCatalogName(int column)
+Gets the designated column's table's catalog name.
+String 	getColumnClassName(int column)
+Returns the fully-qualified name of the Java class whose instances are manufactured if the method ResultSet.getObject is called to retrieve a value from the column.
+int 	getColumnCount()
+Returns the number of columns in this ResultSet object.
+int 	getColumnDisplaySize(int column)
+Indicates the designated column's normal maximum width in characters.
+String 	getColumnLabel(int column)
+Gets the designated column's suggested title for use in printouts and displays.
+String 	getColumnName(int column)
+Get the designated column's name.
+int 	getColumnType(int column)
+Retrieves the designated column's SQL type.
+String 	getColumnTypeName(int column)
+Retrieves the designated column's database-specific type name.
+int 	getPrecision(int column)
+Get the designated column's specified column size.
+int 	getScale(int column)
+Gets the designated column's number of digits to right of the decimal point.
+String 	getSchemaName(int column)
+Get the designated column's table's schema.
+String 	getTableName(int column)
+Gets the designated column's table name.
+boolean 	isAutoIncrement(int column)
+Indicates whether the designated column is automatically numbered.
+boolean 	isCaseSensitive(int column)
+Indicates whether a column's case matters.
+boolean 	isCurrency(int column)
+Indicates whether the designated column is a cash value.
+boolean 	isDefinitelyWritable(int column)
+Indicates whether a write on the designated column will definitely succeed.
+int 	isNullable(int column)
+Indicates the nullability of values in the designated column.
+boolean 	isReadOnly(int column)
+Indicates whether the designated column is definitely not writable.
+boolean 	isSearchable(int column)
+Indicates whether the designated column can be used in a where clause.
+boolean 	isSigned(int column)
+Indicates whether values in the designated column are signed numbers.
+boolean 	isWritable(int column)
+Indicates whether it is possible for a write on the designated column to succeed.
+-----------------------
+import java.sql.*;
+/*ResultSetMetaData Example*/
+public class ResultSetMetaDataExample {
+	public static void main(String[] args) {
+		Connection conn=null;
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			conn=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root","root");
+			Statement stmt=(Statement) conn.createStatement();
+			
+			ResultSet rs=(ResultSet) stmt.executeQuery("SELECT * FROM employee");
+			ResultSetMetaData rsmd=(ResultSetMetaData) rs.getMetaData();
+			
+			System.out.println("Schema Name:  "+rsmd.getCatalogName(1));
+			System.out.println("Table Name:  "+rsmd.getTableName(1));
+			System.out.println("Column Count In Table :  "+rsmd.getColumnCount());
+			System.out.println("Column Name:  "+rsmd.getColumnName(1));
+			System.out.println("Column Type:  "+rsmd.getColumnType(1));
+		}catch(ClassNotFoundException cnfe){
+			System.out.println(cnfe.getMessage());
+		}catch(SQLException sqle){
+			System.out.println(sqle.getMessage());
+		}
+	}
+}
+
+-----------------------

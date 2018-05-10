@@ -1,0 +1,14 @@
+What is Java?
+A general-purpose computer programming language designed to develop programs that will run on any computer system.
+What is platform?
+Any hardware (or) software environment in which a program runs, is known as a platform.
+What is JDK?
+What is JRE?
+What is JIT?
+How to set path and why?
+Difference between C and C++?
+Difference between C++ and Java?
+What is Unicode system?
+What is Byte Code System?
+What is the Operating System developed using java?
+What is JAR?

@@ -1,0 +1,16 @@
+Generic Class:
+A Generic class represents a class that is type-safe i.e, a generic class can act on any datatype.
+Generic classes are also called as "parameterized types", because they use a parameter that determines which datatypes should work on.
+When a generic class is written bythe programmer need n[t to rewrite the same class when ever he want to use the same class with a new datatype.
+
+	/*Syntax*/
+	class MyGenericClass<T>{
+		//body
+	}
+	
+
+
+
+
+
+

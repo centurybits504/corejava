@@ -1,0 +1,6 @@
+Generic Method:
+Generic method is similar to declaring a generic type, but the type parameter's scope is limited to the method where it is declared. 
+Static and non-static generic methods are allowed, as well as generic class constructors.
+Sometimes we don’t want whole class to be parameterized, in that case we can use generics type in methods also.
+
+

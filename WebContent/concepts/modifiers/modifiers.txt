@@ -1,0 +1,25 @@
+Access modifier:
+A Java access modifier specifies which classes can access a given class and its fields, constructors and methods. 
+Access modifiers can be specified separately for a class, its constructors, fields and methods.
+Sometimes access modifier are referred as Java access specifiers.
+
+Access modifiers in java are 2 types :
+1)Access modifiers 
+2)Non-access modifiers
+
+
+
+            | Class | Package | Subclass | Subclass | World
+            |       |         |(same pkg)|(diff pkg)| 
+————————————+———————+—————————+——————————+——————————+————————
+public      |   +   |    +    |    +     |     +    |   +     
+————————————+———————+—————————+——————————+——————————+————————
+protected   |   +   |    +    |    +     |     +    |         
+————————————+———————+—————————+——————————+——————————+————————
+no modifier |   +   |    +    |    +     |          |    
+————————————+———————+—————————+——————————+——————————+————————
+private     |   +   |         |          |          |    
+
++ : accessible
+blank : not accessible
+

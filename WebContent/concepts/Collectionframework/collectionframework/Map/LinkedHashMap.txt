@@ -1,0 +1,52 @@
+LinkedHashMap  Class:
+LinkedHashMap is the collection that stores elements in the form of key-value pairs.
+LinkedHashMap implements the Map and extends HashMap class.
+LinkedHashMap contains only unique elements as keys. 
+LinkedHashMap may have one "null" keys and multiple "null" values.
+LinkedHashMap is same as HashMap and maintains insertion order.
+Hash table and doubly-linked list implementation of the Map interface is LinkedHashMap.
+
+All Implemented Interfaces:
+    Serializable, Cloneable, Map<K,V> 
+
+Constructors Of LinkedHashMap Class:
+LinkedHashMap()
+Constructs an empty insertion-ordered LinkedHashMap instance with the default initial capacity (16) and load factor (0.75).
+LinkedHashMap(int initialCapacity)
+Constructs an empty insertion-ordered LinkedHashMap instance with the specified initial capacity and a default load factor (0.75).
+LinkedHashMap(int initialCapacity, float loadFactor)
+Constructs an empty insertion-ordered LinkedHashMap instance with the specified initial capacity and load factor.
+LinkedHashMap(int initialCapacity, float loadFactor, boolean accessOrder)
+Constructs an empty LinkedHashMap instance with the specified initial capacity, load factor and ordering mode.
+LinkedHashMap(Map<? extends K,? extends V> m)
+Constructs an insertion-ordered LinkedHashMap instance with the same mappings as the specified map.
+
+Methods Of LinkedHashMap Class:
+void 	clear()
+Removes all of the mappings from this map.
+boolean 	containsValue(Object value)
+Returns true if this map maps one or more keys to the specified value.
+V 	get(Object key)
+Returns the value to which the specified key is mapped, or null if this map contains no mapping for the key.
+protected boolean 	removeEldestEntry(Map.Entry<K,V> eldest)
+Returns true if this map should remove its eldest entry.
+
+-------------------
+/*LinkedHahMap Example*/
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public class LinkedHashMapExample {
+	public static void main(String[] args) {
+		 Map<String,Integer> _hashMap=new LinkedHashMap<String,Integer>();  
+		 _hashMap.put("A",10);  
+		 _hashMap.put("B",20);  
+		 _hashMap.put("C",30);  
+		  
+		for(Map.Entry _entry:_hashMap.entrySet()){  
+		   System.out.println(_entry.getKey()+" -- "+_entry.getValue());  
+		  }  
+	}
+}
+
+-------------------	

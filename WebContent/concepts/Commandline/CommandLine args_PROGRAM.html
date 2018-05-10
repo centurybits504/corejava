@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+
+* {
+    box-sizing: border-box;margin:0px;padding:0px;
+}
+.row::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+[class*="col-"] {
+    float: left;
+    padding: 0px;
+}
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+ 
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 100%;padding:4px;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+html {
+    font-family:  "Times New Roman", Georgia, Serif;font-size:13px;
+     -webkit-user-select: none;
+}
+.header {
+    background-color: #33b5e5;
+    color: #ffffff;
+    padding:4px;
+	margin:0px;
+	 
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+body{
+background-color: #f2f2f2; 
+}
+
+div.scrollmenu {
+    background-color: #333;
+    overflow: auto;
+    white-space: nowrap;
+}
+div.scrollmenu a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+}
+
+div.scrollmenu a:hover {
+    background-color: #777;
+}
+</style>
+</head>
+<body>
+
+ 
+
+<div class="col-9">
+
+<pre style='color:#000000;background:#ffffff;'><span style='color:#3f7f59; '>/*Sample program showing how to pass command line arguments*/</span>
+<span style='color:#7f0055; font-weight:bold; '>class</span> Add{  
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span> args[]){  
+		<span style='color:#7f0055; font-weight:bold; '>int</span> total =  0;
+		<span style='color:#7f0055; font-weight:bold; '>for</span>(<span style='color:#7f0055; font-weight:bold; '>int</span> i=0;i >=args.length;i++)  
+		total = total + args[i];
+		<span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Sum of arguments : "</span>+total); 
+		}  &lt;br>
+}  &lt;br>
+<span style='color:#3f7f59; '>/*</span>
+<span style='color:#3f7f59; '>Passing commandLine arguments: &lt;br></span>
+<span style='color:#3f7f59; '>java 10 20&lt;br></span>
+<span style='color:#3f7f59; '>*/</span>
+</pre>
+
+</div>
+
+</body>
+</html>

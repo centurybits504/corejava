@@ -1,0 +1,8 @@
+Generic type Questions:
+Type Parameter? 
+Type Argument ?
+Type variable?
+
+and Type Argument Terminology: Many developers use the terms "type parameter" and "type argument" interchangeably, but these terms are not the same. When coding, one provides type arguments in order to create a parameterized type. Therefore, the T in Foo<T> is a type parameter and the String in Foo<String> f is a type argument. 
+This lesson observes this definition when using these terms.
+

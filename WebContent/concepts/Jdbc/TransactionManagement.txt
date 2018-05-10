@@ -1,0 +1,156 @@
+Transaction Management:
+Transaction is nothing but an unit of work performed by the applications.
+Every transaction should have the following properties:
+Atomicity
+Consistency
+Isolation
+Durability
+
+Atomicity: 
+	Atomicity of a transaction is nothing but in a transaction either all operations can be done or all operation can be undone, but some operations are done and some operation are undone should not occure.
+Consistency:
+	Consistency means, after a transaction completed with successful, the data in the datastore should be a reliable data this reliable data is also called as consistent data.
+Isolation:
+	Isolation means, if two transaction are going on same data then one transaction will not disturb another transaction.
+Durability:
+	Durability means, after a transaction is completed the data in the data store will be permanent until another transaction is going to be performed on that data.
+
+<image>transaction-mangement.png</image>	
+	
+Types of Transaction
+1)Local Transaction:
+	A local transaction means, all operation in a transaction are executed against one database.
+	For example, If transfer money from first account to second account belongs to same bank then transaction is local transaction.	
+2)Distributed or global transaction:
+	A global transaction means, all operations in a transaction are executed against multiple database.
+	For Example, If transfer money from first account to second account belongs to different banks then the transaction is a global transaction.		
+
+Note:
+	Jdbc technology perform only local transactions. For global transaction in java we need either EJB (or) spring framework.
+	In transaction management DDL operation are not allowed.
+	The operation in a transaction management may be executed on same table (or) different table but database should be same.
+
+Steps for Transaction Management:
+1)By default "Auto Commit" is true. So we have set auto commit property as "false" by using setAutoCommit(false) method of "Connection" interface. 	
+2)Execute all queries in try block.
+3)If all the operation's are successfull then commit(using commit() method of Connection interface) in "try" block, otherwise rollback(using rollback() of Connection interface) in "catch" block.
+
+
+----------------
+/*Transaction Management Example : Statement*/
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.sql.DriverManager;
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.Statement;
+
+public class Transation_Management_With_Statement_1 {
+
+	public static void main(String[] args) {
+		 Connection conn=null;
+		 try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root","root");
+			conn.setAutoCommit(false);
+			
+			Statement stmt=(Statement) conn.createStatement();
+			stmt.executeUpdate("INSERT INTO employee(id, first_name, last_name, start_date, end_date, salary, city, description) VALUES (109,'A','a','1996-09-24','1996-9-24',50000,'A_city','A_desc')");
+			stmt.executeUpdate("INSERT INTO employee(id, first_name, last_name, start_date, end_date, salary, city, description) VALUES (110,'A','a','1996-09-24','1996-9-24',50000,'A_city','A_desc')");
+			
+			InputStreamReader isr=new InputStreamReader(System.in);
+			BufferedReader br=new BufferedReader(isr);
+			
+			System.out.println("Input Required :: [Y/N]");
+			String st=br.readLine();
+			if(st.equalsIgnoreCase("y")){	
+				conn.commit();
+				System.out.println("Transaction Commited..");
+			}
+			if(st.equalsIgnoreCase("n")){
+				conn.rollback();
+				System.out.println("Transaction Rollbacked..");
+			}
+			
+			
+		}catch(Exception e){
+			try{
+				/*if exception occurs while executing any query, we have to rollback all queries */
+				conn.rollback();
+				System.out.println("Exception Occured. Transaction Rollbacked..");
+			}catch(Exception e1){
+				e1.printStackTrace();	
+			}
+			
+		}
+		//close stmt & conn
+	}
+}
+
+
+/*Transaction Management Example : PreparedStatement*/
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.sql.DriverManager;
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.PreparedStatement;
+
+public class Transation_Management_With_PreparedStatement_1 {
+
+	public static void main(String[] args) {
+		Connection conn=null;
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root","root");
+			conn.setAutoCommit(false);
+			
+			PreparedStatement psmt=(PreparedStatement) conn.prepareStatement("INSERT INTO employee(id, first_name, last_name, start_date, end_date, salary, city, description) VALUES (?,?,?,?,?,?,?,?)");
+			 
+			psmt.setInt(1, 1111);
+			psmt.setString(2,"AAAA");
+			psmt.setString(3,"aaaa");
+			psmt.setString(4,"1996-09-24");
+			psmt.setString(5,"1996-09-24");
+			psmt.setInt(6, 50000);
+			psmt.setString(7, "AA_City");
+			psmt.setString(8, "AAAA_desc");
+			psmt.executeUpdate();
+			
+			psmt.setInt(1, 11111);
+			psmt.setString(2,"AAAAA");
+			psmt.setString(3,"aaaaa");
+			psmt.setString(4,"1996-09-24");
+			psmt.setString(5,"1996-09-24");
+			psmt.setInt(6, 50000);
+			psmt.setString(7, "AA_City");
+			psmt.setString(8, "AAAA_desc");
+			psmt.executeUpdate();
+			
+			System.out.println("Input Required :: [Y/N]");
+			InputStreamReader isr=new InputStreamReader(System.in);
+			BufferedReader br=new BufferedReader(isr);
+			if("Y".equalsIgnoreCase(br.readLine())){	
+				conn.commit();
+				System.out.println("Transaction Commited..");
+			}
+			else{
+				conn.rollback();
+				System.out.println("Transaction Rollbacked..");
+			}
+		} catch(Exception e){
+			try{
+				/*if exception occurs while executing any query, we have to rollback all queries */
+				conn.rollback();
+				System.out.println("Exception Occured. Transaction Rollbacked..");
+			}catch(Exception e1){
+				e1.printStackTrace();	
+			}
+			
+		}
+		//close pstmt & conn
+	
+	}
+
+}
+
+
+

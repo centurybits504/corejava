@@ -1,0 +1,30 @@
+
+A Wrapper Class is a class whose object wraps (or) contains a primitive datatype.
+When we create an object to a wrapper class, it contains a field and in this field we can store a primitive datatype.
+In other words we can wrap primitive value into a wrapper class object.
+Wrapper classes are used to convert primitive datatypes to objects and objects to primitive datatypes.
+Wrapper Clases convert primitive datatypes into objects and this is needed on the internet for communication between 2 application.
+Wrapper Classes are present in java.lang.*; package.
+
+Datatypes		WrapperClasses
+char		Character
+byte		Byte
+short		Short
+long		Long
+float		Float
+double		Double
+boolean		Boolean
+int		Integer
+
+AutoBoxing:
+Converting a primitive datatype into it's object is called "autoboxing".
+Integer obj=new Integer(504);
+
+AutoUnBoxing:
+Converting an object into it's corresponding primitive datatype is called "auto-unboxing".
+			int i = obj.intValue();
+	
+	
+	
+
+	

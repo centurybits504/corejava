@@ -1,0 +1,13 @@
+Native:
+A method that is native is implemented in platform-dependent code, typically written in another programming language such as C, C++, FORTRAN,or assembly language. 
+The body of a native method is given as a semicolon only, indicating that the implementation is omitted, instead of a block.
+
+The native keyword is applied to a method to indicate that the method is implemented in native code using JNI(Java Native Interface).
+
+Native methods were used in the past to write performance critical sections but with Java getting faster this is now less common. 
+Native methods are currently needed when,
+1)You need to call a library from Java that is written in other language.
+2)You need to access system (or) hardware resources that are only reachable from the other language (typically C). Actually, many system functions that interact with real computer (disk and network IO, for instance) can only do this because they call native code.
+
+------------
+

@@ -1,0 +1,41 @@
+Marker interface:
+Marker interfaces are used as a tag to inform a message to the java compiler so that it can add special behaviour to the class implementing it and they do not have any methods or fields in it.
+Marker interface is also known as tag interface.
+Marker interfaces define a type.
+We can also create our custom marker interface.
+The common problem occurs while using marker interfaces is that when a class implements them, all of its subclasses inherit them as well. 
+
+Some Marker interfaces:
+java.lang.Cloneable
+java.io.Serializable
+java.util.RandomAccess
+java.util.EventListener
+java.rmi.Remote
+java.util.concurrent.CompletableFuture.AsynchronousCompletionTask
+java.sql.ParameterMetaData
+javax.servlet.SigleThreadModel
+
+Marker interface design pattern:
+The marker interface pattern is a design pattern in computer science, used with languages that provide run-time type information about objects.
+A major problem with marker interfaces is that an interface defines a contract for implementing classes, and that contract is inherited by all subclasses. This means that you cannot "unimplement" a marker interface.
+
+java.io.Serializable:
+A class implements a Serializable interface to indicate that its non-transient data members can be written to an ObjectOutputStream.
+NotSerializableException can be thrown when a class that implements the Serializable interface contains fields that are not serializable.
+NotSerializableException is a Unchecked exception.
+If you don't want a field to be serialized form, mark that field as transient.
+
+java.lang.Cloneable:
+A class implements the Cloneable interface to indicate to the Object.clone() method that it is legal for that method to make a field-for-field copy of instances of that class.
+Invoking Object's clone method on an instance that does not implement the Cloneable interface results in the CloneNotSupportedException.
+CloneNotSupportedException is Checked Exception(compile-time).
+ 
+-------------------------------
+What is Cloning?
+
+How Objects clone() will clone a object?
+
+Why Object class clone() is protected?
+The method is protected because you shouldn't call it on object, you can (and should) override it as public.
+In class Object, the clone() method is declared protected.
+If all you do is implement Cloneable, only subclasses and members of the same package will be able to invoke clone() on the object.

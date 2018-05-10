@@ -1,0 +1,9 @@
+Generic Interface:
+A Generic interface represents a interface that is type-safe i.e, a generic interface can act on any datatype.
+Generic interfaces are also called as "parameterized types", because they use a parameter that determines which datatypes should work on.
+When a generic interface is written bythe programmer need not to rewrite the same interface when ever he want to use the same interface with a new datatype.
+
+	/*Interface*/
+	class MyGenericClass<T>{
+		//body
+	}

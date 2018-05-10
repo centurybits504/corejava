@@ -1,0 +1,95 @@
+SavePoint Interface:
+SavePoint is an interface of java.sql package.
+SavePoint concept is introduced by jdbc3.0.
+SavePoint is used to logically group a set of instructions, executing inthe transactions committing operations.
+
+Advantage of SavePoint:
+In operation of a transactions are executed upto the SavePoint successfully then the operations can be protected even if any failure is occurred in operations after the SavePoint.
+
+Create SavePoint:
+To create a SavePoint in the middle of a transaction, we have a method from Connection interface,
+	public SavePoint setSavePoint();
+Releasing a SavePoint:
+	To release a SavePoint, we have a method from Connection interface,
+	public void releaseSavePoint();
+Rollback a SavePoint:
+	To  rollback a SavePoint, we have a method from Connection interface,
+	public void rollback(SavePoint sp);
+
+Methods:
+int 	getSavepointId()
+Retrieves the generated ID for the savepoint that this Savepoint object represents.
+String 	getSavepointName()
+Retrieves the name of the savepoint that this Savepoint object represents.
+
+Check SavePoint support:
+All Jdbc driver's does not provide SavePoint feature, because it is an optional feature. To check whether a jdbc driver has the implementation of SavePoint feature or not, we have supportSavePoint() method of DatabaseMetaData interface.
+/*Sample Syntax*/
+DatabaseMetaData _databasemd=con.getMetaData();
+if(_databasemd.supportSavePoint())
+{
+System.out.println("Current Driver Support SavePoint");
+}
+else
+{
+System.out.println("Current Driver Does Not Support SavePoint");
+}	
+
+Note:
+Multiple savepoints can exist within a single transaction. 
+Savepoints are useful for implementing complex error recovery in database applications.
+
+---------------
+
+/*SavePoint Example : setSavePoint, rollback SavePoint*/
+import java.sql.DatabaseMetaData;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Savepoint;
+
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.Statement;
+
+public class SavePointExample {
+	
+	public static void main(String[] args) {
+		Connection conn=null;
+		Statement stmt  =null;
+		ResultSet rs_1 = null;
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			conn=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root","root");
+			conn.setAutoCommit(false);
+			stmt = (Statement) conn.createStatement();			
+			DatabaseMetaData _databasemd=conn.getMetaData();
+			if(_databasemd.supportsSavepoints())
+			{
+			System.out.println("Current Driver Support SavePoint");
+			try{
+				stmt.executeUpdate("DELETE * FROM EMPLOYEE where first_name='A' ");  
+				Savepoint sp = conn.setSavepoint();
+				stmt.executeUpdate("INSERT INTO EMPLOYEE VAUES(10,'B','BB)");
+				conn.rollback(sp);
+				conn.commit();
+			}catch(Exception e){
+				/*if any error rollback*/
+				conn.rollback();
+			}
+			}
+			else
+			{
+			System.out.println("Current Driver Does Not Support SavePoint");
+			}
+			
+		}catch(ClassNotFoundException cnfe){
+			System.out.println(cnfe.getMessage());
+		}catch(SQLException sqle){
+			System.out.println(sqle.getMessage());
+		}
+		
+	}
+
+}
+
+---------------	

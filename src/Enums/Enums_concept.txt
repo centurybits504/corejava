@@ -1,0 +1,24 @@
+//The enum can be defined within or outside the class because it is similar to a class.
+//Enums  with Iteration
+
+
+
+/*
+ An enum is a data type. Enums can be thought of a classes with fixed set of constants.
+  
+  Points to remember for Enum:
+  The enum constants are static and final implicitely.
+  enum can have fields(non-static,static,final,static with final), constructors and methods.
+  The enum can be defined within or outside the class because it is similar to a class.
+  enum may implement many interfaces but cannot extend any class because it internally extends Enum class.
+  enums also used in constants
+ */
+
+//INTERNAL CONSTANT FIELD DECLARATION 
+//public static final Days MONDAY = new Days("MONDAY", 0); 
+//public static final Days SUNDAY = new Days("SUNDAY", 6); 
+
+
+
+//The enum can be defined within or outside the class because it is similar to a class.
+

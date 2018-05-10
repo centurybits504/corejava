@@ -1,0 +1,372 @@
+Re: Can interfaces have constructors?
+No, interfaces cannot have constructors, then what is the use of an interface if we can keep constructors in Interfaces. 
+
+Abstract class can have a constructor. but u cannot access it thru the object, since u cannot create an object of the abstract class, but can only get the reference, but using a reference we cannot access the constructor. 
+so, if u want to access the constructor create a sub class and extend the abstract class which is having the constructor.
+
+Ex: 
+package com.sb;
+public abstract class Abs1 {
+public Abs1(){
+System.out.println("In Abs1()");
+}
+}
+
+package com.sb;
+public class Test5 extends Abs1{
+public static void main(String args[]){
+Test5 obj=new Test5();
+}
+}
+
+
+``````
+"why interface does not have coding and constructors in java?"?
+1.what is the perpuce of interface in java?
+
+2. constructors are not used in the interface why so if we use then what is the results?
+
+3. what is difference between package and interface?
+
+4. if coding is done in interface what is results?
+
+5.how the interface program files can be imported into the other java interface program files?
+
+6.how the interface can be an abstract?
+
+7.An abstract class can have the constructor?
+
+
+A::::
+
+
+1. Need of interface
+*************************
+The most non-technical explanation of interfaces is to define behavior i.e. define methods without implementation. Classes that implements interface must have all methods defined in interface. Constants are also define in the interface in order that it can be available for all class that implement it.
+
+By implementing the methods; we are actually sketching the behavior. If Vehicle is the main class, the subclasses can be Mercedes, BMW, Truck, Motorbike etc. but the interfaces will be the one to define behavior. So interface can be called vehicle behavior and can have methods like turnLeft(), turnRight(), accelerate(), decelerate() etc.
+for each of its subclasses say Mercedes, BMW, Ford, Truck, Motorbike the methods can be implemented differently as per the class type.
+
+public interface Vehicle {
+
+public void turnLeft( float degree ) throws VehicleException;
+public void turnRight( float degree ) throws VehicleException;
+public void accelerate( float increase ) throws VehicleException;
+public void decelerate( float decrease ) throws VehicleException;
+
+}
+
+In java multiple inheritance is possible only thru interface. Class can extend only one class at a time.
+
+
+2. Missing constructors in interface
+******************************...
+
+A Java Interface is a collection of methods only. An interface does not contain any properties. Interfaces are commonly used as a way of enforcing policy. An interface cannot be constructed. It can only be implemented or declared by the implementing class.
+
+Important Note: A subclass can implement multiple interfaces, but can only inherit from one superclass.
+
+Abstract Interface's methods only contain a signature of the method. The body of the method must be implemented in the implementing class.
+Note that all methods in an Interface are implicitly abstract. Thus the abstract keyword in the method declaration is optional.
+
+In brief, interface doesn't create object thus implementation is missing. Methods are present with signature without implementation.So interface don't have constructor.
+
+
+Example
+
+// File ipizzaStore
+public interface IpizzaStore {
+// Keyword abstract is optional here
+public abstract void run();
+}
+
+// File IPizzaHut.java
+public class IPizzaHut implements IpizzaStore {
+public void run() {
+System.out.println("Pizza Hut");
+}
+}
+
+// File INancys.java
+public class INancys implements IpizzaStore {
+public void run() {
+System.out.println("Nancys");
+}
+}
+
+// File IMystores.java
+public class IMyStores {
+public static void main(String[] args) {
+// The one and only Interface IPizzaStore variable
+IpizzaStore myStore;
+
+// Set myStore to PizzaHut
+myStore = new IPizzaHut();
+myStore.run();
+
+// Set myStore to Nancys
+myStore = new INancys();
+myStore.run();
+}
+}
+
+
+3 difference between package and interface
+******************************...
+An interface is a template or outline that specifies signature of methods. implement ion of methods are not provided by interface, instead class that use interface implements each c methods specified by the interface.
+
+public interface Fruit {
+public boolean isEatable();
+public String getName();
+}
+
+public class Banana implements Fruit {
+public boolean isEatable() {
+return true;
+}
+public String getName() {
+return "Banana";
+}
+}
+
+
+Packages are container. Java interfaces and classes are grouped into packages
+
+Packages are nothing more than the way we organize files into different directories according to their functionality, usability as well as category they should belong to.
+
+Basically, files in one directory (or package) would have different functionality from those of another directory. For example, files in java.io package do something related to I/O, but files in java.net package give us the way to deal with the Network. In GUI applications, it's quite common for us to see a directory with a name "ui" (user interface), meaning that this directory keeps files related to the presentation part of the application. On the other hand, we would see a directory called "engine", which stores all files related to the core functionality of the application instead.
+
+Packaging also help us to avoid class name collision when we use the same class name as that of others. For example, if we have a class name called "Vector", its name would crash with the Vector class from JDK. However, this never happens because JDK use java.util as a package name for the Vector class (java.util.Vector). So our Vector class can be named as "Vector" or we can put it into another package like com.mycompany.Vector without fighting with anyone. The benefits of using package reflect the ease of maintenance, organization, and increase collaboration among developers. Understanding the concept of package will also help us manage and use files stored in jar files in more efficient ways.
+
+4 if coding is done in interface what is results
+******************************...
+
+According to java grammatical rule it will give you error
+
+interface IntStack {
+void push(int item); // stores an item
+int pop(); // retrieve an item
+void calc() {
+int num=2;
+int tot=0;
+tot=num+num;
+System.ot.println(tot);
+}
+}
+
+class tryinterface {
+public static void main(String[] args) {
+IntStack ob = new InStack();
+calc();
+System.out.println("Hello World!");
+}
+}
+
+a. As per rule to call method one need object. which is not possible in interface, because interface don't have constructor.
+b. you can call method by defining it static but coding part is not approved by java.
+
+c above all your question is not proper. its rule. when you create object in memory form class you have coding part to implement. while interface is depending upon class for coding .
+
+5.interface program files can be imported into the other java
+******************************...
+interface program files
+***************************
+Use Package statement
+
+6. Abstract interface
+***************************
+Firstly, an interface is abstract. That means you cannot have any implementation in an interface. All the methods declared in an interface are abstract methods or signatures of the methods.
+interface means abstract only. You need to know difference between abstract class and interface.
+
+Interface is completely abstract while abstract class is partially abstract
+
+http://forum.java.sun.com/thread.jspa?th…
+http://mindprod.com/jgloss/interfacevsab…
+http://www.jguru.com/faq/view.jsp?eid=13…
+http://www.sap-img.com/java/when-we-go-f…
+
+What is the difference between interface and abstract class?
+
+* interface contains methods that must be abstract; abstract class may contain concrete methods.
+* interface contains variables that must be static and final; abstract class may contain non-final and final variables.
+* members in an interface are public by default, abstract class may contain non-public members.
+* interface is used to "implements"; whereas abstract class is used to "extends".
+* interface can be used to achieve multiple inheritance; abstract class can be used as a single inheritance.
+* interface can "extends" another interface, abstract class can "extends" another class and "implements" multiple interfaces.
+* interface is absolutely abstract; abstract class can be invoked if a main() exists.
+* interface is more flexible than abstract class because one class can only "extends" one super class, but "implements" multiple interfaces.
+* If given a choice, use interface instead of abstract class.
+
+n abstract class can have instance methods that implement a default behavior. An Interface can only declare constants and instance methods, but cannot implement default behavior and all methods are implicitly abstract. An interface has all public members and no implementation. An abstract class is a class which may have the usual flavors of class members (private, protected, etc.), but has some abstract methods.
+
+7.An abstract class can have the constructor?
+******************************...
+Yes. Contstructors don't create an instance of the class. They're called as part of the object creation process. Their job is to initialize the object's instance variables.
+
+For every class (except Object, which doesn't have a parent class), the class' constructor calls the parent's constructor--either explicitly or implicitly.
+
+Abstract classes can contain abstract and concrete methods. Abstract classes cannot be instantiated directly i.e. we cannot call the constructor of an abstract class directly nor we can create an instance of an abstract class by using
+“Class.forName().newInstance()...
+
+(Here we get java.lang.InstantiationExcepti...
+However, if we create an instance of a class that extends an Abstract class, compiler will initialize both the classes. Here compiler will implicitly call the constructor of the Abstract class. Any class that contain an abstract method must be declared “abstract” and abstract methods can have definitions only in child classes. By overriding and customizing the abstract methods in more than one subclass makes “Polymorphism” and through Inheritance we define body to the abstract methods.
+Basically an abstract class serves as a template. Abstract class must be extended/subclassed for it to be implemented. A class may be declared abstract even if it has no abstract methods. This prevents it from being instantiated. Abstract class is a class that provides some general functionality but leaves specific implementation to its inheriting classes.
+
+Example of Abstract class:
+
+abstract class AbstractClassExample{
+
+protected String name;
+public String getname() {
+return name;
+}
+public abstract void function();
+}
+
+Example: Vehicle is an abstract class and Bus Truck, car etc are specific implementations
+
+No! You cannot make an instance of an abstract class. An abstract class has to be sub-classed. If you have an abstract class and you want to use a method which has been implemented, you may need to subclass that abstract class, instantiate your subclass and then call that method.
+Source(s):
+
+http://www.artima.com/interfacedesign/wh…
+http://tinf2.vub.ac.be/~dvermeir/java/ot…
+
+
+`````
+
+Java Abstract Class and Interface Interview Questions
+
+What is the difference between Abstract class and Interface
+Or
+When should you use an abstract class, when an interface, when both?
+Or
+What is similarities/difference between an Abstract class and Interface?
+Or
+What is the difference between interface and an abstract class?
+1. Abstract class is a class which contain one or more abstract methods, which has to be implemented by sub classes. An abstract class can contain no abstract methods also i.e. abstract class may contain concrete methods. A Java Interface can contain only method declarations and public static final constants and doesn't contain their implementation. The classes which implement the Interface must provide the method definition for all the methods present.
+
+2. Abstract class definition begins with the keyword "abstract" keyword followed by Class definition. An Interface definition begins with the keyword "interface".
+
+3. Abstract classes are useful in a situation when some general methods should be implemented and specialization behavior should be implemented by subclasses. Interfaces are useful in a situation when all its properties need to be implemented by subclasses
+
+4. All variables in an Interface are by default - public static final while an abstract class can have instance variables.
+
+5. An interface is also used in situations when a class needs to extend an other class apart from the abstract class. In such situations its not possible to have multiple inheritance of classes. An interface on the other hand can be used when it is required to implement one or more interfaces. Abstract class does not support Multiple Inheritance whereas an Interface supports multiple Inheritance.
+
+6. An Interface can only have public members whereas an abstract class can contain private as well as protected members.
+
+7. A class implementing an interface must implement all of the methods defined in the interface, while a class extending an abstract class need not implement any of the methods defined in the abstract class.
+
+8. The problem with an interface is, if you want to add a new feature (method) in its contract, then you MUST implement those method in all of the classes which implement that interface. However, in the case of an abstract class, the method can be simply implemented in the abstract class and the same can be called by its subclass
+
+9. Interfaces are slow as it requires extra indirection to to find corresponding method in in the actual class. Abstract classes are fast
+
+10.Interfaces are often used to describe the peripheral abilities of a class, and not its central identity, E.g. an Automobile class might
+implement the Recyclable interface, which could apply to many otherwise totally unrelated objects.
+
+Note: There is no difference between a fully abstract class (all methods declared as abstract and all fields are public static final) and an interface.
+
+Note: If the various objects are all of-a-kind, and share a common state and behavior, then tend towards a common base class. If all they 
+share is a set of method signatures, then tend towards an interface.
+
+Similarities: 
+Neither Abstract classes nor Interface can be instantiated.
+
+What does it mean that a method or class is abstract?
+
+An abstract class cannot be instantiated. Only its subclasses can be instantiated. A class that has one or more abstract methods must be declared abstract. A subclass that does not provide an implementation for its inherited abstract methods must also be declared abstract. You indicate that a class is abstract with the abstract keyword like this:
+
+    public abstract class AbstractClass
+
+Abstract classes may contain abstract methods. A method declared abstract is not actually implemented in the class. It exists only to be overridden in subclasses. Abstract methods may only be included in abstract classes. However, an abstract class is not required to have any abstract methods, though most of them do. Each subclass of an abstract class must override the abstract methods of its superclasses
+or itself be declared abstract. Only the method’s prototype is provided in the class definition. Also, a final method can not be abstract and vice versa. Methods specified in an interface are implicitly abstract. 
+. It has no body. For example,
+
+public abstract float getInfo()
+
+What must a class do to implement an interface?
+
+The class must provide all of the methods in the interface and identify the interface in its implements clause.
+
+What is an abstract method?
+
+An abstract method is a method whose implementation is deferred to a subclass.
+
+What is interface? How to support multiple inhertance in Java?
+
+Or
+
+What is a cloneable interface and how many methods does it contain?
+
+An Interface are implicitly abstract and public. Interfaces with empty bodies are called marker interfaces having certain property or behavior. Examples:java.lang.Cloneable,java.io.Serializable,java.util.EventListener. An interface body can contain constant declarations, method prototype declarations, nested class declarations, and nested interface declarations.
+
+Interfaces provide support for multiple inheritance in Java. A class that implements the interfaces is bound to implement all the methods defined in Interface.
+Example of Interface:
+public interface sampleInterface {
+public void functionOne();
+
+public long CONSTANT_ONE = 1000;
+}
+
+What is an abstract class?
+Or
+Can you make an instance of an abstract class?
+
+Abstract classes can contain abstract and concrete methods. Abstract classes cannot be instantiated directly i.e. we cannot call the constructor of an abstract class directly nor we can create an instance of an abstract class by using “Class.forName().newInstance()” (Here we get java.lang.InstantiationException). However, if we create an instance of a class that extends an Abstract class, compiler will initialize both the classes. Here compiler will implicitly call the constructor of the Abstract class. Any class that contain an abstract method must be declared “abstract” and abstract methods can have definitions only in child classes. By overriding and customizing the abstract methods in more than one subclass makes “Polymorphism” and through Inheritance we define body to the abstract methods. Basically an abstract class serves as a template. Abstract class must be extended/subclassed for it to be implemented. A class may be declared abstract even if it has no abstract methods. This prevents it from being instantiated. Abstract class is a class that provides some general functionality but leaves specific implementation to its inheriting classes.
+
+Example of Abstract class:
+
+abstract class AbstractClassExample{
+
+protected String name; 
+public String getname() { 
+return name;
+} 
+public abstract void function();
+}
+
+Example: Vehicle is an abstract class and Bus Truck, car etc are specific implementations
+
+No! You cannot make an instance of an abstract class. An abstract class has to be sub-classed.
+If you have an abstract class and you want to use a method which has been implemented, you may
+need to subclass that abstract class, instantiate your subclass and then call that method.
+
+What is meant by "Abstract Interface"?
+
+Firstly, an interface is abstract. That means you cannot have any implementation in an interface. 
+All the methods declared in an interface are abstract methods or signatures of the methods.
+
+How to define an Interface?
+
+In Java Interface defines the methods but does not implement them. Interface can include constants.
+A class that implements the interfaces is bound to implement all the methods defined in Interface.
+Example of Interface:
+
+public interface SampleInterface {
+public void functionOne();
+
+public long CONSTANT_ONE = 1000; 
+}
+
+Can Abstract Class have constructors? Can interfaces have constructors?
+
+Abstract class's can have a constructor, but you cannot access it through the object, since you cannot instantiate abstract class. To access the constructor create a sub class and extend the abstract class which is having the constructor.
+
+Example
+public abstract class AbstractExample {
+public AbstractExample(){
+System.out.println("In AbstractExample()");
+}
+}
+
+public class Test extends AbstractExample{
+public static void main(String args[]){
+Test obj=new Test();
+}
+}
+
+If interface & abstract class have same methods and those methods contain no implementation, which one would you prefer?
+
+Obviously one should ideally go for an interface, as we can only extend one class. Implementing an interface for a class is very much effective rather than extending an abstract class because we can extend some other useful class for this subclass 
+If you think that an important java interview question is missing or some answers are wrong in the site please contribute it to sriniappl@gmail.com
+

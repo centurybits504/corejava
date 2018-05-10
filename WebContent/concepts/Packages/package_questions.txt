@@ -1,0 +1,15 @@
+Do I need to import java.lang package any time? Why ?
+No. It is by default loaded internally by the JVM.
+
+Can I import same package/class twice? Will the JVM load the package twice at runtime?
+One can import the same package or same class multiple times. Neither compiler nor JVM complains
+abt it. And the JVM will internally load the class only once no matter how many times you import the
+same class.
+
+What is the default package?
+java.lang.*; package
+
+What is exception occur when declared package does not match expected packege?
+java.lang.Error: Unresolved compilation problem
+
+

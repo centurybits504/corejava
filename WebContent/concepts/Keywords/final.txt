@@ -1,0 +1,44 @@
+Final Keyword:
+
+Final can be applied to 
+					variables, 
+					classes, 
+					methods
+
+If you apply final to any variable, you cannot change the value of final variables.
+If you apply final to any class, you cannot extend it.
+If you apply final to any method, you cannot override the method.
+
+Point to remember:
+Final method is inherited, but cann't override.
+A final variable that is n't initialized at the time of declaration is known as blank final variable (or) unintialized final variable and it can be initialized in constructor (or) instance-block.
+A static final variable that is n't initialized at the time of declaration is known ad static blank final variable and it can be initialized only in static block.
+If you decalre  any parameter as final, you cannot change the value of that parameter.
+We cannot declare a constructor as final, because constructor is never inherited.
+
+
+---------------
+programs
+---------------
+Why we cannot change the value of final variable?
+
+Can we change the final variables which are immutable?
+In java, a final variable can still be manipulated unless it's immutable.
+It means if our final variable is reference type (i.e not a primitive type like int)then it's only the reference that cannot be changed, But the fields of the object it refers to can still be changed, if the class allows it.
+For example:
+	final StringBuffer str = new StringBuffer();//Here str is n't primitive
+	str.append("A");
+	str.append("AA");//changing the content of field
+	
+Why we cannot cannot extend final class?
+
+Why we cannot override final methods?
+
+why constructors cannot be final?
+When we declare a method as final, it means we cannot override it.
+By Java Language Specification(JLS) definition, constructor's cannot be overriden.
+So making a constructor final is not required.
+
+
+		
+	

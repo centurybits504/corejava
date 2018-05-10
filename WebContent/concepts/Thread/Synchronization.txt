@@ -1,0 +1,25 @@
+Synchronization:
+In a multi-threaded environment when more than one threads are trying to access a shared resource(modify, write) we need to have some mechanism to ensure that the resource will be used only by one thread at a time. 
+The process by which it is ensured is called synchronization.
+
+In java to achieve synchronization we use concept called "Monitor".
+Every object created in java is associated with monitor. Monitor is a also called as "Mutually Exclusive Lock"(mutex).
+At any given time Only one thread can own the monitor.
+
+Before any thread executes the code which is with in a synchronized method (or) synchronized block compiler provides instructions to acquire the lock on the specified object.
+
+"synchronized" keyword is used for Synchronization in java.
+
+We can use synchronized keyword for,
+	Methods
+	Blocks
+
+We can use synchronized keyword  in four different ways.
+	1) For a instance method 
+	2) For a code block inside a instance method
+	3) For static method 
+	4) For a code block inside a static method
+
+
+	
+	

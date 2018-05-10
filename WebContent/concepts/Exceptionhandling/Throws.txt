@@ -1,0 +1,2 @@
+Throws
+throws is used when the programmer doesn't want to handle the exception and throw it out of a method.

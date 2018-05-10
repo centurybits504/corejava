@@ -1,0 +1,249 @@
+<html><head><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="StyleSheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="wrapper"><br>
+
+<div class="title">
+<pre style='color:#000000;background:#ffffff;'><span class="prgname" style='color:#3f7f59; '><b>/*    Abstract keyword  Example */</b></span><br>
+
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>package</span><span style='color:#7f0055; '> Keywords</span><span style='color:#7f0055; '>;</span>
+
+<span style='color:#3f7f59; '>/*Abstract keyword Example*/</span>
+<span style='color:#7f0055; font-weight:bold; '>abstract</span> <span style='color:#7f0055; font-weight:bold; '>class</span> Abstract_5{
+	
+	<span style='color:#3f7f59; '>/*astract class*/</span>
+	<span style='color:#7f0055; font-weight:bold; '>abstract</span> <span style='color:#7f0055; font-weight:bold; '>void</span> display();
+	
+	<span style='color:#3f7f59; '>/*non-abstract method*/</span>
+	<span style='color:#7f0055; font-weight:bold; '>void</span> print(){
+		<span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"In Abstract_5 ==> print method"</span>);
+	}
+	
+	<span style='color:#3f7f59; '>/*variable declaration and intialization*/</span>
+	<span style='color:#7f0055; font-weight:bold; '>int</span> raw=10,data;
+	
+	<span style='color:#3f7f59; '>/*final variables are allowed*/</span>
+	<span style='color:#7f0055; font-weight:bold; '>final</span> <span style='color:#7f0055; font-weight:bold; '>int</span> info=11;
+	
+	<span style='color:#3f7f59; '>/*static variables are allowed*/</span>
+	<span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>int</span> total;
+	
+	<span style='color:#3f7f59; '>/*cannot  visible in the subclasses*/</span>
+	<span style='color:#7f0055; font-weight:bold; '>private</span> <span style='color:#7f0055; font-weight:bold; '>int</span> sum=1;
+	
+	<span style='color:#3f7f59; '>/*COMPILE TIME ERROR : For abstract methods we should n't provide final */</span>
+	<span style='color:#3f7f59; '>//final abstract void echo();</span>
+	
+	<span style='color:#3f7f59; '>/*non-abstract method with final are allowed, but cannot override*/</span>
+	<span style='color:#7f0055; font-weight:bold; '>final</span> <span style='color:#7f0055; font-weight:bold; '>void</span> cout(){
+		<span style='color:#3f7f59; '>//method body</span>
+	}
+	<span style='color:#3f7f59; '>/*protected variables are allowed*/</span>
+	<span style='color:#7f0055; font-weight:bold; '>protected</span> <span style='color:#7f0055; font-weight:bold; '>int</span> count=2;
+	
+	
+	<span style='color:#3f7f59; '>/*constructors are allowed*/</span>
+	<span style='color:#7f0055; font-weight:bold; '>String</span> name;
+	Abstract_5(){
+		<span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"In Constructor of Abstract_5"</span>);
+	}
+	Abstract_5(<span style='color:#7f0055; font-weight:bold; '>String</span> name){
+		<span style='color:#7f0055; font-weight:bold; '>this</span>.name = name;
+	}
+}
+
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> AbstractKeywordExample <span style='color:#7f0055; font-weight:bold; '>extends</span> Abstract_5{
+	<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args) {
+	<pre style='color:#000000;background:#ffffff;'> <span style='color:#7f0055; font-weight:bold; '>new</span> AbstractKeywordExample().display();</pre>
+	}
+
+	@Override
+	<span style='color:#7f0055; font-weight:bold; '>void</span> display() {
+		<span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"In AbstractKeywordExample Class"</span>);
+	}
+	
+}
+</pre>
+<br><div class="output" style='color:#3f7f59; '><b>Output:&nbsp;&nbsp;   </b>
+In Constructor of Abstract_5
+In AbstractKeywordExample Class
+</div>
+</div>
+<br>
+
+<!-- SOL-->
+<div class="title">
+<pre style='color:#000000;background:#ffffff;'><span class="prgname" style='color:#3f7f59; '><b>/*   Abstract keyword: abstract method in non-abstract class   */</b></span><br>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>package</span><span style='color:#7f0055; '> Keywords</span><span style='color:#7f0055; '>;</span>
+
+<span style='color:#3f7f59; '>/*Abstract keyword: abstract method in non-abstract class*/</span>
+<span style='color:#7f0055; font-weight:bold; '>class</span> Abstract_3{
+<span style='color:#3f7f59; '>/*COMPILE TIME ERROR :  The abstract method display in type Abstract_3 can only be defined by an abstract class*/</span>
+	<span style='color:#7f0055; font-weight:bold; '>abstract</span> <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>void</span> display();
+	 
+}
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> AbstractMethodInClass <span style='color:#7f0055; font-weight:bold; '>extends</span> Abstract_3{
+
+	<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args) {
+	}
+
+}
+</pre>
+
+<br></pre>
+<br><div class="output" style='color:#3f7f59; '><b>Output:&nbsp;&nbsp;   </b>
+Not Available
+</div>
+
+</div>
+<br>
+<!-- EOL--> 
+
+
+<!-- SOL-->
+<div class="title">
+<pre style='color:#000000;background:#ffffff;'><span class="prgname" style='color:#3f7f59; '><b>/*    Abstract Class With Interface  */</b></span><br>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>package</span><span style='color:#7f0055; '> Keywords</span><span style='color:#7f0055; '>;</span>
+
+<span style='color:#7f0055; font-weight:bold; '>interface</span> Interface_01
+{
+	<span style='color:#3f7f59; '>/*all interface methods are by default  public ,abstract*/</span>
+	<span style='color:#7f0055; font-weight:bold; '>void</span> display();
+	<span style='color:#7f0055; font-weight:bold; '>void</span> print();
+}
+<span style='color:#7f0055; font-weight:bold; '>abstract</span> <span style='color:#7f0055; font-weight:bold; '>class</span> Abstract_4 <span style='color:#7f0055; font-weight:bold; '>implements</span> Interface_01{
+	<span style='color:#7f0055; font-weight:bold; '>abstract</span> <span style='color:#7f0055; font-weight:bold; '>void</span>  echo();
+}
+<span style='color:#7f0055; font-weight:bold; '>class</span> MyClass  <span style='color:#7f0055; font-weight:bold; '>extends</span> Abstract_4{
+
+	@Override
+	<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>void</span> display() {
+		<span style='color:#3f7f59; '>// </span><span style='color:#ffffff; background:#808000; '>TODO Auto-generated method stub</span>
+	}
+
+	@Override
+	<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>void</span> print() {
+		<span style='color:#3f7f59; '>// </span><span style='color:#ffffff; background:#808000; '>TODO Auto-generated method stub</span>
+	}
+
+	@Override
+	<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>void</span> echo() {
+		<span style='color:#3f7f59; '>// </span><span style='color:#ffffff; background:#808000; '>TODO Auto-generated method stub</span>
+	}
+	
+}
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> AbstractClassWithInterface{
+
+	<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args) {
+		Interface_01 interfaceReference = <span style='color:#7f0055; font-weight:bold; '>new</span> MyClass();
+		interfaceReference.display();
+		interfaceReference.print();
+		<span style='color:#3f7f59; '>/*COMPILE TIME ERROR : The method echo() is undefined for the type Interface_01, we can use type-casting like this ((Abstract_4) interfaceReference).echo(); */</span>
+		<span style='color:#3f7f59; '>//interfaceReference.echo();</span>
+	}
+
+	 
+
+}
+</pre>
+<br></pre>
+<br><div class="output" style='color:#3f7f59; '><b>Output:&nbsp;&nbsp;   </b>
+Not Available
+</div>
+</div>
+<br>
+<!-- EOL--> 
+
+<!-- SOL-->
+<div class="title">
+<pre style='color:#000000;background:#ffffff;'><span class="prgname" style='color:#3f7f59; '><b>/*    Providing implementation for abstract method    */</b></span><br>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>package</span><span style='color:#7f0055; '> Keywords</span><span style='color:#7f0055; '>;</span>
+
+<span style='color:#3f7f59; '>/*Abstract Keyword   :  providing implementation for abstract method   */</span>
+<span style='color:#7f0055; font-weight:bold; '>abstract</span> <span style='color:#7f0055; font-weight:bold; '>class</span> Abstract_2
+{
+	<span style='color:#7f0055; font-weight:bold; '>abstract</span> <span style='color:#7f0055; font-weight:bold; '>void</span> display();<span style='color:#3f7f59; '>//by default abstract methods are public </span>
+	<span style='color:#7f0055; font-weight:bold; '>void</span> print(){
+		<span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"In Abstract_2 print()"</span>);
+	}
+	
+}
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> AbstractMethodInAbstractClassOverridingMethod  <span style='color:#7f0055; font-weight:bold; '>extends</span> Abstract_2{
+	<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args) {
+		<span style='color:#7f0055; font-weight:bold; '>new</span> AbstractMethodInAbstractClassOverridingMethod().display();
+		<span style='color:#7f0055; font-weight:bold; '>new</span> AbstractMethodInAbstractClassOverridingMethod().print();
+	}
+	@Override
+	<span style='color:#7f0055; font-weight:bold; '>void</span> display() {
+		 <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Implementation for  Abstract_2 class method, display()"</span>);
+		
+	}
+	
+	<span style='color:#7f0055; font-weight:bold; '>void</span> print(){
+		<span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Overriding  Abstract_2 class method, print()"</span>);
+	}
+}
+</pre>
+<br></pre>
+<br><div class="output" style='color:#3f7f59; '><b>Output:&nbsp;&nbsp;   </b>
+Not Available
+</div>
+</div>
+<br>
+<!-- EOL--> 
+
+<!-- SOL-->
+<div class="title">
+<pre style='color:#000000;background:#ffffff;'><span class="prgname" style='color:#3f7f59; '><b>/*    Providing implementation for public, protected, private abstract method's    */</b></span><br>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>package</span><span style='color:#7f0055; '> Keywords</span><span style='color:#7f0055; '>;</span>
+
+<span style='color:#3f7f59; '>/*Abstract Keyword   :  providing implementation for public, protected, private abstract method's   */</span>
+<span style='color:#7f0055; font-weight:bold; '>abstract</span> <span style='color:#7f0055; font-weight:bold; '>class</span> Abstract_3{
+	<span style='color:#7f0055; font-weight:bold; '>abstract</span> <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>void</span> display();
+	<span style='color:#7f0055; font-weight:bold; '>abstract</span> <span style='color:#7f0055; font-weight:bold; '>protected</span> <span style='color:#7f0055; font-weight:bold; '>void</span> print();
+	<span style='color:#3f7f59; '>/*abstract methods should n't be private ,because  private methods  can't inherite */</span>
+	<span style='color:#7f0055; font-weight:bold; '>abstract</span> <span style='color:#7f0055; font-weight:bold; '>void</span> echo();
+	<span style='color:#3f7f59; '>//abstract private void cout();</span>
+
+	 
+}
+
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> AbstractkeywordOverridingPublicProtectedPrivateMethods <span style='color:#7f0055; font-weight:bold; '>extends</span> Abstract_3{
+
+	<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args) {
+		<span style='color:#7f0055; font-weight:bold; '>new</span> AbstractkeywordOverridingPublicProtectedPrivateMethods().display();
+		<span style='color:#7f0055; font-weight:bold; '>new</span> AbstractkeywordOverridingPublicProtectedPrivateMethods().print();
+
+	}
+
+	@Override
+	<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>void</span> display() {
+		 <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Implementation for  Abstract_3 class method, display()"</span>);
+	}
+
+	@Override
+	<span style='color:#7f0055; font-weight:bold; '>protected</span> <span style='color:#7f0055; font-weight:bold; '>void</span> print() {
+		 <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Implementation for  Abstract_3 class method, print()"</span>);
+	}
+
+	@Override
+	<span style='color:#7f0055; font-weight:bold; '>void</span> echo() {
+		 <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Implementation for  Abstract_3 class method, echo()"</span>);
+	}
+
+	 
+	
+}
+<br></pre>
+<br></pre>
+<br><div class="output" style='color:#3f7f59; '><b>Output:&nbsp;&nbsp;   </b>
+Not Available
+</div>
+</div>
+<br>
+<!-- EOL--> 
+</div>
+<br><br><br><br><br><br>
+</body>
+</html>

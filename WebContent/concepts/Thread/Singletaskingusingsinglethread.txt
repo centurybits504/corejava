@@ -1,0 +1,2 @@
+Single Tasking Using Single Thread:
+A thread can execute single task 

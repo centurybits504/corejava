@@ -1,0 +1,59 @@
+Stack Class:
+
+The Stack class represents a last-in-first-out (LIFO) stack of objects.
+Stack extends the Vector and implements the Iterable<E>, Collection<E>, RandomAccess, Serializable, Cloneable interfaces.
+Stack extends class Vector with five operations that allow a vector to be treated as a stack. 
+When a stack is first created, it contains no items. 
+
+
+
+All Implemented Interfaces are:
+    Serializable, Cloneable, Iterable<E>, Collection<E>, List<E>, RandomAccess
+
+/*Constructors Of Stack Class*/	
+Stack()
+Creates an empty Stack.
+
+/*Methods Of Stack Class*/
+boolean 	empty()
+Tests if this stack is empty.
+E 	peek()
+Looks at the object at the top of this stack without removing it from the stack.
+E 	pop()
+Removes the object at the top of this stack and returns that object as the value of this function.
+E 	push(E item)
+Pushes an item onto the top of this stack.
+int 	search(Object o)
+Returns the 1-based position where an object is on this stack.
+
+
+
+--------------------------
+
+/*Stack Example*/
+import java.util.*;
+
+public class StackExample {
+   public static void main(String args[]) {
+   Stack stack = new Stack();
+   stack.push("A");
+   stack.push("B");
+   stack.push("C");
+   
+   Iterator<String> it = stack.iterator();
+	while (it.hasNext()){
+		System.out.println(it.next());
+		}
+	}    
+}
+---------------------
+What is the difference between LinkedList  and stack?
+Inserting and deletion of elements from any where is possible in case of a LinkedList.
+Insertion and deletion of elements only from the top of the Stack  is possinble.
+LinkedList is used to store and retrieve data.
+Stack is generally used for the purpose of expression.
+
+
+
+	
+ 

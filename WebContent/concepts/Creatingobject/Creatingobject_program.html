@@ -1,0 +1,66 @@
+<font color=\"#0091EA\"><b>/*using new keyword*/</b></font> <br>
+public class ObjectCreation_2 {<br>
+	void dispaly()<br>
+	{<br>
+		System.out.println(\"In dispaly method\");<br>
+	}	<br>
+	public static void main(String[] args) {<br>
+		ObjectCreation_2 obj=new ObjectCreation_2();<br>
+		obj.dispaly();<br>
+	}<br>
+}<br>
+<br><br><br><br><br><br>
+
+
+<font color=\"#0091EA\"><b>/*Creating object using factory method.*/</b></font> <br>
+class ObjectCreation_4_1<br>
+{<br>
+	public static  ObjectCreation_4_1 obj;<br>
+	static ObjectCreation_4_1 create()<br>
+	{<br>
+		obj = new ObjectCreation_4_1();<br>
+		return obj;<br>
+	}<br>
+	void display()<br>
+	{<br>
+		System.out.println("\In display method\");<br>
+	}<br>
+}<br>
+public class ObjectCreation_4 {<br>
+	public static void main(String[] args) {<br>
+		ObjectCreation_4_1 obj1 = ObjectCreation_4_1.create();<br>
+		obj1.display();<br>
+	}<br>
+}<br>
+<br><br><br><br><br>
+
+<font color=\"#0091EA\"><b>/*using clone() of Object class.*/</b></font> <br>
+public class ObjectCreation_3 implements Cloneable {<br>
+	void dispaly()<br>
+	{<br>
+		System.out.println(\"In dispaly method\");<br>
+	}<br>
+	public static void main(String[] args) throws CloneNotSupportedException {<br>
+		 ObjectCreation_3 obj=new ObjectCreation_3();<br>
+		ObjectCreation_3 obj1=(ObjectCreation_3) obj.clone();<br>
+		obj1.dispaly();<br>
+	}<br>
+}
+/*A class implements the Cloneable interface to indicate to the java.lang.Object.clone() method that it is legal for that method to make a field-for-field copy of instances of that class*/<br>
+<br><br><br><br><br>
+
+<font color=\"#0091EA\"><b>/*Object creation using Class.forName() in java*/</b></font> <br>
+public class ObjectCreation_1 {<br>
+	void display()<br>
+	{<br>
+		System.out.println(\"In display method\");<br>
+	}<br>
+	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException {<br>
+	/*Returns the Class object associated with the class or interface with the given string name*/	 <br>
+	Class<?> t = Class.forName(\"Java_Oops.ForNameObjectCreation\");<br>
+	ObjectCreation_1 obj = ((ObjectCreation_1) t.newInstance());<br>
+	 				 obj.display();	<br>
+					 }<br>
+}<br>
+/*Instances of the class Class represent classes and interfaces in a running Java application. */<br>
+<br><br><br><br><br>

@@ -1,0 +1,59 @@
+
+ What is the best way to create thread class and Why?
+ Using Runnable interface, because if our class is already extending any other class, then we're left with only one choice i.e, by implementing Runnable interface.
+
+ How to check if a thread holds a lock (or) not?
+ java.lang.Thread class have holdsLock(), which returns true if the thread holds lock on specified object.
+
+ What is thread-safety?
+
+ What happens when a exception occures in a thread?
+
+ Why wait(), notify(), notifyAll() are called from synchronized block?
+
+
+ What is Semaphore?
+ Semaphore is a memory location, whose value can be tested & set by more than one thread.
+ Semaphore allows multiple threads to synchronize their execution.
+
+ Why suspend() and resume() methods are deprecated?
+ Why destroy() methods is deprecated?
+ Why stop() method is deprecated?
+ How to interrupt a thread
+ sleep() Vs wait()
+ sleep() Vs yield()
+ notify() Vs notifyAll()
+ wait() Vs wait(long timeout)
+ synchronized Vs volatile
+ What happen if we don�t override run method?
+ What happen if we override start method?
+
+ Can 2 threads can enter non-static method at same time?
+ No
+ Can 2 threads can enter static method at same time?
+ No
+
+
+ volatile Vs atomic ?
+ Explain about Blocking method?
+ interrupt() Vs isInterrupted() Vs interrupted()?
+ What happens if you submit a task when the queue of the thread pool is already filled?It will throw exception(RejectedExecutionException)
+
+ What happens if a thread throws an Exception occurs?
+ What happens if a thread throws an Exception inside synchronized block?
+ How to share data between two thread in Java? shared object (or) concurrent data structure?
+
+
+
+
+
+ ---------------------
+ Why is always a higher-priority thread does not run any faster than a lower-priority thread?
+ As an absolute value, a priority is meaningless; a higher-priority thread does not run any faster than a lower-priority thread if it is the only thread running. 
+ Instead, a thread priority is used to decide when to switch from one running thread to the next. This is called a context switch. 
+ The rules that determine when a context switch takes place are simple:
+ A thread can voluntarily relinquish control. This is done by explicitly yielding, sleeping, or blocking on pending I/O. In this scenario, all other threads are examined, and the highest-priority thread that is ready to run is given the CPU.
+ A thread can be preempted by a higher-priority thread. In this case, a lower-priority thread that does not yield the processor is simply preempted —no matter what it is doing— by a higher-priority thread. Basically, as soon as a higher-priority thread wants to run, it does. This is called preemptive multitasking
+
+
+ ----------------------

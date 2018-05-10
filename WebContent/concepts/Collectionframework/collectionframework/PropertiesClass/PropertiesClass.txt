@@ -1,0 +1,96 @@
+Properties Class:
+Properties class extends Hashtable class.
+Properties class is used to maintain list of value in which both key and value are String.
+In our project if any things which changes frequently(like database url, name, password) never use the hard-corded values in hte program.
+Because for every change, we have to re-compile, re-build,re-deploy the application and some time even server restart also required.
+To avoid these we have to configure those inside the properties files and we have to read these values from using code.
+The main advantage of this approach is, if any changes inthe properties files,jsut deployment is enough which is not a business impact to client.
+
+All Implemented Interfaces:Serializable, Cloneable, Map<Object,Object> 
+Direct Known Subclasses: Provider 
+
+Constructors Of Properties Class:
+Properties()
+Creates an empty property list with no default values.
+Properties(Properties defaults)
+Creates an empty property list with the specified defaults.
+
+Methods Of Properties Class:
+String 	getProperty(String key)
+Searches for the property with the specified key in this property list.
+String 	getProperty(String key, String defaultValue)
+Searches for the property with the specified key in this property list.
+void 	list(PrintStream out)
+Prints this property list out to the specified output stream.
+void 	list(PrintWriter out)
+Prints this property list out to the specified output stream.
+void 	load(InputStream inStream)
+Reads a property list (key and element pairs) from the input byte stream.
+void 	load(Reader reader)
+Reads a property list (key and element pairs) from the input character stream in a simple line-oriented format.
+void 	loadFromXML(InputStream in)
+Loads all of the properties represented by the XML document on the specified input stream into this properties table.
+Enumeration<?> 	propertyNames()
+Returns an enumeration of all the keys in this property list, including distinct keys in the default property list if a key of the same name has not already been found from the main properties list.
+void 	save(OutputStream out, String comments)
+Deprecated. 
+This method does not throw an IOException if an I/O error occurs while saving the property list. The preferred way to save a properties list is via the store(OutputStream out, String comments) method or the storeToXML(OutputStream os, String comment) method.
+Object 	setProperty(String key, String value)
+Calls the Hashtable method put.
+void 	store(OutputStream out, String comments)
+Writes this property list (key and element pairs) in this Properties table to the output stream in a format suitable for loading into a Properties table using the load(InputStream) method.
+void 	store(Writer writer, String comments)
+Writes this property list (key and element pairs) in this Properties table to the output character stream in a format suitable for using the load(Reader) method.
+void 	storeToXML(OutputStream os, String comment)
+Emits an XML document representing all of the properties contained in this table.
+void 	storeToXML(OutputStream os, String comment, String encoding)
+Emits an XML document representing all of the properties contained in this table, using the specified encoding.
+Set<String> 	stringPropertyNames()
+Returns a set of keys in this property list where the key and its corresponding value are strings, including distinct keys in the default property list if a key of the same name has not already been found from the main properties list.
+
+-------------------
+/*Properties Class Example*/
+import java.util.Properties;
+import java.util.Set;
+
+public class PropertiesClassExample {
+	public static void main(String[] args) {
+		Properties _properties = new Properties();
+		_properties.put("A", "AA");
+		_properties.put("B", "BB");
+	     
+	     Set<?> set = _properties.keySet();/*<?> */
+	     for(Object object : set)
+	     {
+	         System.out.println("KEY : " + object+",VALUE : "+ _properties.getProperty((String)object) );
+	     }
+	}
+}
+
+
+/*Reading Properties Class Example*/
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
+public class PropertiesFileReadingExample {
+	public static void main(String[] args){
+		Properties _properties = new Properties();
+		InputStream _input = null;
+		try {
+			_input = new FileInputStream("dbconfig.properties");
+			/*Load a properties file*/ 
+			_properties.load(_input);
+			/*Get the property value*/ 
+			System.out.println(_properties.getProperty("DATABASE"));
+			System.out.println(_properties.getProperty("DBUSER"));
+			System.out.println(_properties.getProperty("DBPASSWORD"));
+		} catch (IOException ioe) {
+			ioe.printStackTrace();
+		} 
+	}
+}
+
+-------------------
+

@@ -1,0 +1,132 @@
+RowSet Interface:
+RowSet is introduced in java 5.0 version.
+RowSet is the wrapper to ResultSet Interface.
+A RowSet is an object that encapsulates a set of rows from either java Database Connectivity (JDBC) result sets (or) tabular data sources. 
+RowSets support component-based development models like JavaBeans, with a standard set of properties and an event notification mechanism.
+
+All Superinterfaces:
+    AutoCloseable, ResultSet, Wrapper
+All Known Subinterfaces:
+    CachedRowSet, FilteredRowSet, JdbcRowSet, JoinRowSet, SyncResolver, WebRowSet 
+<image>RowSet Classes in JDBC Java.png<image>	
+	
+public interface RowSet	extends ResultSet{
+}
+
+Some of the features of RowSet interface are:
+RowSet interface extends the ResultSet interface to provide support for the JavaBean component model.
+Another feature of RowSet is that it supports event listeners. We attach listeners to RowSet object to listen for events like change in cursor location, change in row or change in the entire RowSet.
+
+There are two types of RowSet present in JDBC 4.1 API:
+1) Connected: 
+	A connected RowSet makes a connection with database and maintain that connection throughout it's life cycle.
+2) Disconnected:
+	A Disconnected RowSet connects to database, get the data and then close the connection.
+	Disconnected RowSet doesn't prevent from working with data though, you can still change data in disconnected state, but to commit, connection needs to be re-established by RowSet.
+	
+Advantages Of RowSet Interface:
+1: RowSet is scrollable and updatable bydefault.
+2: RowSet is easy and flexible to use.
+
+Some of the methods are:
+void 	execute() : Fills this RowSet object with data.
+String 	getDataSourceName()
+Retrieves the logical name that identifies the data source for this RowSet object.
+String 	getCommand()
+Retrieves this RowSet object's command property.
+int 	getMaxRows()
+Retrieves the maximum number of rows that this RowSet object can contain.
+String 	getPassword()
+Retrieves the password used to create a database connection.
+boolean 	isReadOnly()
+Retrieves whether this RowSet object is read-only.
+void 	setMaxRows(int max)
+Sets the maximum number of rows that this RowSet object can contain to the specified number.
+void 	setUrl(String url)
+Sets the URL this RowSet object will use when it uses the DriverManager to create a connection.
+void 	setUsername(String name)
+Sets the username property for this RowSet object to the given String.
+boolean 	isReadOnly()
+Retrieves whether this RowSet object is read-only.
+void 	removeRowSetListener(RowSetListener listener)
+Removes the specified listener from the list of components that will be notified when an event occurs on this RowSet object.
+void 	setArray(int i, Array x)
+Sets the designated parameter in this RowSet object's command with the given Array value.
+void 	setAsciiStream(int parameterIndex, InputStream x)
+Sets the designated parameter in this RowSet object's command to the given input stream.
+void 	addRowSetListener(RowSetListener listener)
+Registers the given listener so that it will be notified of events that occur on this RowSet object.
+void 	setClob(int i, Clob x)
+Sets the designated parameter in this RowSet object's command with the given Clob value.
+
+--------------
+
+/*RowSet interface Example : JdbcRowSet Class*/
+import java.sql.SQLException;
+import javax.sql.rowset.JdbcRowSet;
+import javax.sql.rowset.RowSetFactory;
+import javax.sql.rowset.RowSetProvider;
+
+public class RowSetInterfaceJdbcRowSetExample {
+	public static void main(String[] args) {
+		String URL = "jdbc:mysql://localhost:3306/test";
+		String USERNAME = "root";
+		String PASSWORD = "root";
+		try {
+        /*create a factory object for RowSet interface*/
+        RowSetFactory rowSetFactory = RowSetProvider.newFactory();
+
+        /*creating JdbcRowSet object from factory*/
+        JdbcRowSet rowSet = rowSetFactory.createJdbcRowSet();
+
+        /*Setting connection properties*/
+        rowSet.setUrl(URL);
+        rowSet.setUsername(USERNAME);
+        rowSet.setPassword(PASSWORD);
+
+        /*Executing SQL Query*/ 
+        rowSet.setCommand("SELECT * FROM Employee");
+        rowSet.execute();
+        System.out.println("ID --  FIRST_NAME -- LAST_NAME -- DEPARTMENT -- SALARY ");
+
+        /*Iterating the  RowSet*/ 
+        while (rowSet.next()) {
+            System.out.println(rowSet.getInt("id") + " -- "
+                    + rowSet.getString("firstname") + " -- "
+                    + rowSet.getString("lasrname") + " -- "
+                    + rowSet.getString("department") + " -- "
+                    + rowSet.getInt("salary"));
+        }
+    } catch (SQLException sqle) {
+        sqle.printStackTrace();
+    }
+	}
+}
+
+
+----------------
+
+What is RowSet?
+RowSet interface extends the ResultSet interface to provide support for the JavaBean component model and can attach listeners to RowSet object to listen for events like change in cursor location, change in row or change in the entire RowSet.
+
+What are the types of RowSet?
+Connected RowSet and Disconnected RowSet according to jdbc4.1 version.
+
+What is the difference between the Connected and Disconnected RowSet interfaces?
+In jdbc4.1 API only JdbcRowSet is Connected Rowset.
+In jdbc4.1 API CachedRowSet, FilteredRowSet, JoinRowSet, SyncResolver, WebRowSet  are "Disconnected" Rowset interfaces.
+
+Connected RowSet's are not serialized.
+Disconnected RowSet's are serialized, so they are suitable for sending over the network.
+
+Disconnected RowSet connected to the database only when they want to read or write, all the times they are disconnected from the database.
+Connected RowSet keep JDBC connection alive all time(throughout it's life cycle).
+
+
+
+
+
+
+
+
+

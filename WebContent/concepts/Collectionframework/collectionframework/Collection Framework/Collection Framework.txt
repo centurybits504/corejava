@@ -1,0 +1,25 @@
+Collection Framework:
+In computer systems, a framework is often a layered structure indicating what kind of programs can or should be built and how they would interrelate.
+
+Collection can be defined as a group where various things are gathered together to form a single unit.
+
+In Java collection can be defined as a container that constitute a group of objects.
+A Collection is simply an object that groups multiple elements into single unit.
+Collection framework first introduced with J2SE version 1.2
+A framework in java provides readymade architecture represents set of classes and interfaces.
+In java collections are defined in the java.util.* package.
+
+Collection framework represents unified architecture for sorting and manipulating group of objects.
+It has,
+		1: interfaces and it's implementations(classes)
+		2: Algorithms
+
+
+		
+		
+What is the need of collection framework in java?
+Arrays are not resizable.
+Java Collections Framework provides lots of different useful data types, such as linked lists (allows insertion anywhere in constant time), resizeable array lists (like Vector but cooler), red-black trees, hash-based maps.
+Java Collections Framework provides abstractions, so you can refer to a list as a List, whether backed by an array list or a linked list; and you can refer to a map/dictionary as a Map, whether backed by a red-black tree or a hashtable.
+In other words, Java Collections Framework allows you to use the right data structure, because one size does not fit all.		
+

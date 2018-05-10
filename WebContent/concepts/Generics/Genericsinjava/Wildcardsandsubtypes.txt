@@ -1,0 +1,46 @@
+Wildcards and Subtypes:
+As we discussed in Generics Inheritance, and Subtypes, generic classes (or) interfaces are not related merely because there is a relationship between their types. 
+However, we can use wildcards to create a relationship between generic classes (or) interfaces.
+
+Consider the following 2 regular(non-generic) classes.
+		class A{
+		/*some code*/
+		}
+		class B extends A{
+		/*some code*/
+		}
+For these classes it would be reasonable to write the following code:
+		B b = new B();
+		A a = b;
+Usage of parent class reference(a) to hold child class object(b)  is considered as polymorphism.
+
+Polymorphism concept is n't applicable to generic types.
+In generics polymorphism concept is applicable only for basetypes but not for parameter-types.
+	List<Integer> _listInt = new ArrayList<Integer>(); /*Integer is the subtype of Number*/
+	List<Number> _listNumber = _listInt; /*compile-time error*/
+
+
+
+What is the relation between List<Integer> and List<Number>?
+	<image> generics-listParent.gif </image>
+Although Integer is the subtype of Number, List<Integer> is not a subtype of List<Number>.
+The common part of List<Number> and List<Integer> is List<?>
+
+Note: List<?> , List<? extends Object> both are same, because 'Object' is the Super class of all.
+		
+In order to create a relationship between these two, List<Integer> and List<Number>	, we can use an upper-bounded wildcard.
+		List<? extends Integer> intList = new ArrayList<Integer>():
+		List<? extends Number> numList = intList;
+Because Integer is a subtype of Number and numList is a list of Number objects, a relationship now exist between intList and numList.
+
+The following diagram shows the relationships between several List classes declared with both upper and lower bounded wildcards.
+	<image>generics-wildcardSubtyping.gif </image>
+A hierarchy of several generic List class declarations.
+
+-----------------------
+
+-----------------------
+
+		
+						
+	

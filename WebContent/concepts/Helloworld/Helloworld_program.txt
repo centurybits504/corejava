@@ -1,0 +1,15 @@
+class HelloWorld{  
+    public static void main(String args[]){  
+     System.out.println("Hello Java, Welcome To Our World..!");  
+    }  
+}
+
+/*Here Class is the keyword, used to declare a class in java.*/
+/*HelloWorld is the name of the class*/
+/*public is the access modifier. It means class is visible to all*/
+/*static is the keyword . Here static is given to the method, so main is static method. static methods are called by the  JVM, it does not require to  any object creation to invoke main method.*/
+/*void is the keyword. void means nothing. Here main method is returning nothing, so we are using return type as void*/
+/*main is not a keyword. It is the name of the method*/
+/*String[] args :  This string array is used to take arguments from command Line*/
+/*System.out.println(): It is used to print the content given between double quotes*/
+

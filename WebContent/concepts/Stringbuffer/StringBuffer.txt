@@ -1,0 +1,21 @@
+StringBuffer Class:
+String Class objects are immutable, hence their content cannot be modified.
+StringBuffer class objects are mutable, so they can be modified.
+Moreover the methods that directly manipulate data of the object are not availabe in String class.
+Such methods are availabe in StringBuffer Class.
+
+Creating StringBuffer Object:
+2 Ways of creating StringBuffer Objects:
+
+1)Creating StringBuffer object with new keyword and passing string object to it.
+	StringBuffer sb = new StringBuffer("Hello");
+
+2)StringBuffer sb = new StringBuffer();
+	sb.append("Hello");	
+
+Methods of StringBuffer:
+	
+	
+	
+
+	

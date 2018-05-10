@@ -1,0 +1,47 @@
+abstract:
+Abstraction is a process of hiding the implementation details and showing only functionality.
+Abstraction is provided to classes and methods.
+The "abstract" keyword is used indicate abstraction.
+
+/*Syntax for abstract Class*/
+abstract class MyAbstract{
+	//body of abstract class
+}
+
+/*Syntax for abstract methods*/
+abstract void MyAbstractMethod(){
+	//body of abstract method
+}
+
+Note:
+1)Abstract class methods are by default public.
+2)Abstract class can have both abstract and non-abstract methods(implementation should be provided).
+3)All abstract methods of abstract class should be provide implementaion in subclass by overriding.
+4)In abstract class, abstract-method's should be declared with abstract keyword.
+5)In abstract class, abstract-method's shouldn't be declare with private keyword.
+6)If you are extending any abstract class that have abstract method, you must either provide the implementation of the method (or) make this class abstract.
+7)Abstract class cannot have final abstract methods(like final abstract void echo(){//body}).
+8)Abstract class can have final non-abstract methods(like final void cout(){//body}). 
+	
+	
+	
+--------------
+
+--------------
+
+
+What is the use of implementing interface with abstract class?
+If normal class(non abstract) implements interface, then we should provide implementation to all methods of interface.
+If abstract class implements interface, then the end user may not be forced to implement all the methods of the interface.
+
+Why abstract method cannot declare with final?
+Final methods cannot be overridden.
+Abstract methods in abstract class must be provided implementation in subclass by overriding.
+So, for abstract methods if we use final, it cannot be inherited to subclass and we cannot provide implementaion by overriding.
+
+
+  
+
+
+
+

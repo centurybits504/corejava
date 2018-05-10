@@ -1,0 +1,91 @@
+HashMap Interface:
+HashMap class extends AbstractMap and implements Map interface.
+
+All Implemented Interfaces:
+    Serializable, Cloneable, Map<K,V> 
+Direct Known Subclasses:
+    LinkedHashMap, PrinterStateReasons 	
+
+HashMap uses a hashtable to store the map. This allows the execution time of get() and put() to remain same.
+HashMap may have one null key and multiple null values.
+HashMap gives an unsorted map.
+In HashMap insertion order is not preserved.
+
+HashMap is the Hash table based implementation of the Map interface. 
+This implementation provides all of the optional map operations, and permits null values and the null key.
+The HashMap class is roughly equivalent to Hashtable, except that it is unsynchronized and permits nulls.
+
+Making HashMap synchronized:	
+Map m = Collections.synchronizedMap(new HashMap(...));	
+
+Constructors Of HashMap:
+HashMap()
+Constructs an empty HashMap with the default initial capacity (16) and the default load factor (0.75).
+HashMap(int initialCapacity)
+Constructs an empty HashMap with the specified initial capacity and the default load factor (0.75).
+HashMap(int initialCapacity, float loadFactor)
+Constructs an empty HashMap with the specified initial capacity and load factor.
+HashMap(Map<? extends K,? extends V> m)
+Constructs a new HashMap with the same mappings as the specified Map.
+
+Methods Of HashMap:
+void 	clear()
+Removes all of the mappings from this map.
+Object 	clone()
+Returns a shallow copy of this HashMap instance: the keys and values themselves are not cloned.
+boolean 	containsKey(Object key)
+Returns true if this map contains a mapping for the specified key.
+boolean 	containsValue(Object value)
+Returns true if this map maps one or more keys to the specified value.
+Set<Map.Entry<K,V>> 	entrySet()
+Returns a Set view of the mappings contained in this map.
+V 	get(Object key)
+Returns the value to which the specified key is mapped, or null if this map contains no mapping for the key.
+boolean 	isEmpty()
+Returns true if this map contains no key-value mappings.
+Set<K> 	keySet()
+Returns a Set view of the keys contained in this map.
+V 	put(K key, V value)
+Associates the specified value with the specified key in this map.
+void 	putAll(Map<? extends K,? extends V> m)
+Copies all of the mappings from the specified map to this map.
+V 	remove(Object key)
+Removes the mapping for the specified key from this map if present.
+int 	size()
+Returns the number of key-value mappings in this map.
+Collection<V> 	values()
+Returns a Collection view of the values contained in this map.
+
+------------------
+/*HashMap Interface Example*/
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+public class HashMapExample {
+	public static void main(String[] args) {
+		Map<String, Integer> _map = new HashMap<String, Integer>();
+		_map.put("A", 100);
+		_map.put("B", 101);
+
+		Set<Entry<String, Integer>> _entrySet = _map.entrySet();
+		for(Map.Entry<String, Integer> _entry :  _entrySet){
+     		System.out.println("KEY : "+_entry.getKey());
+			System.out.println("VALUE :"+_entry.getValue());
+		}
+	}
+}
+----------------------
+How HashMap works?
+HashMap stores key-valuepairs.
+HashMap requires a hash function and uses hashCode() and equals() method's, in order to get and put elements in the collection.
+When the put() is invoked, HashMap calcutes the hash value of the key and stores the pair in the appropriate index inside the collection.
+If the key is alreadt exists, it's value is updated with the new value.
+
+What is the use of hashCode()?
+hashCode() method is used, in order to determine where the specified key will be stored in the collection.
+
+What is the use of equals()?
+Since the different key may produce the same hash value, in order to determin whether the specified key actually exists in the collection or not.  	
+

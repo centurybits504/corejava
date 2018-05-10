@@ -1,0 +1,77 @@
+DriverManager class:
+DriverManager class is from java.sql package.
+DriverManager class is used to managing(registering driver/De-registerDriver) a set of JDBC drivers.
+DriverManager class maintains a list of driver classes that have registered themselves by calling the method DriverManager.registerDriver().
+It has methods to register,de-register the driver classes & also methods that establish's connection with database's(getConnection(String url) ,getConnection(url,uname,pwd)).
+All methods in DriverManager class are static.
+
+public class DriverManager extends Object{
+}
+
+Registering the database driver class:
+/*Syntax*/
+DriverManager.registerDriver(Driver driverClass);
+Registering MySQL database driver class:
+DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+
+The alternative for, 
+	DriverManager.registerDriver(new com.mysql.jdbc.Driver()); is
+	Class.forname("com.mysql.jdbc.Driver");
+Loading(driver class byte code into memory), instance creation, and registration all done by calling the forName method.
+
+Methods:
+static void 	deregisterDriver(Driver driver)
+Drops a driver from the DriverManager's list.
+static Connection 	getConnection(String url)
+Attempts to establish a connection to the given database URL.
+static Connection 	getConnection(String url, Properties info)
+Attempts to establish a connection to the given database URL.
+static Connection 	getConnection(String url, String user, String password)
+Attempts to establish a connection to the given database URL.
+static Driver 	getDriver(String url)
+Attempts to locate a driver that understands the given URL.
+static Enumeration<Driver> 	getDrivers()
+Retrieves an Enumeration with all of the currently loaded JDBC drivers to which the current caller has access.
+static int 	getLoginTimeout()
+Gets the maximum time in seconds that a driver can wait when attempting to log in to a database.
+static PrintStream 	getLogStream()
+Deprecated.  
+static PrintWriter 	getLogWriter()
+Retrieves the log writer.
+static void 	println(String message)
+Prints a message to the current JDBC log stream.
+static void 	registerDriver(Driver driver)
+Registers the given driver with the DriverManager.
+static void 	setLoginTimeout(int seconds)
+Sets the maximum time in seconds that a driver will wait while attempting to connect to a database.
+static void 	setLogStream(PrintStream out)
+Deprecated.  
+static void 	setLogWriter(PrintWriter out)
+Sets the logging/tracing PrintWriter object that is used by the DriverManager and all drivers.
+
+----------------
+/*DriverManger Class Example : Registering/De-registering driver class*/
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class DriverManagerClassExample {
+	public static void main(String[] args) {
+		try{
+			com.mysql.jdbc.Driver driver=new com.mysql.jdbc.Driver();
+			DriverManager.registerDriver(driver);
+			
+			if(DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root","root")!=null)
+				System.out.println("Connection Established");
+			else
+				System.out.println("Connection Not Established");
+			DriverManager.deregisterDriver(driver);
+		}catch(SQLException e){
+			System.out.println(e.getMessage());
+		}
+	}
+
+}
+
+----------------
+
+

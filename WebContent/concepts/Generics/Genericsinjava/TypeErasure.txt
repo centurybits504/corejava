@@ -1,0 +1,166 @@
+TypeErasure:
+
+Generics were introduced to the Java language to provide tighter type checks at compile time and to support generic programming.
+
+To implement generics, the Java compiler applies type erasure to achieve the following:
+Replace all type parameters in generic types with their bounds (or) Object if the type parameters are unbounded. 
+The produced bytecode, therefore, contains only ordinary classes, interfaces, and methods.
+Insert type casts if necessary to preserve type safety.
+Generate bridge methods to preserve polymorphism in extended generic types.
+Type erasure ensures that no new classes are created for parameterized types; consequently, generics incur no runtime overhead.
+
+In TypeErasure we're going to discuss:
+Erasure of Generic Types
+Erasure of Generic Methods
+Effects of Type Erasure and Bridge Methods
+
+Erasure of Generic Types:
+
+During the type erasure process, the Java compiler erases all type parameters and replaces each with it's first bound if the type parameter is bounded (or) Object if the type parameter is unbounded.
+
+/*Sample Code For unbounded Type*/
+public class MyNode<T> {
+
+    private T nodedata;
+    private MyNode<T> nextnode;
+
+    public MyNode(T nodedata, MyNode<T> nextnode) }
+        this.nodedata = nodedata;
+        this.nextnode = nextnode;
+    }
+
+    public T getNodeData() { return nodedata; }
+     
+}
+/* Here the type parameter T is unbounded, the Java compiler replaces it with Object */
+
+public class MyNode {
+
+    private Object nodedata;
+    private MyNode nextnode;
+
+    public MyNode(Object nodedata, MyNode nextnode) }
+        this.nodedata = nodedata;
+        this.nextnode = nextnode;
+    }
+
+    public Object getNodeData() { return nodedata; }
+}
+
+/*Sample Code For bounded Type*/
+public class MyNode<T extends Runnable> {
+
+    private T nodedata;
+    private MyNode<T> nextnode;
+
+    public MyNode(T nodedata, MyNode<T> nextnode) }
+        this.nodedata = nodedata;
+        this.nextnode = nextnode;
+    }
+
+    public T getNodeData() { return nodedata; }
+     
+}
+/* Here the type parameter T is bounded, the Java compiler replaces it with Runnable */
+
+
+Erasure of Generic Methods:
+The Java compiler also erases type parameters in generic method arguments.
+
+Following piece of sample code illustreates the same.
+public class Node<T> {
+
+    private T data;
+    private Node<T> next;
+
+    public Node(T data, Node<T> next) }
+        this.data = data;
+        this.next = next;
+    }
+
+    public T getData() { return data; }
+    
+}
+
+Because the type parameter T is unbounded, the Java compiler replaces it with Object:
+
+public class Node {
+
+    private Object data;
+    private Node next;
+
+    public Node(Object data, Node next) {
+        this.data = data;
+        this.next = next;
+    }
+
+    public Object getData() { return data; }
+     
+}
+
+In the following example, the generic Node class uses a bounded type parameter:
+
+public class Node<T extends Comparable<T>> {
+
+    private T data;
+    private Node<T> next;
+
+    public Node(T data, Node<T> next) {
+        this.data = data;
+        this.next = next;
+    }
+
+    public T getData() { return data; }
+    // . . .
+}
+
+The Java compiler replaces the bounded type parameter T with the first bound class, Comparable:
+
+public class Node {
+
+    private Comparable data;
+    private Node next;
+
+    public Node(Comparable data, Node next) {
+        this.data = data;
+        this.next = next;
+    }
+
+    public Comparable getData() { return data; }
+    
+}
+
+Erasure of Generic Methods:
+
+The Java compiler also erases type parameters in generic method arguments.
+Following code illustrates the same:
+
+/*Syntax - Method - Boundedtype */
+	public <T> void display(T t) {
+		System.out.println(t);
+	}
+	/*Type erases code for above method*/
+	public Object void display(Object t) {
+		System.out.println(t);
+	}
+/* Here Type Parameter is boundedtype, so "T" is replaced with Object */
+
+/*Syntax - Method - Boundedtype */
+	public <T extends Number> Number display(T t) {
+		value = t.doubleValue();
+		return value;
+	}
+/*Type erases code for above method*/
+	public Number display(Number t) {
+		value = t.doubleValue();
+		return value;
+	}
+/* Here Type Parameter is unboundedtype, so "T" is replaced with Number */
+	
+-------------
+
+
+-------------
+
+What is the erasure?
+The removal of all traces of something 

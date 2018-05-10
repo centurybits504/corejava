@@ -1,0 +1,24 @@
+ <font color=\"#0091EA\"><b>What if the main method is declared as private?</b></font><br>
+The program compiles properly but at runtime it will give \"Main method not public\" message.<br><br>
+<font color=\"#0091EA\"><b>What if the static modifier is removed from the signature of the main method?</b></font><br>
+Program compiles. But at runtime throws an error \"NoSuchMethodError\".<br><br>
+<font color=\"#0091EA\"><b>What if I write static public void instead of public static void?</b></font><br>
+Program compiles and runs properly.<br><br>
+<font color=\"#0091EA\"><b>What if I do not provide the String array as the argument to the method?</b></font><br>
+Program compiles but throws a runtime error \"NoSuchMethodError\".<br><br>
+<font color=\"#0091EA\"><b>What environment variables do I need to set on my machine in order to be able to run Java programs?</b></font><br>
+CLASSPATH and PATH are the two variables.<br><br>
+<font color=\"#0091EA\"><b>What is the first argument of the String array in main method?</b></font><br>
+The String array is empty. It does not have any element. This is unlike C/C++ where the first element by default is the program name.<br><br>
+<font color=\"#0091EA\"><b>If I do not provide any arguments on the command line, then the String array of Main method will be empty or null?</b></font><br>
+It is empty. But not null.<br><br>
+<font color=\"#0091EA\"><b>How can one prove that the array is not null but empty using one line of code?</b></font><br>
+A: Print args.length. It will print 0. That means it is empty. But if it would have been null then it would have thrown a NullPointerException on attempting to print args.length.<br><br>
+<font color=\"#0091EA\"><b>Can an application have multiple classes having main method?</b></font><br>
+Yes it is possible. While starting the application we mention the class name to be run. <br><br>
+The JVM will look for the Main method only in the class whose name you have mentioned. Hence there is not conflict amongst the multiple classes having main method.<br><br>
+<font color=\"#0091EA\"><b>Can I have multiple main methods in the same class?</b></font><br>
+No the program fails to compile. The compiler says that the main method is already defined in the class.<br><br>
+
+
+<br><br><br><br><br><br>

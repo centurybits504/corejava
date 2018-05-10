@@ -1,0 +1,50 @@
+LinkedHashSet Class:
+LinkedHashSet class is the subclass of HashSet Class.
+All Implemented Interfaces are - Serializable, Cloneable, Iterable<E>, Collection<E>, Set<E> 
+LinkedHashSet contains the unique elements.
+LinkedHashSet is the Hashtable and LinkedList implementation of Set interface.
+LinkedHashSet also allows only one null element.
+LinkedHashSet preserves the insertion order because it uses linked list to store elements.
+By default LinkedHashSet class also not synchronized.
+
+To make LinkedHashSet as synchronized:
+	Set set = Collection.synchronizedSet(new LinkedHashSet());
+
+Constructors Of LinkedHashSet:
+Constructor and Description
+LinkedHashSet()
+Constructs a new, empty linked hash set with the default initial capacity (16) and load factor (0.75).
+LinkedHashSet(Collection<? extends E> c)
+Constructs a new linked hash set with the same elements as the specified collection.
+LinkedHashSet(int initialCapacity)
+Constructs a new, empty linked hash set with the specified initial capacity and the default load factor (0.75).
+LinkedHashSet(int initialCapacity, float loadFactor)
+Constructs a new, empty linked hash set with the specified initial capacity and load factor.
+
+LinkedHashSet is the subclass of HashSet class and does not contain any additional members on it's own.
+
+-------------------
+/*Example Of LinkedHashSet*/
+
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+public class LinkedHashSetExample {
+	public static void main(String[] args) {
+		Set<String> set = new LinkedHashSet<String>();
+		set.add("A");
+		set.add("B");
+		set.add("C");
+		set.add("B");
+		set.add(null);
+		System.out.println(set);
+	}
+}
+
+-------------------	
+	
+What is difference between HashSet and LinkedHashSet?
+HashSet doesn't preserve the insertion order.
+LinkedHashSet preserves the insertion order because of linkedlist.
+
+

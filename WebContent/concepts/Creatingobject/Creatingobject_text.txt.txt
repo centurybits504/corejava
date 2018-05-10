@@ -1,0 +1,27 @@
+
+There are 4 different ways to create objects in Java:
+1. By using new keyword:
+2. By using Factory Method:
+3. By using Cloning Concept:
+4. By using Class.forName():
+
+
+1. Using new keyword:
+This is the most common way to create an object in Java.
+MyObject object = new MyObject();
+
+2. By Using Factory Method:
+ClassName ObgRef=ClassName.FactoryMethod();
+
+3. By Using Cloning Concept:
+By using clone(), the clone() can be used to create a copy of an existing object.
+MyObjectName anotherObject = new MyObjectName();
+MyObjectName object = anotherObjectName.clone();//cloning Object
+
+4. Using Class.forName():
+If we know the name of the class & if it has a public default constructor we can create an object in this way.
+MyObjectName object = (MyObjectName) Class.forName("PackageName.ClassName").newInstance();
+Example:
+String str=(String)Class.forName("java.lang.String").newInstance();
+
+

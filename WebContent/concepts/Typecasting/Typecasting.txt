@@ -1,0 +1,81 @@
+Type Casting:
+Converting one datatype into another datatype is called typecasting.
+
+Types of datatypes:
+1) Primitive datatypes
+2) Referenced datatypes
+
+1) Primitive datatype:
+The datatypes which a single entity are called primitive datatype.
+Example: byte, char, short, int, float, long, double, boolean
+
+2) Referenced datatypes:
+Referenced datatypes represents  a group of values.
+Example: array, class
+
+Casting a primitive datatypes:
+Casting a primitive datatypes is done in 2 ways i.e, widening & narrowing.
+primitive datatypes are classified into 2 types lower to higher types.
+byte, short, char, int, long, float, double are datatypes from lower to higher types.
+boolean is not included, because it cann't be converted into any other types.
+
+Converting a lower datatypes onto a higher datatypes is called widening.
+	char  ch = 'A';
+	int  asciiValue = (int) ch;
+	
+Implicit casting is done by the java compiler internally. It is done to convert a lower datatype into a higher datatype.
+
+Narrowing  a primitive datatypes:
+Converting a higher datatype into a lower datatype is called 'narrowing'.
+	int num = 66;
+	char ch = (char)num;
+
+Explicat casting is done by the programmer It is done to convert higher datatype into a lower datatype.
+Explicat casting is compulsory while converting from a higher datatype to lower datatype.
+
+Casting Reference Datatypes:
+A class is a referenced datatype. Converting a class type into another class type is also possible through casting.
+But the classes should have the same relation between them by the way of inheritance.
+	
+	class Dog{
+	}	
+	
+	class Horse{
+	}
+Here, we cannot convert a Dog class into Horse class as their is no relation between them.
+
+	University(superclass)
+		^
+		|
+	 College(sub class)	
+		^
+		|
+	 Department(sub class)
+		^
+		|
+Here, we can convert college class into University class and Department class into College class.
+These classes (University, College, Department) have a relation ship by the way of inheritance.
+
+-------------------
+
+-------------------
+What is generization?
+Generalization is a phenomenon where a subclass is promoted to a superclass and hence become more general.
+
+
+What is specialization?
+Specilization is phenomenon where a  superclass is narrowed down to a subclass.
+
+
+What is difference widening & narrowing?
+Converting a lower datatype into higher datatype is called widening.
+Converting a higher datatype into lower datatype is called widening.
+Widening is done by the compiler.
+Narrowing is done by the programmer.
+
+
+
+		 
+	
+
+	

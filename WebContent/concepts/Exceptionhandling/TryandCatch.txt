@@ -1,0 +1,18 @@
+Try & Catch Blocks:
+Java uses try & catch blocks to handle checked exceptions.
+
+Try block:
+Try block must be followed by either catch (or) finally block.
+Try block is used to enclose the code that might throw an exception.Try block must used within method.
+
+Catch block:
+Catch block is used to handle the exception that is thrown by try block.
+Catch block must be the next statement after the try block.
+
+	/* Sample syntax for try&catch block */
+	try{
+	//some statements which are likely to cause exceptions
+	}catch(ExceptionClass object){
+	//this will catch the exception and tells what to do  
+	}
+

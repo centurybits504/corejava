@@ -1,0 +1,4 @@
+Generic Constructor:
+Since constructor is a special kind of method, we can use generics type in constructors too.
+
+

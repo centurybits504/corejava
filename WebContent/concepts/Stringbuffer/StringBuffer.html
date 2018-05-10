@@ -1,0 +1,71 @@
+<br>
+String Class objects are immutable, hence their content cannot be modified.<br>
+StringBuffer class objects are mutable, so they can be modified.<br>
+Moreover the methods that directly manipulate data of the object are not availabe in String class.<br>
+Such methods are availabe in StringBuffer Class.<br>
+<br>
+<font color=\'#0091EA\'><b>Creating StringBuffer Object:</b></font><br>
+2 Ways of creating StringBuffer Objects:<br>
+<br>
+1)Creating StringBuffer object with new keyword and passing string object to it.<br>
+	StringBuffer sb = new StringBuffer(\"Hello\");<br>
+<br>
+2)StringBuffer sb = new StringBuffer();<br>
+	sb.append(\"Hello\");	<br>
+<br><br>
+<font color=\'#0091EA\'><b>Methods of StringBuffer:</b></font><br>
+<font color=\'#0091EA\'><b>StringBuffer 	append(boolean b):</b></font> Appends the string representation of the boolean argument to the sequence.<br><br>
+<font color=\'#0091EA\'><b>StringBuffer 	append(char c):</b></font> Appends the string representation of the char argument to this sequence.<br><br>
+<font color=\'#0091EA\'><b>StringBuffer 	append(char[] str):</b></font>Appends the string representation of the char array argument to this sequence.<br><br>
+<font color=\'#0091EA\'><b>StringBuffer 	append(char[] str, int offset, int len):</b></font>Appends the string representation of a subarray of the char array argument to this sequence.<br><br>
+<font color=\'#0091EA\'><b>StringBuffer 	append(CharSequence s):</b></font>Appends the specified CharSequence to this sequence.<br><br>
+<font color=\'#0091EA\'><b>StringBuffer 	append(CharSequence s, int start, int end):</b></font>Appends a subsequence of the specified CharSequence to this sequence.<br><br>
+<font color=\'#0091EA\'><b>StringBuffer 	append(double d):</b></font>Appends the string representation of the double argument to this sequence.<br><br>
+<font color=\'#0091EA\'><b>StringBuffer 	append(float f):</b></font>Appends the string representation of the float argument to this sequence.<br><br>
+<font color=\'#0091EA\'><b>StringBuffer 	append(int i):</b></font>Appends the string representation of the int argument to this sequence.<br><br>
+<font color=\'#0091EA\'><b>StringBuffer 	append(long lng):</b></font>Appends the string representation of the long argument to this sequence.<br><br>
+<font color=\'#0091EA\'><b>StringBuffer 	append(Object obj):</b></font>Appends the string representation of the Object argument.<br><br>
+<font color=\'#0091EA\'><b>StringBuffer 	append(String str):</b></font>Appends the specified string to this character sequence.<br><br>
+<font color=\'#0091EA\'><b>StringBuffer 	append(StringBuffer sb):</b></font>Appends the specified StringBuffer to this sequence.<br><br>
+<font color=\'#0091EA\'><b>StringBuffer 	appendCodePoint(int codePoint):</b></font>Appends the string representation of the codePoint argument to this sequence.<br><br>
+<font color=\'#0091EA\'><b>int 	capacity():</b></font>Returns the current capacity.<br><br>
+<font color=\'#0091EA\'><b>char 	charAt(int index):</b></font>Returns the char value in this sequence at the specified index.<br><br>
+<font color=\'#0091EA\'><b>int 	codePointAt(int index):</b></font>Returns the character (Unicode code point) at the specified index.<br><br>
+<font color=\'#0091EA\'><b>int 	codePointBefore(int index):</b></font>Returns the character (Unicode code point) before the specified index.<br><br>
+<font color=\'#0091EA\'><b>int 	codePointCount(int beginIndex, int endIndex):</b></font>Returns the number of Unicode code points in the specified text range of this sequence.<br><br>
+<font color=\'#0091EA\'><b>StringBuffer 	delete(int start, int end):</b></font>Removes the characters in a substring of this sequence.<br><br>
+<font color=\'#0091EA\'><b>StringBuffer 	deleteCharAt(int index):</b></font>Removes the char at the specified position in this sequence.<br><br>
+<font color=\'#0091EA\'><b>void 	ensureCapacity(int minimumCapacity):</b></font>Ensures that the capacity is at least equal to the specified minimum.<br><br>
+<font color=\'#0091EA\'><b>void 	getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin):</b></font>Characters are copied from this sequence into the destination character array dst.<br><br>
+<font color=\'#0091EA\'><b>int 	indexOf(String str):</b></font>Returns the index within this string of the first occurrence of the specified substring.<br><br>
+<font color=\'#0091EA\'><b>int 	indexOf(String str, int fromIndex):</b></font>Returns the index within this string of the first occurrence of the specified substring, starting at the specified index.<br><br>
+<font color=\'#0091EA\'><b>StringBuffer 	insert(int offset, boolean b):</b></font>Inserts the string representation of the boolean argument into this sequence.<br><br>
+<font color=\'#0091EA\'><b>StringBuffer 	insert(int offset, char c):</b></font>Inserts the string representation of the char argument into this sequence.<br><br>
+<font color=\'#0091EA\'><b>StringBuffer 	insert(int offset, char[] str):</b></font>Inserts the string representation of the char array argument into this sequence.<br><br>
+<font color=\'#0091EA\'><b>StringBuffer 	insert(int index, char[] str, int offset, int len):</b></font>Inserts the string representation of a subarray of the str array argument into this sequence.<br><br>
+<font color=\'#0091EA\'><b>StringBuffer 	insert(int dstOffset, CharSequence s):</b></font>Inserts the specified CharSequence into this sequence.<br><br>
+<font color=\'#0091EA\'><b>StringBuffer 	insert(int dstOffset, CharSequence s, int start, int end):</b></font>Inserts a subsequence of the specified CharSequence into this sequence.<br><br>
+<font color=\'#0091EA\'><b>StringBuffer 	insert(int offset, double d):</b></font>Inserts the string representation of the double argument into this sequence.<br><br>
+<font color=\'#0091EA\'><b>StringBuffer 	insert(int offset, float f):</b></font>Inserts the string representation of the float argument into this sequence.<br><br>
+<font color=\'#0091EA\'><b>StringBuffer 	insert(int offset, int i):</b></font>Inserts the string representation of the second int argument into this sequence.<br><br>
+<font color=\'#0091EA\'><b>StringBuffer 	insert(int offset, long l):</b></font>Inserts the string representation of the long argument into this sequence.<br><br>
+<font color=\'#0091EA\'><b>StringBuffer 	insert(int offset, Object obj):</b></font>Inserts the string representation of the Object argument into this character sequence.<br><br>
+<font color=\'#0091EA\'><b>StringBuffer 	insert(int offset, String str):</b></font>Inserts the string into this character sequence.<br><br>
+<font color=\'#0091EA\'><b>int 	lastIndexOf(String str):</b></font>Returns the index within this string of the rightmost occurrence of the specified substring.<br><br>
+<font color=\'#0091EA\'><b>int 	lastIndexOf(String str, int fromIndex):</b></font>Returns the index within this string of the last occurrence of the specified substring.<br><br>
+<font color=\'#0091EA\'><b>int 	length():</b></font>Returns the length (character count).<br><br>
+<font color=\'#0091EA\'><b>int 	offsetByCodePoints(int index, int codePointOffset):</b></font>Returns the index within this sequence that is offset from the given index by codePointOffset code points.<br><br>
+<font color=\'#0091EA\'><b>StringBuffer 	replace(int start, int end, String str):</b></font>Replaces the characters in a substring of this sequence with characters in the specified String.<br><br>
+<font color=\'#0091EA\'><b>StringBuffer 	reverse():</b></font>Causes this character sequence to be replaced by the reverse of the sequence.<br><br>
+<font color=\'#0091EA\'><b>void 	setCharAt(int index, char ch):</b></font>The character at the specified index is set to ch.<br><br>
+<font color=\'#0091EA\'><b>void 	setLength(int newLength):</b></font>Sets the length of the character sequence.<br><br>
+<font color=\'#0091EA\'><b>CharSequence 	subSequence(int start, int end):</b></font>Returns a new character sequence that is a subsequence of this sequence.<br><br>
+<font color=\'#0091EA\'><b>String 	substring(int start):</b></font>Returns a new String that contains a subsequence of characters currently contained in this character sequence.<br><br>
+<font color=\'#0091EA\'><b>String 	substring(int start, int end):</b></font>Returns a new String that contains a subsequence of characters currently contained in this sequence.<br><br>
+<font color=\'#0091EA\'><b>String 	toString():</b></font>Returns a string representing the data in this sequence.<br><br>
+<font color=\'#0091EA\'><b>void 	trimToSize():</b></font>Attempts to reduce storage used for the character sequence.	<br><br>
+
+<br><br><br><br>	
+	
+
+	

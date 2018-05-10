@@ -1,0 +1,5 @@
+Q: What is the purpose of garbage collection in Java, and when is it used?
+A: The purpose of garbage collection is to identify and discard objects that are no longer needed by a
+program so that their resources can be reclaimed and reused. A Java object is subject to garbage
+collection when it becomes unreachable to the program in which it is used.
+-----------

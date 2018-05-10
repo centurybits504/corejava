@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+    box-sizing: border-box;margin:0px;padding:0px;
+}
+.row::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+[class*="col-"] {
+    float: left;
+    padding: 0px;
+}
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+ 
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 100%;padding:4px;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+html {
+    font-family:  "Times New Roman", Georgia, Serif;font-size:13px;
+     -webkit-user-select: none;
+}
+.header {
+    background-color: #33b5e5;
+    color: #ffffff;
+    padding:4px;
+	margin:0px;
+	 
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+body{
+background-color: #f2f2f2; 
+}
+
+div.scrollmenu {
+    background-color: #333;
+    overflow: auto;
+    white-space: nowrap;
+}
+div.scrollmenu a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+}
+
+div.scrollmenu a:hover {
+    background-color: #777;
+}
+</style>
+</head>
+<body>
+
+ 
+
+<div class="col-9">
+<br>
+	&nbsp;    &nbsp;         &nbsp;              &nbsp;		   &nbsp;   &nbsp;	Java Annotation is nothing but  a tag represents the metadata attached to java elements like class, interface, methods, variables, enums, another annotations 
+to indicate some additional information which can be used by the compiler and JVM.<br>
+An annotation gives data about a program. It is not part of the program itself and no direct effect on the operation of the code.<br>
+Annotations are alternate option to XML and java-marker-interfaces, because they provide additional information.<br>
+<br>
+<b><font color=\"#1AA3FF\">Uses of Annotations:</font></b><br>
+Annotations uses the runtime process.<br>
+Software tools can process annotation information to generate code, XML files.<br>
+Annotations helps the compiler to detect errors or suppress warnings.<br>
+<br>
+<b><font color=\"#1AA3FF\">Rules for defining Java annotations:</font></b><br>
+Annotation declaration should start with an sign like @, following with an interface keyword, following with the annotation name.<br>
+Method declarations should not have any throws clauses.<br>
+Method declarations should not have any parameters.<br>
+Return types of the method should be one of the following:<br>
+	primitives<br>
+	String<br>
+	Class<br>
+	enum<br>
+	array of the above types<br>
+<br>
+<b><font color=\"#1AA3FF\">Java specifies the set of annotations which are built into the language</font></b> <br>	
+Some of the Built-In Java Annotations used in java code:<br>
+<b><font color=\"#1AA3FF\">@Override :</font></b> Checks that the function is an override. 
+Causes a compile warning if the function is not found in one of the parent classes.<br>
+
+<b><font color=\"#1AA3FF\">@Deprecated :</font></b> Marks the function as absolute. <br>Causes a compile warning if the f unction is used. When we want to inform the 
+compiler that a method is deprecated we can use this. <br>
+So, when a method is annotated with @Deprecated and that method is found used in some place, then the compiler generates a warning.<br><br>
+
+<b><font color=\"#1AA3FF\">@SuppressWarnings : </font></b> Instructs the compiler to suppress the compile time warnings specified in the annotation parameters. <br><br>
+
+<b><font color=\"#1AA3FF\">@SafeVarargs : </font></b> when applied to a method or constructor, asserts that the code does not perform
+ potentially unsafe operations on its varargsparameter. <br>
+When this annotation type is used, unchecked warnings relating to varargs usage are suppressed.<br>
+<b><font color=\"#1AA3FF\">@FunctionalInterface :</font></b> Introduced in Java SE 8, indicates that the type declaration is intended to be 
+a functional interface, as defined by the Java Language Specification.<br><br>
+
+<b><font color=\"#1AA3FF\">Some of the Built-In Java Annotations used in other annotations:</font></b><br>
+<b><font color=\"#1AA3FF\">@Retention : </font></b> Specifies how the marked annotation is stored.
+Whether in code only, compiled into the class, or available at runtime through reflection.<br>
+<b><font color=\"#1AA3FF\">@Inherited : </font></b>  Marks another annotation to be inherited to subclasses of annotated class (by default annotations are not inherited to subclasses).<br><br>
+<b><font color=\"#1AA3FF\">@Documented : </font></b> Marks another annotation for inclusion in the documentation.<br><br>
+<b><font color=\"#1AA3FF\">@Target : </font></b> Marks another annotation to restrict what kind of java elements the annotation may be applied.<br><br>
+
+<br><br><br><br><br>
+
+	
+
+</div>
+<br>
+ 
+<br><br><br><br><br><br><br><br><br><br>
+
+
+</body>
+</html>

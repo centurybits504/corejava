@@ -1,0 +1,16 @@
+Type parameter Naming Conventions:
+Java Generic Type Naming convention helps us understanding code easily and having a naming convention is one of the best practices of java programming language. 
+So generics also comes with it’s own naming conventions. 
+Usually type parameter names are single, uppercase letters to make it easily distinguishable from java variables. 
+
+The most commonly used type parameter names are:
+	E – Element
+    K – Key
+    N – Number
+    T – Type
+    V – Value 
+    S,U,V etc. – 2nd, 3rd, 4th types
+
+
+	
+	

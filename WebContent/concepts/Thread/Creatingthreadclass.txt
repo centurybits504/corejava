@@ -1,0 +1,107 @@
+Creating Thread:
+Thread can be created by instantiating an object of type "Thread".
+There are 2 ways to accomplish this. 
+	One way is by extending "java.lang.Thread" class.
+	Other way is implementing java.lang.Runnable interface.
+
+If our class is already extending any other class, then we're left with only one choice i.e, by implementing Runnable interface.
+
+1) By extending "Thread" class
+		class ThreadDemo extends Thread{
+			 //inheriting run() of Thread class
+		}
+
+2) By implementing "Runnable" interface 
+			class ThreadDemo implements Runnable{
+			 //override run() of Runnable interaface
+			}
+
+Thread Class:
+All Implemented Interfaces:
+    Runnable 
+
+Direct Known Subclasses:
+    ForkJoinWorkerThread 
+			
+Constructors Of Thread Class:
+Thread()
+Allocates a new Thread object.
+Thread(Runnable target)
+Allocates a new Thread object.
+Thread(Runnable target, String name)
+Allocates a new Thread object.
+Thread(String name)
+Allocates a new Thread object.
+Thread(ThreadGroup group, Runnable target)
+Allocates a new Thread object.
+Thread(ThreadGroup group, Runnable target, String name)
+Allocates a new Thread object so that it has target as its run object, has the specified name as its name, and belongs to the thread group referred to by group.
+Thread(ThreadGroup group, Runnable target, String name, long stackSize)
+Allocates a new Thread object so that it has target as its run object, has the specified name as its name, and belongs to the thread group referred to by group, and has the specified stack size.
+Thread(ThreadGroup group, String name)
+Allocates a new Thread object.		
+
+Some Methods Of Thread Class:
+static void 	dumpStack()
+Prints a stack trace of the current thread to the standard error stream.	
+long 	getId()
+Returns the identifier of this Thread.
+String 	getName()
+Returns this thread's name.
+int 	getPriority()
+Returns this thread's priority.
+StackTraceElement[] 	getStackTrace()
+Returns an array of stack trace elements representing the stack dump of this thread.
+Thread.State 	getState()
+Returns the state of this thread.
+ThreadGroup 	getThreadGroup()
+Returns the thread group to which this thread belongs.
+static int 	enumerate(Thread[] tarray)
+Copies into the specified array every active thread in the current thread's thread group and its subgroups.
+static boolean 	holdsLock(Object obj)
+Returns true if and only if the current thread holds the monitor lock on the specified object.
+void 	interrupt()
+Interrupts this thread.
+static boolean 	interrupted()
+Tests whether the current thread has been interrupted.
+boolean 	isAlive()
+Tests if this thread is alive.
+boolean 	isDaemon()
+Tests if this thread is a daemon thread.
+boolean 	isInterrupted()
+Tests whether this thread has been interrupted.
+void 	join()
+Waits for this thread to die.
+void 	setDaemon(boolean on)
+Marks this thread as either a daemon thread or a user thread.
+static void 	sleep(long millis)
+Causes the currently executing thread to sleep (temporarily cease execution) for the specified number of milliseconds, subject to the precision and accuracy of system timers and schedulers.
+void 	start()
+Causes this thread to begin execution; the Java Virtual Machine calls the run method of this thread.
+String 	toString()
+Returns a string representation of this thread, including the thread's name, priority, and thread group.
+static void 	yield()
+A hint to the scheduler that the current thread is willing to yield its current use of a processor.
+
+
+Runnable interface:
+
+All Known Subinterfaces:
+    RunnableFuture<V>, RunnableScheduledFuture<V> 
+All Known Implementing Classes:
+    AsyncBoxView.ChildState, ForkJoinWorkerThread, FutureTask, RenderableImageProducer, SwingWorker, Thread, TimerTask 
+
+The Runnable interface should be implemented by any class whose instances are intended to be executed by a thread. The class must define a method of no arguments called run.
+Runnable is implemented by "Thread" class.
+
+Methods Of Runnable Interface:
+void 	run()
+When an object implementing interface Runnable is used to create a thread, starting the thread causes the object's run method to be called in that separately executing thread.
+----------------
+CreatingThreadByExtendingThreadClass.java
+CreatingThreadByImplementingRunnableInterface.java
+
+-----------------
+What is the best way to create thread class and Why?
+Using Runnable interface, because if our class is already extending any other class, then we're left with only one choice i.e, by implementing Runnable interface.
+	

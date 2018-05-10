@@ -1,0 +1,21 @@
+Abstract Class:
+A class that is declared with "abstract" keyword is called as Abstract class.
+
+/*Syntax for abstract Class*/
+abstract class MyAbstract{
+	//body of abstract class
+}
+
+Note:
+1)Abstract class methods are by default public.
+2)Abstract class can have both abstract and non-abstract methods(implementation should be provided).
+3)All abstract methods of abstract class should be provide implementaion in subclass by overriding.
+4)In abstract class, abstract-method's should be declared with abstract keyword.
+5)In abstract class, abstract-method's shouldn't be declare with private keyword.
+6)If you are extending any abstract class that have abstract method, you must either provide the implementation of the method (or) make this class abstract.
+7)Abstract class cannot have final abstract methods(like final abstract void echo(){//body} in example programs).
+8)Abstract class can have final non-abstract methods(like final void cout(){//body} in example programs).
+ 
+
+
+

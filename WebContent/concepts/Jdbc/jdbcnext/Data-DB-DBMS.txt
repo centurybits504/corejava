@@ -1,0 +1,7 @@
+Database:
+Database is a collection of interrelated data.
+Database Management System is a software which can be used manage data by sorting it on to the database and by retrieving it from 
+the database.
+A Database management System is a collection of interrelated data ans some set of programs to access the data.
+ 
+

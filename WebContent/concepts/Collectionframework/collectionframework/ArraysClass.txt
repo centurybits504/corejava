@@ -1,0 +1,69 @@
+Arrays Class:
+Arrays is a utility class present inthe java.util.* package.
+Arrays class contains various methods for manipulating arrays (such as sorting and searching). This class also contains a static factory that allows arrays to be viewed as lists.
+Arrays methods in this class all throw a NullPointerException, if the specified array reference is null.
+Some of the methods are given below.
+
+Methods Of Arrays Class:
+static <T> List<T> 	asList(T... a)
+Returns a fixed-size list backed by the specified array.
+static int 	binarySearch(byte[] a, byte key)
+Searches the specified array of bytes for the specified value using the binary search algorithm.
+static boolean[] 	copyOf(boolean[] original, int newLength)
+Copies the specified array, truncating or padding with false (if necessary) so the copy has the specified length.
+static boolean 	deepEquals(Object[] a1, Object[] a2)
+Returns true if the two specified arrays are deeply equal to one another.
+static int 	deepHashCode(Object[] a)
+Returns a hash code based on the "deep contents" of the specified array.
+static String 	deepToString(Object[] a)
+Returns a string representation of the "deep contents" of the specified array.
+static boolean 	equals(boolean[] a, boolean[] a2)
+Returns true if the two specified arrays of booleans are equal to one another.
+static void 	fill(boolean[] a, boolean val)
+Assigns the specified boolean value to each element of the specified array of booleans.
+static int 	hashCode(Object[] a)
+Returns a hash code based on the contents of the specified array.
+static void 	sort(Object[] a)
+Sorts the specified array of objects into ascending order, according to the natural ordering of its elements.
+static String 	toString(Object[] a)
+Returns a string representation of the contents of the specified array.
+---------------------
+
+/*Arrays Class Example*/
+import java.util.Arrays;
+
+public class ArraysClassExample {
+	public static void main(String[] args) {
+		int[] _intArray = {1,2,4,3};
+		
+		System.out.println("BEFORE SORING");
+		for(Integer iObj : _intArray){
+			System.out.println(iObj.intValue());
+		}
+		
+		Arrays.sort(_intArray);
+		
+		System.out.println("AFTER SORING ");
+		for(Integer iObj : _intArray){
+			System.out.println(iObj.intValue());
+		}
+	}
+}
+
+/*Converting Integer array to List Collection*/
+import java.util.Arrays;
+import java.util.List;
+
+public class ArraysConversionToList {
+	public static void main(String[] args) {
+		Integer[] _intArray = {1,2,4,3};
+		/*Using asList(array) of Arrays Class*/ 
+		List<Integer> _list = Arrays.asList(_intArray);
+		for(Integer _int : _list){
+			System.out.println(_int);
+		}	
+	}
+}
+
+------------------
+ 

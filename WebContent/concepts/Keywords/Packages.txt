@@ -1,0 +1,2 @@
+Package Keyword:
+In general a package is an object (or) group of objects wrapped.

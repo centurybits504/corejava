@@ -1,0 +1,58 @@
+HashSet Interface:
+A HashSet represents a set of elements(objects).
+All Implemented Interfaces - Serializable, Cloneable, Iterable<E>, Collection<E>, Set<E>
+All Implemented Interfaces - JobStateReasons, LinkedHashSet
+HashSet is the implementation class for Set interface and it's sub class is LinkedHashSet.
+HashSet contains unique elements only.
+HashSet does not guarantee the insertion order of the elements.
+By default HashSet is not synchronized.
+HashSet is backed by Hashtable.
+
+To make HashSet as synchronized:
+	Set set = Collection.synchronizedSet(new HashSet());
+
+Methods Of HashSet:
+boolean 	add(E e)
+Adds the specified element to this set if it is not already present.
+void 	clear()
+Removes all of the elements from this set.
+Object 	clone()
+Returns a shallow copy of this HashSet instance: the elements themselves are not cloned.
+boolean 	contains(Object o)
+Returns true if this set contains the specified element.
+boolean 	isEmpty()
+Returns true if this set contains no elements.
+Iterator<E> 	iterator()
+Returns an iterator over the elements in this set.
+boolean 	remove(Object o)
+Removes the specified element from this set if it is present.
+int 	size()
+Returns the number of elements in this set (its cardinality).
+
+----------------------
+/*Example Of HashSet Collection*/
+
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
+public class HashSetExample {
+	public static void main(String[] args) {
+		Set<String> set = new HashSet<String>();
+		set.add("A");
+		set.add("B");
+		set.add("C");
+		set.add("A");
+		set.add("D");
+		set.add(null);
+
+		Iterator<String> it = set.iterator();
+		while (it.hasNext()) {
+			String str = (String) it.next();
+			System.out.println(str);
+		}
+	}
+}
+---------------
+
+	

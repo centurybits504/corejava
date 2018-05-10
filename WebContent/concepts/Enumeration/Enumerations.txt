@@ -1,0 +1,11 @@
+Enumerations:
+Enumerations are similar to classes in java that contains a fixed set of constants.
+Enumerations are useful when dealing with a sequence of fixed values.
+
+Enumerations contains 2 methods:
+1)values() => returns all constant values. It's static method.
+2)ordinal() => returns the index of elements.
+
+Enumerations contains constants with values, instance, variables, constructors, static, methods.
+
+	

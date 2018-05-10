@@ -1,0 +1,136 @@
+Generic_type_programs:
+Generic Class:
+package Collections;
+//Collections>>Generics>>Generic class.
+class Gen<T>
+{
+	T object;
+	Gen(T object)
+	{
+		this.object=object;
+	}
+	public void show()
+	{
+		System.out.println(object.getClass().getName());//Class name of type of object
+	}
+	public T getObject()
+	{
+		return object;
+	}
+	
+}
+public class generic_3 {
+	public static void main(String[] args) {
+		 Gen<String> s=new Gen<String>("A");
+		s.show();
+		System.out.println(s.getObject());
+		
+		Gen<Integer> i=new Gen<Integer>(0);
+		i.show();
+		System.out.println(i.getObject());
+	}
+}
+-----------------------
+Generic Interface:
+package Collections;
+interface GenericsInterface_2<T>{
+	 T execute();//return type of this methosd is generic
+}
+class GenericsInterfaceNew_12 implements GenericsInterface_2<String>{
+	String a;
+	GenericsInterfaceNew_12(){ }
+	GenericsInterfaceNew_12(String a)
+	{
+		this.a=a;
+	}
+	public String execute() {//return type of this method is String
+		 return a;
+	}
+	
+}
+class GenericsInterfaceNew_13 implements GenericsInterface_2<Integer>{
+	int b;
+	GenericsInterfaceNew_13(){ }
+	GenericsInterfaceNew_13(int b){
+		this.b=b;
+	}
+	public Integer execute() {//return type os this method is Integer
+		return b;
+	}
+	
+}
+public class GenericsInterfaceNew2 {
+		public static void main(String[] args) {
+		GenericsInterfaceNew_12 obj1=new GenericsInterfaceNew_12("A");
+		GenericsInterfaceNew_13 obj2=new GenericsInterfaceNew_13(4);
+		 System.out.println(obj1.execute());
+		System.out.println(obj2.execute());
+	}
+}
+-------------------
+Invoking and Instantiating a Generic Type:
+import java.util.*;
+class Gen2<T>{
+	T obj;
+	public void add(T obj){
+		this.obj=obj;
+		System.out.println("Type of object is:"+obj.getClass());
+	}
+	public T getObj(){
+		return obj;
+	}
+}
+class GenDemo2{
+	public static void main(String args[]){
+		Gen2<String> g1=new Gen2<String>();
+		g1.add("A");
+		System.out.println(g1.getObj());
+
+		Gen2<Integer> g2=new Gen2<Integer>();
+		g2.add(10);
+		System.out.println(g2.getObj());
+
+		Gen2<Boolean> g3=new Gen2<Boolean>();
+		g3.add(true);
+		System.out.println(g3.getObj());
+	}
+}
+-------------------
+The Diamond:
+import java.util.ArrayList;
+public class Diamond {
+	public static void main(String[] args) {
+		ArrayList<String> list = new ArrayList<>();
+		list.add("A");
+		list.add("B");
+	}
+}
+-------------------
+Multiple Type Parameters:
+import java.util.*;
+class Multipletypeparameters<T,K>{
+	T obj1;
+	K obj2;
+	public void setting(T obj1,K obj2){
+		this.obj1=obj1;
+		this.obj2=obj2;
+	}
+	public T addj(){
+		return obj1+obj2;
+	}
+}
+class TestMultipletypeparameters{
+	public static void main(String args[]){
+		Multipletypeparameters<String,String> g1=new Multipletypeparameters<String,String>();
+		g1.setting("A","B");
+		System.out.println(g1.add());
+
+		Multipletypeparameters<Integer> g2=new Multipletypeparameters<Integer>();
+		g2.setting(10,10);
+		System.out.println(g2.add());
+	}
+}
+
+
+-----------------------
+

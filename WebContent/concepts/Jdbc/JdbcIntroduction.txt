@@ -1,0 +1,48 @@
+Jdbc Introduction:
+
+
+JDBC(Java Database Connectivity) is an API that is useful to write java programs to connect to any database, retrieve the data from the database and utilize the data in a java program.
+We use "JDBC API" to write java programs(that connect's to any databases) and our java programs uses "JDBC Drivers" to connect to databases.
+Below picture depicts the same.
+<image>jdbcintroduction</image> 
+
+JDBC API contains how a client(java code) can access a database.
+JDBC API is the part of the "Java Standard Edition" platform from Sun Micro Systems.
+
+
+-------------------
+
+-------------------
+What is Data?
+Data is a collection of raw facts.
+
+What is information?
+Processed data is called information.
+
+What is API?
+
+What is Jdbc API?
+
+What are the components of Jdbc API components?
+java.sql.* package contains interfaces and classes for Jdbc API.
+Interfaces:
+	Connection
+	Statement
+	PreparedStatement
+	CallableStatement
+	ResultSet
+	ResultSetMetaData
+	DatabaseMetaData and more...
+	
+Classes:
+	DriverManager
+	SQLException and more...
+	
+	
+	
+	
+
+
+
+
+

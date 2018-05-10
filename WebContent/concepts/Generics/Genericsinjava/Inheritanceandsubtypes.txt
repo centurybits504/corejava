@@ -1,0 +1,61 @@
+Inheritance and subtypes:
+We know it is possible to assign an object of one type to an object of another type provided that the types are compatible.
+
+For example, we can assign an Integer to an Object, since Object is one of Integer's supertypes:
+
+	Object someObject = new Object();
+	Integer someInteger = new Integer(100);
+	someObject = someInteger;   // OK
+
+In object-oriented terminology, this is called an "is a" relationship. Since an Integer is a kind of Object, the assignment is allowed.
+We can also say, Integer is also a kind of Number, so the following code is valid as well:
+
+	Object someObject = new Object();
+	Integer someInteger = new Integer(100);
+	someObject = someInteger;   // OK
+
+The same is also true with generics.
+	Box<Number> box = new Box<Number>();
+	box.add(new Integer(10));   // OK
+	box.add(new Double(10.1));  // OK	
+
+Now consider the following method:
+
+public void boxTest(Box<Number> n) { 
+	//Statements
+}
+
+What type of argument does it accept? By looking at its signature, we can see that it accepts a single argument whose type is Box<Number>. 
+But what does that mean? Are we allowed to pass in Box<Integer> or Box<Double>, as we might expect? The answer is "no", because Box<Integer> and Box<Double> are not subtypes of Box<Number>.	
+
+			<image> generics-subtypeRelationship.gif </image>
+	Box<Integer> is not a subtype of Box<Number> even though Integer is a subtype of Number.
+
+Generic Classes and Subtyping:
+
+We can subtype a generic class (or) interface by extending or implementing it. The relationship between the type parameters of one class or interface and the type parameters of another are determined by the extends and implements clauses.
+Using the Collections classes as an example, ArrayList<E> implements List<E>, and List<E> extends Collection<E>. So ArrayList<String> is a subtype of List<String>, which is a subtype of Collection<String>. So long as we do not vary the type argument, the subtyping relationship is preserved between the types.	
+
+	<image>generics-sampleHierarchy.gif</image>
+		A sample Collections hierarchy
+
+In generic classes (or) interfaces are not related merely because there is a relationship between their types.
+However, we can use wildcards to create a relationship between generic classes or interfaces.		
+
+--------------
+		
+--------------
+		
+		
+		
+Generics doesn’t support sub-typing:
+Why can’t we write code as List<Number> numbers = new ArrayList<Integer>();?
+
+Generics doesn’t support sub-typing because it will cause issues in achieving type safety. That’s why List<T> is not considered as a subtype of List<S> where S is the super-type of T. To understanding why it’s not allowed, let’s see what could have happened if it has been supported.
+
+List<Long> listLong = new ArrayList<Long>();
+listLong.add(Long.valueOf(10));
+List<Number> listNumbers = listLong; // compiler error
+listNumbers.add(Double.valueOf(1.23));
+
+As we can see from above code that if generics would have been supporting sub-typing, we could have easily add a Double to the list of Long that would have caused ClassCastException at runtime while traversing the list of Long.		

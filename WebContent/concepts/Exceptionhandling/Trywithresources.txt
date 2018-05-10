@@ -1,0 +1,44 @@
+Try-with-resources:
+The try-with-resources statement is a try statement that declares one or more resources. 
+A resource is an object that must be closed after the program is finished with it.
+The try-with-resources statement ensures that each resource is closed at the end of the statement. 
+Any object that implements java.lang.AutoCloseable, which includes all objects which implement java.io.Closeable, can be used as a resource.
+	
+
+It was introduced because of some resources used in Java (like SQL connections or streams) being difficult to be handled properly; 
+as an example, in java 6 to handle a InputStream properly you had to do something like:
+	
+/*Sample Code*/
+InputStream stream = new MyInputStream(...);
+try {
+    // use stream
+} catch(IOException e) {
+   // handle exception
+} finally {
+    try {
+        if(stream != null) {
+            stream.close();
+        }
+    } catch(IOException e) {
+        // handle yet another possible exception
+    }
+}
+
+Notice, here we have double try.To avoid that, now with try-with-resources you can do this:
+/*Sample Code*/
+try (InputStream stream = new MyInputStream(...)){
+    // use stream
+} catch(IOException e) {
+   // handle exception
+}
+
+Here close() is automatically called, if it throws an IOException, it will be supressed (as specified in the Java Language Specification 14.20.3) . 
+Same happens for java.sql.Connection
+
+
+------------------------
+
+------------------------
+What is the advantage of try-with-resources?
+The advantage is you need not explicitly close the resources you have defined in try-with-resources Statement. 
+JVM will take care of it. It will automatically close those resources.

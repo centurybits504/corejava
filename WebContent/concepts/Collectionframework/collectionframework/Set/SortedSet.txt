@@ -1,0 +1,64 @@
+SortedSet Interface:
+
+All Superinterfaces: Collection<E>, Iterable<E>, Set<E>
+All Known Subinterfaces: NavigableSet<E>
+All Known Implementing Classes: ConcurrentSkipListSet, TreeSet 
+
+In Java Collection Framework SortedSet interface represents a sorted set of elements.
+The elements in a SortedSet can be sorted in a natural order with Comparable interface or using a Comparator.
+
+A SortedSet must know how to sort its elements as they are added by checking two interfaces:
+1)If SortedSet elements implement the Comparable interface, it will use the compareTo() method to sort items. We can call this as sorting in natural order.
+2)We can pass a Comparator to do custom sorting.
+If a Comparator is specified, the Comparator is used for sorting and ignore the Comparable interface. 
+
+The TreeSet class is an implementation for the SortedSet interface in the Collections Framework.
+So it's elements are bydefault in sorting order.
+
+
+Methods Of SortedSet Inteface:
+Comparator<? super E> 	comparator()
+Returns the comparator used to order the elements in this set, or null if this set uses the natural ordering of its elements.
+E 	first()
+Returns the first (lowest) element currently in this set.
+SortedSet<E> 	headSet(E toElement)
+Returns a view of the portion of this set whose elements are strictly less than toElement.
+E 	last()
+Returns the last (highest) element currently in this set.
+SortedSet<E> 	subSet(E fromElement, E toElement)
+Returns a view of the portion of this set whose elements range from fromElement, inclusive, to toElement, exclusive.
+SortedSet<E> 	tailSet(E fromElement)
+Returns a view of the portion of this set whose elements are greater than or equal to fromElement.
+
+
+----------------
+/* In this we are sorting String objects
+ * Add String objects to the SortedSet.
+ * String class implements the Comparable interface.
+ * So SortedSet can use the Comparable interface and it's  compareTo() to sort the String objects.
+ * All Wrapper Classes implements Comparable interface. So we can use all Wrapper Classes in this example 
+ */
+ 
+import java.util.SortedSet;
+import java.util.TreeSet;
+
+public class SortedSetStringObjectsSortingExample{
+	public static void main(String[] args) {
+ 	    SortedSet<String> _sortedSet = new TreeSet<>();
+ 	    _sortedSet.add("A");
+ 	    _sortedSet.add("B");
+ 	    _sortedSet.add("C");
+ 	   _sortedSet.add("B");/*duplicates are n't allowed*/
+ 	 //_sortedSet.add(null);/*NullPointerException*/
+	    System.out.println(_sortedSet);
+	}
+}
+
+
+
+
+----------------
+
+
+
+

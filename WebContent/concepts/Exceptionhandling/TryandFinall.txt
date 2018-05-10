@@ -1,0 +1,16 @@
+Try & Finally Blocks:
+
+
+Try block:
+Try block must be followed by either catch (or) finally block.
+Try block is used to enclose the code that might throw an exception.Try block must used within method.
+
+Finally Blocks:
+Finally block is used to execute the important code such as closing the connection, closing the streams, logging regardless of exception is handled (or) not.
+
+	/* Sample syntax for try&catch block */
+	try{
+	 //some statements
+	}finally{
+	//regardless of exception is occured/not-occured/handled/not-handled, this block executes
+	}

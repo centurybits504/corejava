@@ -1,0 +1,53 @@
+Lock:
+
+A lock is a thread synchronization mechanism like synchronized blocks except locks can be more sophisticated than Java's synchronized blocks.
+Locks (and other more advanced synchronization mechanisms) are created using synchronized blocks, so it is not like we can get totally rid of the synchronized keyword.
+
+Types of locking :
+1)Object level locking
+2)Class level locking
+
+Object level locking:
+Object level locking means you want to synchronize non-static method (or) block so that it can be accessed by only one thread at a time for that instance.
+It is used if you want to protect non static data.
+
+We can achieve Object level locking by following:
+Object level locking using synchronize method;
+public synchronized int bookSeat()
+{
+	/*	   some code		*/
+}
+
+Object level locking using synchronize block;
+public int bookSeat() {
+  synchronized (this) {
+   /*	   some code		*/
+  }
+} 
+
+Class level locking:
+Class level locking means you want to synchronize static method (or) block so that it can be accessed by only one thread for whole class.
+
+We can achieve Class level locking by following:
+static method synchronized;
+public synchronized int bookSeat()
+{
+	 /*	   some code		*/
+}
+Using synchronized block and lock on .class;
+public synchronized int bookSeat()
+{
+	synchronized (className.class) {
+   	 /*	   some code		*/
+  }
+}
+Using synchronized block and lock on this;
+private final Object lock = new Object();
+public int bookSeat() {
+  synchronized (Object) {
+  	/*	   some code		*/
+  }
+}
+
+
+

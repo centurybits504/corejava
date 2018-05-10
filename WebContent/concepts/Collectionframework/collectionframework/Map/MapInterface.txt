@@ -1,0 +1,49 @@
+Map Interface:
+
+All Known Subinterfaces: Bindings, ConcurrentMap<K,V>, ConcurrentNavigableMap<K,V>, LogicalMessageContext, MessageContext, NavigableMap<K,V>, SOAPMessageContext, SortedMap<K,V> 
+All Known Implementing Classes:     AbstractMap, Attributes, AuthProvider, ConcurrentHashMap, ConcurrentSkipListMap, EnumMap, HashMap, Hashtable, IdentityHashMap, LinkedHashMap, PrinterStateReasons, Properties, Provider, RenderingHints, SimpleBindings, TabularDataSupport, TreeMap, UIDefaults, WeakHashMap
+<image>Map hierarchy</image>
+
+
+If we want to represent a group of objects as key-value pairs then we should go for Map.
+In Map duplicate keys are n't allowed, but values can be duplicate.
+Map don't preserve insertion order.
+
+There is no relationship between Collection and Map interfaces.
+Collection is ment for a group of individal objects  where as Map  ment for a group of key-value pairs.
+
+Each pair of Map is known as an entry.
+<image>Entry</image>
+
+Methods Of Map Interface:
+void 	clear()
+Removes all of the mappings from this map (optional operation).
+boolean 	containsKey(Object key)
+Returns true if this map contains a mapping for the specified key.
+boolean 	containsValue(Object value)
+Returns true if this map maps one or more keys to the specified value.
+Set<Map.Entry<K,V>> 	entrySet()
+Returns a Set view of the mappings contained in this map.
+boolean 	equals(Object o)
+Compares the specified object with this map for equality.
+V 	get(Object key)
+Returns the value to which the specified key is mapped, or null if this map contains no mapping for the key.
+int 	hashCode()
+Returns the hash code value for this map.
+boolean 	isEmpty()
+Returns true if this map contains no key-value mappings.
+Set<K> 	keySet()
+Returns a Set view of the keys contained in this map.
+V 	put(K key, V value)
+Associates the specified value with the specified key in this map (optional operation).
+void 	putAll(Map<? extends K,? extends V> m)
+Copies all of the mappings from the specified map to this map (optional operation).
+V 	remove(Object key)
+Removes the mapping for a key from this map if it is present (optional operation).
+int 	size()
+Returns the number of key-value mappings in this map.
+Collection<V> 	values()
+Returns a Collection view of the values contained in this map.
+
+----------------------
+

@@ -1,0 +1,15 @@
+
+A Java application can accept any number of arguments from the command line. 
+This allows the user to specify configuration information when the application is launched.
+The user enters command-line arguments when invoking the application and specifies them after the name of the class to be run.
+
+
+class Add{  
+public static void main(String args[]){  
+		int total =  0;
+		for(int i=0;i<args.length;i++)  
+		total = total + args[i];
+		System.out.println("Sum of arguments : "+total);  
+		}  
+}  
+

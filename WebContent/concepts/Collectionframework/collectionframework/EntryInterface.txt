@@ -1,0 +1,64 @@
+Entry Interface:
+Each key-value pair is called "Entry".
+Entry interface is defined inside the Map interface, so without "Map" object there is no chance of "Entry" object.
+
+Sample syntax:
+interface Map<K,V>{/*Here Map is the enclosed interface */
+	public static interface Map.Entry<K,V>{/*Here Entry is the nested interface*/
+	//methods	
+	}
+}
+
+All Known Implementing Classes:
+    AbstractMap.SimpleEntry, AbstractMap.SimpleImmutableEntry 
+Enclosing interface:
+    Map<K,V> 	
+	
+Methods Of Entry Interface:
+boolean 	equals(Object o)
+Compares the specified object with this entry for equality.
+K 	getKey()
+Returns the key corresponding to this entry.
+V 	getValue()
+Returns the value corresponding to this entry.
+int 	hashCode()
+Returns the hash code value for this map entry.
+V 	setValue(V value)
+Replaces the value corresponding to this entry with the specified value (optional operation).	
+
+----------------
+/*Entry Interface Example*/
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+import java.util.Map.Entry;
+
+public class EntryInterfaceExample {
+	public static void main(String[] args) {
+		Map<String, Integer> _map = new HashMap<String, Integer>();
+		_map.put("A", 100);
+		_map.put("B", 101);
+
+		Set<Entry<String, Integer>> _entrySet = _map.entrySet();
+		Iterator<Map.Entry<String, Integer>> it = _entrySet.iterator();
+		while(it.hasNext()){
+			Map.Entry<String, Integer> _entry = it.next();
+			System.out.println("KEY : "+_entry.getKey());
+			System.out.println("VALUE :"+_entry.getValue());
+		}
+	}
+}
+
+-----------------
+What is enclosed interface?
+An interface which enclose another interface is called enclose interface.
+In this case, Entry interface is enclosed by Map interface.
+So Map is the enclosed interface.
+
+What is nested interface?
+An interface that is declared within another interface (or) class is known as nested interface.
+The nested interface must be referred by the outer interface or class. Nested interface can't be accessed directly.
+Points to remember:
+Nested interface must be public if it is declared inside the interface but it can have any access modifier if declared within the class.
+Nested interfaces are declared static implicitely.

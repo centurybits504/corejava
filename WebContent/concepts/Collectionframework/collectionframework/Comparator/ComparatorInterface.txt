@@ -1,0 +1,233 @@
+Comparator Interface:
+
+Comparator interface is from package java.util.* package.
+All Known Implementing Classes: Collator, RuleBasedCollator 
+Comparator is used to impose a total ordering(cutomized/user-defined sorting order) on a collection of elements.
+A class whose objects to be sorted, don't need to implement Comparator interface.
+Comparators can be passed to a sort method (such as Collections.sort() or Arrays.sort()) to allow precise control over the sorting order(ascending/descending).
+
+Comparator can be written as:
+	interface Comparator<T>{
+	/*Here T represents the type of elements in the collection compared by the Comparator*/	
+	}
+
+For example to compare Integer objects, we can write a class that implements the Comparator interface as,
+	class EmployeeAscending implements Comparator<Integer>{
+	/*Here Integer is the type of the collection that we want to compare using Comparator interface*/
+	}	
+	
+Methods Of Comparator Interface:
+int 	compare(T o1, T o2) : Compares its two arguments for order.
+boolean 	equals(Object obj) : Indicates whether some other object is "equal to" this comparator.
+
+When ever we are implementing Comparator interface, compulsory we have to provide implementation to compare() method and 
+for equal() method implementation is optional because it is already available for our class from Object class through inheritance.
+
+The Comparator interface contains a method compare() that should be implemented in such a way that the two objects should be compared using compareTo() method.
+	public int compare(Integer i1, Integer i2){
+		return i1.compareTo(i2);
+	}
+Here, the compareTo() method : 
+	returns a positive number if i1>i2
+	returns a negative number if i1<i2
+	returns a zero number if i1==i2
+This logic can be applicable to a group of objects when we want to arrange them in a ascending order.
+Similarly reverse order is needed to sort the elements in a descending order.
+Now the "EmployeeAscending" class object should be passed to Collections.sort()/Arrays.sort() methods.
+	
+	/*Here "array" is the group of elements to be sorted in given array.
+	 new EmployeeAscending() is the object of the implementation class of the Comparator interface.
+	 EmployeeAscending class contains the logic how we want to sort(ascending/descending) the Array.
+	*/
+	Arrays.sort(coll,new EmployeeAscending());
+	
+	/*Here "coll" is the group of elements to be sorted in given collection.
+	 new EmployeeAscending() is the object of the implementation class of the Comparator interface.
+	 EmployeeAscending class contains the logic how we want to sort(ascending/descending) the Coolection.
+	*/
+	Collections.sort(coll,new PersonAscending());
+	
+Comparator provides multiple sorting sequence i.e, we can sort elements based on multiple data members.(Example: 2)
+	
+
+	
+-------------------
+/*Example 1: Sorting List Of Object's Using Comparator Interface*/
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+/*Here sorting list of type Integer & String */
+class EmployeeAgeAscending implements Comparator<Integer>{
+	@Override
+	public int compare(Integer o1, Integer o2) {
+		return o1-o2;
+	}
+}
+class EmployeeAgeDescending implements Comparator<Integer>{
+	@Override
+	public int compare(Integer o1, Integer o2) {
+		return o2-o1;
+	}
+}
+class EmployeeNameAscending implements Comparator<String>{
+	@Override
+	public int compare(String o1, String o2) {
+		return o1.compareTo(o2);
+	}
+} 
+class EmployeeNameDescending implements Comparator<String>{
+	@Override
+	public int compare(String o1, String o2) {
+		return o2.compareTo(o1);
+	}
+}
+
+public class ComparatorSortingExample {
+	public static void main(String[] args) {
+		
+		 List<Integer> _listIntegers = new ArrayList<Integer>();
+		 _listIntegers.add(2);
+		 _listIntegers.add(1);
+		 _listIntegers.add(3);
+		 System.out.println("Before Sorting(_listIntegers) : "+_listIntegers);
+		 /*Sorting _listIntegers elements in descending order*/
+		 Collections.sort(_listIntegers, new EmployeeAgeDescending());
+		 System.out.println("After Descending Sorting(_listIntegers) : "+_listIntegers);
+		 /*Sorting _listIntegers elements in ascending*/
+		 Collections.sort(_listIntegers, new EmployeeAgeAscending());
+		 System.out.println("After Asecding Sorting(_listIntegers) : "+_listIntegers);
+		 
+		 System.out.println("-------------------------------------------------");
+		 
+		 List<String> _listString = new ArrayList<>();
+		 _listString.add("B");
+		 _listString.add("A");
+		 _listString.add("C");
+		 System.out.println("Before Sorting(_listString) : "+_listString);
+		 /*Sorting _listString elements in descending order*/
+		 Collections.sort(_listString, new EmployeeNameDescending());
+		 System.out.println("After Descending Sorting(_listString) : "+_listString);
+		 /*Sorting _listString elements in ascending*/
+		 Collections.sort(_listString, new EmployeeNameAscending());
+		 System.out.println("After Asecding Sorting(_listString) : "+_listString);
+
+		 
+	}
+
+}
+
+
+/*Sorting Multiple Data-Members Using Comparator Interface*/
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+class Employee {
+    private String name;
+	private String jobTitle;
+    private int age;
+    private int salary;
+    public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getJobTitle() {
+		return jobTitle;
+	}
+	public void setJobTitle(String jobTitle) {
+		this.jobTitle = jobTitle;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public int getSalary() {
+		return salary;
+	}
+	public void setSalary(int salary) {
+		this.salary = salary;
+	}
+    public Employee(String name, String jobTitle, int age, int salary) {
+        this.name = name;
+        this.jobTitle = jobTitle;
+        this.age = age;
+        this.salary = salary;
+    }
+    public String toString() {
+        return String.format("%s\t%s\t%d\t%d", name, jobTitle, age, salary);
+    }
+}
+class EmployeeAgeComparator implements Comparator<Employee> {
+    @Override
+    public int compare(Employee emp1, Employee emp2) {
+        return emp1.getAge() - emp2.getAge();
+    }
+}
+class EmployeeJobTitleComparator implements Comparator<Employee> {
+    @Override
+    public int compare(Employee emp1, Employee emp2) {
+        return emp1.getJobTitle().compareTo(emp2.getJobTitle());
+    }
+}
+class EmployeeSalaryComparator implements Comparator<Employee> {
+    @Override
+    public int compare(Employee emp1, Employee emp2) {
+        return emp1.getSalary() - emp2.getSalary();
+    }
+}
+class EmployeeChainedComparator implements Comparator<Employee> {
+    private List<Comparator<Employee>> listComparators;
+   /* Here 3 dots, means that zero (or) more Comparator objects (or an array of them) may be passed as the parameter(s) for that function.
+    *We can it as Variable arguments 
+    * */
+    @SafeVarargs
+    public EmployeeChainedComparator(Comparator<Employee>... comparators) {
+        this.listComparators = Arrays.asList(comparators);/*Here converting array(Comparator objects) to list*/
+    }
+    @Override
+    public int compare(Employee p1, Employee p2) {
+        for (Comparator<Employee> comparator : listComparators) {
+            int result = comparator.compare(p1, p2);
+            if (result != 0) {
+                return result;
+            }
+        }
+        return 0;
+    }
+}
+
+public class ComparatorSortingPersonExample {
+	public static void main(String[] args) {
+		System.out.println("**** Sorting Multiple Data Members ****");
+		List<Employee> listEmployees = new ArrayList<Employee>();
+		listEmployees.add(new Employee("A", "TESTED", 20, 100));
+		listEmployees.add(new Employee("D", "DBA", 10, 200));
+		listEmployees.add(new Employee("B", "DEVELOPER", 25, 400));
+		listEmployees.add(new Employee("C", "SYSTEM ENGINEER", 60, 600));
+
+		System.out.println("\n**** Before sorting ****");
+		for (Employee p : listEmployees) 
+		{
+			System.out.println(p);
+		}
+		Collections.sort(listEmployees, new EmployeeChainedComparator(
+				new EmployeeJobTitleComparator(),
+                new EmployeeAgeComparator(),
+                new EmployeeSalaryComparator())
+        );
+		System.out.println("\n**** After sorting data members in order(JobTitle,Age,Salary) **** ");
+		for (Employee p : listEmployees) {
+            System.out.println(p);
+        }
+	}
+}
+
+--------------------------

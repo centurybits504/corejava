@@ -1,0 +1,10 @@
+InstanceOf :
+instanceof operator is used to test whether the object is an instance of the specified type i.e, class or subclass or interface.
+The instanceof is also known as type comparison operator, because it compares the instance with type and it returns either true or false.
+The instanceOf operator returns false, if we apply to any variable that has null value (or) to "null" directly.
+
+--------------
+
+--------------
+
+

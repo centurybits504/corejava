@@ -1,0 +1,64 @@
+NavigableSet Interface:
+NavigableSet is the sub-interface of the SortedSet interface, So it inherits of all SortedSet's behaviour like endpoints,range view and Comparator access.
+NavigableSet interface provides navigation methods and descending iterator that allows the elements in the elements inthe set can be traversed in descending order.
+
+Methods Of NavigableSet Interface:
+E 	ceiling(E e)
+Returns the least element in this set greater than or equal to the given element, or null if there is no such element.
+Iterator<E> 	descendingIterator()
+Returns an iterator over the elements in this set, in descending order.
+NavigableSet<E> 	descendingSet()
+Returns a reverse order view of the elements contained in this set.
+E 	floor(E e)
+Returns the greatest element in this set less than or equal to the given element, or null if there is no such element.
+SortedSet<E> 	headSet(E toElement)
+Returns a view of the portion of this set whose elements are strictly less than toElement.
+NavigableSet<E> 	headSet(E toElement, boolean inclusive)
+Returns a view of the portion of this set whose elements are less than (or equal to, if inclusive is true) toElement.
+E 	higher(E e)
+Returns the least element in this set strictly greater than the given element, or null if there is no such element.
+Iterator<E> 	iterator()
+Returns an iterator over the elements in this set, in ascending order.
+E 	lower(E e)
+Returns the greatest element in this set strictly less than the given element, or null if there is no such element.
+E 	pollFirst()
+Retrieves and removes the first (lowest) element, or returns null if this set is empty.
+E 	pollLast()
+Retrieves and removes the last (highest) element, or returns null if this set is empty.
+NavigableSet<E> 	subSet(E fromElement, boolean fromInclusive, E toElement, boolean toInclusive)
+Returns a view of the portion of this set whose elements range from fromElement to toElement.
+SortedSet<E> 	subSet(E fromElement, E toElement)
+Returns a view of the portion of this set whose elements range from fromElement, inclusive, to toElement, exclusive.
+SortedSet<E> 	tailSet(E fromElement)
+Returns a view of the portion of this set whose elements are greater than or equal to fromElement.
+NavigableSet<E> 	tailSet(E fromElement, boolean inclusive)
+Returns a view of the portion of this set whose elements are greater than (or equal to, if inclusive is true) fromElement.
+
+-----------------
+/*Example Of NavigableSet Interface*/
+import java.util.Iterator;
+import java.util.NavigableSet;
+import java.util.TreeSet;
+
+public class NavigableSetDesendingOrderExample {
+	public static void main(String[] args) {
+		NavigableSet<String> _items = new TreeSet<String>();
+		_items.add("A");
+		_items.add("A");/*duplicates are n't allowed*/
+		_items.add("D");
+		_items.add("C");
+		_items.add("B");
+		 
+		System.out.println("Items :  " + _items);
+		Iterator<String> _descIterator = _items.descendingIterator();
+		 
+		System.out.print("Items After Descending Order :  ");
+		System.out.print("[ "); 
+		while (_descIterator.hasNext()) {
+		    System.out.print(_descIterator.next()+" ");
+		}
+		System.out.println(" ] ");
+	}
+
+}
+---------------

@@ -1,0 +1,10 @@
+Race condition occurs in a multi-threaded environment when more than one thread try to access a shared resource (to modify, write) 
+at the same time.
+Examples of shared resources are class variables, database record in a table, writing in a file.
+
+A code block that has a shared resource and may lead to race conditions is called a critical section.
+Race conditions can be avoided by proper thread synchronization in critical sections.
+
+
+
+

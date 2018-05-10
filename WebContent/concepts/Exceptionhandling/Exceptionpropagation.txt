@@ -1,0 +1,6 @@
+Exception Propagation:
+An exception is first thrown from the top of the stack and if it is not caught it drops down to the call stack to the previous method, if n't caught there, the exception again drops down to the previous method and so on until exceptions are caught (or) until they reach the very bottom of the call stack.
+This is called exception propagation.
+
+Unchecked exception are bydefault forward in calling chain.
+Checked exception are not forward in calling chain bydefault.

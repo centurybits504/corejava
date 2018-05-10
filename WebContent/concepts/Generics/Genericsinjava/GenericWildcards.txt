@@ -1,0 +1,63 @@
+Generic Wildcards:
+Question mark(?) is the wildcard in generics.It represent's an unkown type.
+The wildcard can be used ad the type of a parameter, field (or) local variable and sometimes as a return type.
+
+In generics we have,
+   UpperBounded Wildcard
+   LowerBounded Wildcard
+   UnBounded Wildcard
+ 
+UpperBounded Wildcard:
+	UpperBounded wildcards are used to relax the restriction on the type of variable in a method.
+	/*Syntax*/
+	public Y sum(List<? extends X> list){
+		//Here in place of "X" we can write class/interface
+		//Y can be all the members of the upperbounded class/interface
+	}
+	/*Sample Syntax Example*/
+	public static Integer sum(List<? extends Number> list){
+		//Here  Number is the class
+		//Integer is the member of the upperbounded Number
+	}
+
+LowerBounded Wildcard:
+	Suppose we want to add Integer to a list of integers in a method, we can keep argument type as List<Integer> but it will tie up with integers,
+where as List<Number> and List<Object> can also hold integers, so we can use lowerbounded class to achieve this, as below.
+
+	/*Sample Syntax Example*/
+	public sum(List<? super Integer> list){
+	} 
+	//Here we can pass list of type,
+		List<Integer>	(or)	List<Number>	(or)	List<Object>
+	   sametype of list       super of Integer			 super of Number
+Here we can't pass List<double>, List<float> etc because of below reason,  
+In general void sum(ArrayList<? super X> aList) {
+	//X can be class/interface
+}
+==> if 'X' is a class then this method is applicable for ArrayList of either 'X' type (or) its super classes.
+==> if 'X' is an interface then this method is applicable for ArrayList of either 'X' type (or) super classes of implementation class of 'X'
+	
+
+	
+UnBounded Wildcard:
+	Sometimes we have a situation where we want our generic method to be work with all types, in that case unbounded wildcard can be used.
+	It can be write as <?>
+	<?> is same as <? extends Object> because Object is the super for all. So we can write any one for upperbounded wildcards.
+	/*Sample Syntax Example*/
+	public Integer sum(List<?>){
+	}
+			//(or)
+	public Integer sum(List<? extends Object> list){
+	}	
+
+
+
+
+
+
+
+ 	   
+	   
+  	
+	
+ 

@@ -1,0 +1,232 @@
+Bounded Type Parameters:
+Restricting the type-parameter to particular  set of type-arguments is called Bounded Type Parameters.
+For example, a method that operates on numbers might only want  to accept instances of Number or its subclasses.
+We can bound the type parameter for a particular range using "extends" keyword.
+
+Bounded Type Parameters can be applicable to methods, classes, interfaces, constructors.
+
+Syntax for unbounded type-parameters in classes:
+		class Test<T>{
+		/*Here "T" (type-parameter) is unbounded type-parameter */
+		}
+/*Here we can pass any type of type-arguments. Hence  here "T" is  unbounded type-parameter.*/
+
+Syntax for bounded type-parameters in classes:
+		class Test<T extends Number>{
+		/*Here "T" (type-parameter) is bounded type-parameter */
+		}
+/*Here in the type-parameter  we can pass either Number (or) it's child class. Hence "T" is bounded type-parameter*/
+
+Syntax for unbounded type-parameters in interfaces:
+		interface Test<T>{
+		/*Here "T" (type-parameter) is unbounded type-parameter */
+		}
+Syntax for bounded type-parameters in interfaces:
+		interface Test<T extends Number>{
+		/*Here "T" (type-parameter) is bounded type-parameter */
+		}
+	
+Syntax for unbounded type-parameters in methods:
+	public List<T> swap(){
+	}
+Syntax for bounded type-parameters in methods:
+public List<T extends Number> swap(){
+	}
+	
+----------------------------------
+Bounded Type parameter in classes:
+
+Syntax for unbounded type-parameters in classes:
+		class Test<T>{
+		/*Here "T" is the type-parameter*/
+		}
+/*Here we can pass any type of type-arguments. Hence  here "T" is  unbounded type-parameter.*/
+
+Syntax for bounded type-parameters in classes:
+		class Test<T extends Number>{
+		}
+/*Here in the type-parameter  we can pass either Number (or) it's child class. Hence "T" is bounded type-parameter*/
+
+We cannot bound type parameter by using implements and super keywords.
+Example:
+		class Test<T extends Runnable>{}/*Compile-time error*/	
+		class Test<T super Runnable>{}/*Compile-time error*/	
+		
+In Bounded types we can use only extends keyword for both class (or) interface.
+		class Test<T extends X>{
+		}
+
+X  =>  can be either class/interface
+1: If X is a class then as the type-parameter we can provide either X type (or) it's subclasses.
+2: If X is a interface as the type-parameter we can provide either X type (or) it's implementation classes.
+Example for 1:
+		class Test<T extends Object>{
+		}	
+		/*type-parameter T is of same type(Object) */	
+		Test<Object> t1 = new Test<Object>();
+		/*type-parameter is of type subclasses(String)*/
+		Test<String> t2 = new Test<String>();
+		
+Example for 2:		
+		class Test<T extends Runnable>{
+		}
+		/*type-parameter T is of same type(Runnable) */	
+		Test<Runnable> t1 = new Test<Runnable>();
+		/*type-parameter T is it's implementation class*/
+		Test<Thread> t2 = new Test<Thread>();
+		
+We can also bound the type-parameters even in combination also.
+Example:
+		class Test<T extends Number & Runnable>{
+		}
+		class Test<T extends Runnable & Comparable>{
+		}	
+		class Test<T extends Number & Runnable & Comparable>{
+		}	
+		
+We cannot extend more than one class at a time.
+Example:		
+		class Test<T extends Number & Thread>{
+		/*Here we get compile-time error*/
+		}
+
+We have to take first class and interface.
+Example:
+		class Test<T extends Runnable and Number>{
+		/*compile-time error*/
+		}
+
+Example Program:
+/*Bounded Type Parameters in class*/
+class Gen_2<T extends Object> {
+	List<T> gen_list;
+
+	Gen_2(List<T> gen_list) {
+		this.gen_list = gen_list;
+	}
+
+	public List<T> swap() {
+		T temp = gen_list.get(0);
+		gen_list.set(0, gen_list.get(1));
+		gen_list.set(1, temp);
+		return gen_list;
+	}
+}
+/* swaping list elements using Generic Class. */
+public class BoundedTypeParameterInClasses {
+	public static void main(String[] args) {
+		List<Integer> int_arry = new ArrayList<Integer>();
+		int_arry.add(200);
+		int_arry.add(100);
+
+		Gen_2<Integer> i = new Gen_2<Integer>(int_arry);
+		System.out.println(i.swap());
+
+		List<String> str_arry = new ArrayList<String>();
+		str_arry.add("A");
+		str_arry.add("B");
+
+		Gen_2<String> s = new Gen_2<String>(str_arry);
+		System.out.println(s.swap());
+
+	}
+
+}
+--------------------------------
+Bounded Type parameter in interfaces:
+
+Syntax for unbounded type-parameters in interfaces:
+		interface Test<T>{
+		/*Here "T" is the type-parameter*/
+		}
+Syntax for bounded type-parameters in interfaces:
+		interface Test<T extends Number>{
+		/*Here "T" is the type-parameter*/
+		}
+Bounded Type parameter in interfaces:
+
+import java.util.ArrayList;
+import java.util.List;
+
+interface Swap<T extends Object> {
+	List<T> swap();
+}
+class Gen_1<T extends Object> implements Swap {
+	List<T> gen_list;
+	T temp;
+	Gen_1(List<T> gen_list) {
+		this.gen_list = gen_list;
+	}
+	public List<T> swap() {
+		temp = gen_list.get(0);
+		gen_list.set(0, gen_list.get(1));
+		gen_list.set(1, temp);
+		return gen_list;
+	}
+}
+public class BoundedTypeParameterInInterfaces {
+	public static void main(String[] args) {
+
+		List<Integer> int_arry = new ArrayList<Integer>();
+		int_arry.add(200);
+		int_arry.add(100);
+
+		Gen_2<Integer> i = new Gen_2<Integer>(int_arry);
+		System.out.println(i.swap());
+
+		List<String> str_arry = new ArrayList<String>();
+		str_arry.add("A");
+		str_arry.add("B");
+
+		Gen_2<String> s = new Gen_2<String>(str_arry);
+		System.out.println(s.swap());
+	}
+}
+
+--------------------------------
+Bounded Type parameter in methods:
+
+Syntax for unbounded type-parameters in methods:
+	public List<T> swap(){
+	}
+Syntax for bounded type-parameters in methods:
+public List<T extends Number> swap(){
+	}
+
+
+Example for Bounded Type Parameters in methods:
+import java.util.ArrayList;
+import java.util.List;
+
+class Swaping {
+	List gen_list;
+	Swaping(List gen_list) {
+		this.gen_list = gen_list;
+	}
+	public <T extends Object> List<T> swap() {
+		T temp;
+		temp = (T) gen_list.get(0);
+		gen_list.set(0, gen_list.get(1));
+		gen_list.set(1, temp);
+		return gen_list;
+	}
+}
+public class BoundedTypeParameterInMethods {
+public static void main(String[] args) {
+		List<Integer> int_arry = new ArrayList<Integer>();
+		int_arry.add(200);
+		int_arry.add(100);
+
+		Gen_2<Integer> i = new Gen_2<Integer>(int_arry);
+		System.out.println(i.swap());
+
+		List<String> str_arry = new ArrayList<String>();
+		str_arry.add("A");
+		str_arry.add("B");
+
+		Gen_2<String> s = new Gen_2<String>(str_arry);
+		System.out.println(s.swap());
+	}
+}
+
+--------------------	

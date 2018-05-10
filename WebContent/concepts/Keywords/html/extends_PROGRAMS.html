@@ -1,0 +1,84 @@
+<html><head><meta name="viewport" content="width=device-width, initial-scale=1.0"><style media="screen" type="text/css">/*<![CDATA[*/@import 'stylesheet.css';/*]]>*/</style>
+<link rel="StyleSheet" type="text/css" href="file:///android_asset/style.css">
+</head>
+<body>
+
+ 
+
+ 
+<div id="wrapper">
+<br>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>package</span><span style='color:#7f0055; '> Keywords</span><span style='color:#7f0055; '>;</span>
+
+<span style='color:#3f7f59; '>/*Extends Keyword Example:  Class Cycle_1 extends Bike_1*/</span>
+<span style='color:#7f0055; font-weight:bold; '>class</span> Cycle_1{<span style='color:#3f7f59; '>//super class</span>
+	<span style='color:#7f0055; font-weight:bold; '>String</span> brand = <span style='color:#2a00ff; '>"Herolier"</span>;
+	<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>int</span> speed(){
+		<span style='color:#7f0055; font-weight:bold; '>return</span> 20;
+	}
+	<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>String</span> breaks(){
+		<span style='color:#7f0055; font-weight:bold; '>return</span> <span style='color:#2a00ff; '>"stop"</span>;
+	}
+}
+<span style='color:#7f0055; font-weight:bold; '>class</span> Bike_1 <span style='color:#7f0055; font-weight:bold; '>extends</span> Cycle_1{<span style='color:#3f7f59; '>//sub class</span>
+	@Override
+	<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>int</span> speed(){
+		<span style='color:#7f0055; font-weight:bold; '>return</span> 40;
+	}
+}
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> ExtendsKeywordWithClassesExample {
+	<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args) {
+		Bike_1 bike = <span style='color:#7f0055; font-weight:bold; '>new</span> Bike_1();
+		<span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Brand Name Is: "</span>+bike.brand);<span style='color:#3f7f59; '>/* inherited from Cycle_1 class*/</span>
+		<span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Bike Speed : "</span>+bike.speed());<span style='color:#3f7f59; '>/* overriding super-class method(speed()) in sub-class(Cycle_1 class)*/</span>
+		<span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Appling Breaks : "</span>+ bike.breaks());<span style='color:#3f7f59; '>/* inherited from Cycle_1 class*/</span>
+	}
+}
+<span style='color:#3f7f59; '>/*-----------------------------------------------*/</span>
+</pre>
+
+
+</div><br>
+
+
+
+<div id="wrapper"><br>
+
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>package</span><span style='color:#7f0055; '> Keywords</span><span style='color:#7f0055; '>;</span>
+
+<span style='color:#3f7f59; '>/*Extends Keyword Example:  Interface Car_1 extends Vehicle_1*/</span>
+
+<span style='color:#7f0055; font-weight:bold; '>interface</span> Vehile_1{
+	<span style='color:#7f0055; font-weight:bold; '>int</span> speed = 100;
+	<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>int</span> speed();
+}
+<span style='color:#7f0055; font-weight:bold; '>interface</span> Car_1 <span style='color:#7f0055; font-weight:bold; '>extends</span> Vehile_1{
+	<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>int</span> speed();
+	<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>String</span> breaks();
+}
+<span style='color:#7f0055; font-weight:bold; '>class</span> MyCar <span style='color:#7f0055; font-weight:bold; '>implements</span> Car_1{
+
+	@Override
+	<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>int</span> speed() {
+		<span style='color:#7f0055; font-weight:bold; '>return</span> speed;
+	}
+
+	@Override
+	<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>String</span> breaks() {
+		<span style='color:#7f0055; font-weight:bold; '>return</span> <span style='color:#2a00ff; '>"WaggonCar"</span>;
+	}
+	
+}
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> ExtendsKeywordWithInterfacesExample {
+
+	<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args) {
+		 MyCar car = <span style='color:#7f0055; font-weight:bold; '>new</span> MyCar();
+		 <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(car.breaks());
+		 <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(car.speed());
+
+	}
+
+}
+<span style='color:#3f7f59; '>/*-----------------------------------------------*/</span>
+</pre>
+</div><br>

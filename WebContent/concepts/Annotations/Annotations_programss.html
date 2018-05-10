@@ -1,0 +1,50 @@
+/*@override annotation exmple*/<br>
+class Vehical {<br>
+	public void drive() {<br>
+		System.out.println(\"Driving in Vehicle\");<br>
+	}<br>
+}<br>
+class Car extends Vehical {<br>
+	@Override<br>
+	public void drive() {<br>
+		System.out.println(\"Driving in Car\");<br>
+	}<br>
+}<br>
+public class AnnotationOverride {<br>
+	public static void main(String[] args) {<br>
+		Vehical obj = new Vehical();<br>
+		obj.drive();<br>
+	}<br>
+}<br>
+<br><br>
+
+/*@SuppressWarnings*/<br>
+public class AnnotationSupressWarings {<br>
+	@SuppressWarnings(\"unchecked\")  <br>
+	public static void main(String[] args) {<br>
+		List list = new ArrayList();<br>
+		list.add(\"A\");<br>
+		list.add(\"B\");<br>
+	}<br>
+}<br>
+/*Here if you don't use @SuppressWarnings annotation while adding list elements we get Type Safety waring.*/<br><br>
+<br>
+
+/*@Deprecated*/<br>
+class Vehicle {<br>
+	void car() {<br>
+		System.out.println(\"Inside Car method\");<br>
+	}<br>
+	@Deprecated<br>
+	void bike() {<br>
+		System.out.println(\"Inside Bike method\");<br>
+	}<br>
+}<br>
+public class AnnotationDeprecated {<br>
+	public static void main(String[] args) {<br>
+		Vehicle obj = new Vehicle();<br>
+		obj.bike();<br>
+	}<br>
+}<br>
+
+<br><br><br><br>

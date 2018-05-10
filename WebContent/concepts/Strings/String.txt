@@ -1,0 +1,85 @@
+String Class:
+String is a class in java.lan package.
+In java all classes are considered as datatypes.so we can consider String as a datatypes also.
+Because a class is also called as datatype.
+
+There are 2 ways to create Strings in java.
+1) String str = "Hello"; //by string literal
+2) String str = new String("Hello"); //by new keyword
+
+String objects are stored in the special memory called String Constant Pool,
+where  new object are not created if object already exist in the String Constant Pool.
+This helps in memory management of java.
+
+Difference Between String str ="Hello";	 and String str = new String("Hello"); ?
+
+In  String str ="Hello"; - assignment operator is used to assigh the string literal to the string variable str.
+JVM first check whether the same object is already available in the String Constant Pool.
+If the object is available in the String Constant Pool, then jvm creates reference to it.
+If the object is not available in the String Constant Pool, then jvm creates new object with the content "Hello".
+
+In String str = new String("Hello");  -  new  keyword is used to create the String object.
+In this case JVM  always creates a new object without checking in the String Constant Pool.
+
+String objects are immutable objects whose objects cannot be modified.
+
+Class World{
+	public static void main(String[] args){
+		String str1 = "Hello"; //by string literal
+		String str2 = new String("Hello"); //by new keyword
+	}
+}
+
+Methods of String Class:
+char charAt(int index):	It returns char value for the particular index
+static String format(String format, Object... args)	It returns formatted string
+static String format(Locale l, String format, Object... args) It returns formatted string with given locale
+static String join(CharSequence delimiter, CharSequence... elements)	It returns a joined string
+static String join(CharSequence delimiter, Iterable<? extends CharSequence> elements)	It returns a joined string
+String substring(int beginIndex)	 It returns substring for given begin index
+String substring(int beginIndex, int endIndex)	It returns substring for given begin index and end index
+String concat(String str)	It concatinates specified string
+String replace(char old, char new)	It replaces all occurrences of specified char value
+String replace(CharSequence old, CharSequence new)	It replaces all occurrences of specified CharSequence
+String trim()	It returns trimmed string omitting leading and trailing spaces
+String split(String regex)	It returns splitted string matching regex
+String split(String regex, int limit)	It returns splitted string matching regex and limit
+String intern()	It returns interned string
+String toLowerCase()	It returns string in lowercase.
+String toLowerCase(Locale l)	It returns string in lowercase using specified locale.
+String toUpperCase()	It returns string in uppercase.
+String toUpperCase(Locale l)	It returns string in uppercase using specified locale.
+boolean contains(CharSequence s)	It returns true or false after matching the sequence of char value
+boolean equals(Object another)	It checks the equality of string with object
+boolean isEmpty()	It checks if string is empty
+int length()	It returns string length
+int indexOf(int ch)	It returns specified char value index
+int indexOf(int ch, int fromIndex)	It returns specified char value index starting with given index
+int indexOf(String substring)	It returns specified substring index
+int indexOf(String substring, int fromIndex)	It returns specified substring index starting with given index
+
+
+---------------
+1)What is difference between == operator and equal() ?
+== operator compares the references of the string object.
+equals() compares the contents of the objects.
+
+2)What is String Constant Pool?
+String Constant Pool is a seperate block of memeory where the string objects are held by JVM.
+
+3)What is mutable and Immutable objects?
+Mutable objects are those objects, whose contents can be modified.
+Example StringBuffer and StringBuilder Class objects.
+Immutable objects those objects, once created cannot be modified.
+Example String Class objects.
+
+
+
+
+
+
+
+
+	
+	
+	

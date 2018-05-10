@@ -1,0 +1,41 @@
+<br>
+<font color=\"#0091EA\"><b>/*Adding elements in String array and retrieving*/</b></font><br>
+public class Stringtest {<br>
+	public static void main(String[] args) {<br>
+		String[] str = new String[10];<br>
+	    str[0] = \"A\";<br>
+	    str[1] = \"B\";<br><br>
+	String name1 = str[0]; /*TypeCasting is not required*/<br>
+	String name2 = str[1]; /*TypeCasting is not required*/<br>
+	}<br>
+}<br>
+<br><br><br>
+<font color=\"#0091EA\"><b>/*In Java 5 : Adding elements in List and retrieving*/</b></font><br>
+public class Generictest {<br>
+	public static void main(String[] args) {<br>
+		List list = new ArrayList();<br>
+		list.add(\"A\");<br>
+		list.add(\"B\");<br>
+		list.add(new Integer(10));<br>
+		<br>
+		String s1= (String)list.get(0);<br>
+		String s2= (String)list.get(1);<br><br>
+		/*In Java5,  Here we get ClassCastException at Run-time*/<br>
+		String s3= (String)list.get(2);	<br>
+	}<br>
+}<br>
+<br><br><br>
+<font color=\"#0091EA\"><b>/*In Java 7 : Adding elements in List and retrieving*/</b></font><br>
+public class Generictest {<br>
+	public static void main(String[] args) {<br>
+		List list = new ArrayList();<br>
+		list.add(\"A\");<br>
+		list.add(\"B\");<br><br>
+		list.add(new Integer(10)); /*In Java7,  Here we get compiler error at compile-time*/<br>
+		<br>
+		String s1= (String)list.get(0);<br>
+		String s2= (String)list.get(1);<br>
+		String s3= (String)list.get(2);	/*In Java7,  Here we don't  get ClassCastException*/<br>
+	}<br>
+}<br>
+<br><br><br><br><br>

@@ -1,0 +1,59 @@
+Set Interface:
+A Set represents a group of elements arranged just like an array.
+A Set can grow dynamically when the elements are stored in it.
+A Set is a collection that contains no duplicate elements.
+Set super interfaces are Collection<E>, Iterable<E>.
+Set sub-interfaces are NavigableSet<E>, SortedSet<E>.
+Set implementation classes are AbstractSet, ConcurrentSkipListSet, CopyOnWriteArraySet, EnumSet, HashSet, JobStateReasons, LinkedHashSet, TreeSet.
+Set collection will not allow duplicate values to be stored.
+Accessing elements using index is n't possinble in Set.
+Set collection will allow one element to be null.
+
+Methods Of Set Interface:
+boolean 	add(E e)
+Adds the specified element to this set if it is not already present (optional operation).
+boolean 	addAll(Collection<? extends E> c)
+Adds all of the elements in the specified collection to this set if they're not already present (optional operation).
+void 	clear()
+Removes all of the elements from this set (optional operation).
+boolean 	contains(Object o)
+Returns true if this set contains the specified element.
+boolean 	containsAll(Collection<?> c)
+Returns true if this set contains all of the elements of the specified collection.
+boolean 	equals(Object o)
+Compares the specified object with this set for equality.
+int 	hashCode()
+Returns the hash code value for this set.
+boolean 	isEmpty()
+Returns true if this set contains no elements.
+Iterator<E> 	iterator()
+Returns an iterator over the elements in this set.
+boolean 	remove(Object o)
+Removes the specified element from this set if it is present (optional operation).
+boolean 	removeAll(Collection<?> c)
+Removes from this set all of its elements that are contained in the specified collection (optional operation).
+boolean 	retainAll(Collection<?> c)
+Retains only the elements in this set that are contained in the specified collection (optional operation).
+int 	size()
+Returns the number of elements in this set (its cardinality).
+Object[] 	toArray()
+Returns an array containing all of the elements in this set.
+<T> T[] 	toArray(T[] a)
+Returns an array containing all of the elements in this set; the runtime type of the returned array is that of the specified array.
+
+
+
+
+
+
+----------------------
+What is the difference between List and Set?
+List Interface allows duplicates elements.
+Set Interface will not allow duplicate values to be stored.
+Accessing elements by index is possible in list.
+Accessing elements by index is n't possible in set.
+List allows multiple null elements to be stored.
+Set allows single null element to be stored.
+
+
+

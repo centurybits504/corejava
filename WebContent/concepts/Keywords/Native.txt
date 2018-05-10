@@ -1,0 +1,2 @@
+native keyword:
+The native keyword is applied to a method to indicate that the method is implemented in native code using JNI(Java Native Interface).

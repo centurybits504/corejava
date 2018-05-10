@@ -1,0 +1,125 @@
+Creating Thread: 
+What is the best way to create thread class and Why?
+Using Runnable interface, because if our class is already extending any other class, then we're left with only one choice i.e, by implementing Runnable interface.
+--------------
+Synchronization:
+
+Synchronized block Vs synchronized method?
+1)synchronized block reduce scope of lock, but synchronized method's scope of lock is whole method.
+2)synchronized block has better performance as only the critical section is locked but synchronized method has poor performance than block.
+
+Why would you use a synchronized block vs synchronized method?
+So if you want to lock the whole object, use a synchronized method. If you want to keep other parts of the object accessible to other threads, use synchronized block. If you choose the locked object carefully, synchronized blocks will lead to less contention, because the whole object/class is not blocked.
+
+
+Can we override a synchronized method?
+We can override a synchronized method with a method without declaring that as synchronized and vice versa.
+
+Can we overload a synchronized method?
+We can overload a synchronized method with a method without declaring that as synchronized and vice versa.
+
+Explain Static synchronization & non static synchronization?
+A synchronized method or block works on a given monitor. Synchronized non-static methods all synchronize on the Java instance of a class. Each instance has a lock monitor. 
+For the case of static methods, what object does static synchronized methods use for locking? The static synchronized statements obtain a lock on the Class object.
+
+Why we use Static Synchronized Block/Method?
+Suppose there are two objects of a shared class, object1 and object2.In case of synchronized method and synchronized block there cannot be interference between t1 and t2 or t3 and t4 because t1 and t2 both refers to a common object that have a single lock.
+But there can be interference between t1 and t3 or t2 and t4 because t1 acquires another lock and t3 acquires another lock. I want no interference between t1 and t3 or t2 and t4. Static synchronization solves this problem. 
+
+Since a static method has no associated object, will the synchronized keyword lock on the class, instead of the object?
+Yes
+
+Is it safe to call a synchronized method from another synchronized method?
+Yes, it is safe to call a synchronized method from another synchronized method because when you call synchronized method, you will get lock on this object and when you call another synchronized method of same class, it is safe to execute as it already has lock on this object.
+
+If one method of class is synchronized and other method of same class is not synchronized? Can they be executed concurrently by two threads?
+Yes, because one thread will require lock to get into synchronized block but second thread which will execute non synchronized method that won’t require any lock, so it can be executed concurrently.
+
+Can classes be synchronized in Java?
+synchronized keyword can be used only with methods and code blocks.
+
+--------------
+Locking:
+Can two threads execute static and non static methods concurrently?
+Yes, Since two threads will acquire lock on different objects, they can be executed concurrently without any issues.
+
+How to check if a thread holds a lock (or) not?
+java.lang.Thread class have holdsLock(), which returns true if the thread holds lock on specified object.
+
+
+--------------
+ 
+ What is thread-safety?
+
+ What happens when a exception occures in a thread?
+
+ Why wait(), notify(), notifyAll() are called from synchronized block?
+
+
+ Why suspend() and resume() methods are deprecated?
+ Why destroy() methods is deprecated?
+ Why stop() method is deprecated?
+ How to interrupt a thread
+ sleep() Vs wait()
+ sleep() Vs yield()
+ notify() Vs notifyAll()
+ wait() Vs wait(long timeout)
+ synchronized Vs volatile
+ What happen if we don’t override run method?
+ What happen if we override start method?
+
+ Can 2 threads can enter non-static method at same time?
+ No
+ Can 2 threads can enter static method at same time?
+ No
+
+
+ volatile Vs atomic ?
+ Explain about Blocking method?
+ interrupt() Vs isInterrupted() Vs interrupted()?
+ What happens if you submit a task when the queue of the thread pool is already filled?It will throw exception(RejectedExecutionException)
+
+ What happens if a thread throws an Exception occurs?
+ What happens if a thread throws an Exception inside synchronized block?
+ How to share data between two thread in Java? shared object (or) concurrent data structure?
+
+
+---------------------
+Threads Ques & Ans:
+ What is Semaphore?
+ Semaphore is a memory location, whose value can be tested & set by more than one thread.
+ Semaphore allows multiple threads to synchronize their execution.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ---------------------
+ Why is always a higher-priority thread does not run any faster than a lower-priority thread?
+ As an absolute value, a priority is meaningless; a higher-priority thread does not run any faster than a lower-priority thread if it is the only thread running. 
+ Instead, a thread priority is used to decide when to switch from one running thread to the next. This is called a context switch. 
+ The rules that determine when a context switch takes place are simple:
+ A thread can voluntarily relinquish control. This is done by explicitly yielding, sleeping, or blocking on pending I/O. In this scenario, all other threads are ex
+ A thread can be preempted by a higher-priority thread. In this case, a lower-priority thread that does not yield the processor is simply preempted â€”no matter wh
+
+
+ ----------------------

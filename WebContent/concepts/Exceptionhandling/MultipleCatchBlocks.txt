@@ -1,0 +1,20 @@
+Multiple Catch blocks:
+
+Multiple Catch blocks can be used when we're performing multiple task's that may cause multiple exceptions.
+
+	/* Sample syntax for try& multiple catch block */
+	try{
+	//some statements which are likely to cause exceptions
+	}catch(MostspecificExceptionClass object){
+	//this will catch the exception and tells what to do  
+	}
+	catch(MostgeneralExceptionClass object){
+	//this will catch the exception and tells what to do  
+	}
+ 
+Note:
+	At a time only one catch block is executed.
+	All catch blocks must be ordered from most-specific to most-general exceptions.
+	For example catch for ArrayIndexOutOfBoundsException must come before catch for Exception.
+
+	

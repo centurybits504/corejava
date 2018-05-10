@@ -1,0 +1,88 @@
+JDBC Driver :
+Driver is the software (or) an interface existed in between a java application and database, which will map java api calls with 
+query language API and vice versa.
+
+Intially "Sun Micro Systems" has provided "Driver" interface to the market. 
+With "Driver" interface Sun Micro  Systems has given intiation to all the database vendors to have their own implementation as per their requirements for the "Driver" interface.
+As a response all the database vendors(like oracle, MySQL, db2) are providing their own implementation for the "Driver" interface, in order to interact with their respective databases from a java application.
+The clients of the databases must get the respective "Driver" implementation from the database vendors(like oracle, MySQL, db2), to 
+interact with the respective databases from a java application.
+
+Implementations for "Driver" interface for some database vendors is given below:
+Oracle Corporation implementation for "Driver" interface is "classes12.jar" to connect "Oracle database". 
+MySQl implementation for "Driver" interface is "Mysql-connector-java-3.0.11-stable-bin.jar to connect "MySQL database".
+
+
+
+There are many drivers exist in the market.But all these  drivers classified into 4 types:
+1: JDBC-ODBC Bridge Driver[Type 1 Driver]
+2: Native-API Driver[Type 2 Driver](Partially Java Driver)
+3: Network-Protocol Driver[Type 3 Driver][Middleware Driver] (Fully Java Driver)
+4: Thin Driver[Type 4 Driver][Database-Protocol Driver] (Pure Java Driver)
+
+Type 1 Driver: 
+Type 1 Driver is also called as "JDBC-ODBC Bridge Driver"
+JDBC-ODBC Driver is an implementation to Driver interface provided by the Sun Micro Systems.
+JDBC-ODBC Driver internally dependes on the Microsoft's product "ODBC(Open Database Conectivity)" Driver to connect to any database.
+
+Advantages:
+Almost any database for which an ODBC driver is installed can be accessed, and data can be retrieved.
+Dis-Advantages:
+Performance overhead since the calls have to go through the JDBC bridge to the ODBC driver, then to the native db connectivity interface (thus may be slower than other types of drivers).
+The ODBC driver needs to be installed on the client machine.
+This driver internally depending on ODBC driver and ODBC driver is available only for windows platforms and hence portability of this driver is much less.(platform dependent driver).
+
+Native-API Driver:
+This driver was designed by using some part of the java implementations and some other part of the database vendor provided native implementations.
+The driver converts JDBC method calls into native calls of the database API.
+
+Advantages:
+When compared to "Type-1" driver it is efficient driver because "Type-2" driver directly will convert java API calls to databasevandor api calls.
+Dis-Advantages:
+If we want to use "Type-2" driver in our Jdbc application, then we must require to install database vendor native api.
+This driver is not suitable for web-applications, distributed applications.
+This driver is not portable driver because it is not designed completely with java technology.
+
+Type-3 Driver:
+The Network Protocol driver uses middleware (application server) that converts JDBC calls directly or indirectly into the vendor-specific database protocol.
+This driver could be used to interact with multiple databases from the multiple clients.
+This driver is suggestable for network applications.
+It is fully written in java.
+
+Advantages:
+To use Type-3 driver in our applications it is not required to install odbc native library and database native library.
+It is much suitable for network applications.
+It is the fatest driver among all the drivers inthe market.
+Dis-Advantages:
+It is not suitable for simple jdbc applications.
+This driver require minimum 3-Tier architecture.
+Network support is required on client machine for this driver.
+
+Type-4 Driver:
+It is the pure java driver i.e, completely implemented by using java technology.
+This driver converts JDBC calls directly into the vendor-specific database protocol.
+
+Advantages:
+It is the cheapest driver when compared to all the above drivers.
+Type-4 can be used for any kind of applications.
+Software is not required at client side or server side.
+Dis-Advantages:
+Type-4 driver depends on the Database.
+
+
+--------------------
+
+--------------------
+
+What is a database driver?
+A database driver is a set of classess and interfaces, written according to JDBC API to communicate with a database.
+
+
+
+
+
+
+
+
+
+				

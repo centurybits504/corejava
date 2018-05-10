@@ -1,0 +1,117 @@
+DatabaseMetaData interface:
+DatabaseMetaData interface is used to get meta-data information about database product-name,product-version,user-name,schema-names,table-names,column-names,DriverName,DriverVersion.
+The getMetaData() method of Connection interface returns the object of DatabaseMetaData. 
+
+All Superinterfaces:
+    Wrapper 
+
+public interface DatabaseMetaData extends Wrapper{
+}
+
+Some Of The Commonly Used Methods are:
+String 	getDriverName()	Retrieves the name of this JDBC driver.
+String 	getDriverVersion()	Retrieves the version number of this JDBC driver as a String.
+String 	getURL() Retrieves the URL for this DBMS.
+String 	getUserName() Retrieves the user name as known to this database.
+int 	getDatabaseMajorVersion() Retrieves the major version number of the underlying database.
+int 	getDatabaseMinorVersion() Retrieves the minor version number of the underlying database.
+String 	getDatabaseProductName() Retrieves the name of this database product.
+ResultSet 	getColumns(String catalog, String schemaPattern, String tableNamePattern, String columnNamePattern) Retrieves a description of table columns available in the specified catalog.
+Connection 	getConnection() Retrieves the connection that produced this metadata object.
+String 	getDatabaseProductName() Retrieves the name of this database product.
+String 	getDatabaseProductVersion() Retrieves the version number of this database product.
+ResultSet 	getTables(String catalog, String schemaPattern, String tableNamePattern, String[] types) Retrieves a description of the tables available in the given catalog.
+
+----------------
+
+/*DatabaseMetaData Interface Example: Displaying all schemas along with tables*/
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.DatabaseMetaData;
+
+public class DatabaseMetaDataExampleDisplayingAllSchemasTables {
+	static Connection conn = null;
+	static DatabaseMetaData dbmd = null;
+	static ResultSet resultSet = null;
+	static ResultSet rs = null;
+	public static void main(String[] args) {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/", "root", "root");
+			dbmd = (DatabaseMetaData) conn.getMetaData();
+			System.out.println("Driver Name: " + dbmd.getDriverName());
+			System.out.println("Driver Version: " + dbmd.getDriverVersion());
+			System.out.println("UserName: " + dbmd.getUserName());
+			System.out.println("Database Product Name: "+ dbmd.getDatabaseProductName());
+			System.out.println("Database Product Version: "+ dbmd.getDatabaseProductVersion());
+
+			rs = (ResultSet) dbmd.getCatalogs();
+
+			System.out.println("SCHEMA_NAME ---- TABLE_NAMES");
+			while (rs.next()) {
+				String schema_name = rs.getString("TABLE_CAT");
+
+				String[] types = { "TABLE" };
+				resultSet = (ResultSet) dbmd.getTables(schema_name, null, "%",types);
+				while (resultSet.next()) {
+					String schemaName = resultSet.getString(1);
+					String tableName = resultSet.getString(3);
+					System.out.println(schemaName + " ---- " + tableName);
+				}
+			}
+			rs.close();
+			resultSet.close();
+			conn.close();
+
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+}
+
+/*DatabaseMetaData Interface Example: Displaying all schemas along with tables and column names */
+import java.sql.DatabaseMetaData;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.mysql.jdbc.Connection;
+public class DatabaseMetaDataExampleDisplayingAllSchemasTablesColumns {
+	public static void main(String[] args) throws ClassNotFoundException,SQLException {
+
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/","root","root");
+		DatabaseMetaData dbmd = conn.getMetaData();
+		ResultSet rs_1 = (ResultSet) dbmd.getCatalogs();
+		ResultSet rs_2 = null; ResultSet rs_3 = null;
+		
+		//LIST SCHEMA NAMES
+		while(rs_1.next()){
+			String SCHEMA_NAME = rs_1.getString(1);
+		
+			//LIST SCHEMA & TABLES NAMES
+			String[] types = {"TABLE"};
+			rs_2 = (ResultSet) dbmd.getTables(SCHEMA_NAME,null,null,types);
+			while(rs_2.next()){
+				String SCHEMA_NAMES = rs_2.getString(1);
+				String TABLE_NAMES = rs_2.getString(3);
+				
+				//LIST SCHEMA & TABLES  & COLUMN NAMES
+				rs_3 = (ResultSet) dbmd.getColumns(SCHEMA_NAMES, null, TABLE_NAMES, null);
+				while(rs_3.next()){
+					System.out.println(rs_3.getString(1) +" >> "+rs_3.getString(3)+" >> "+rs_3.getString(4));
+				}
+			}
+			
+		}
+	}
+
+}
+
+
+----------------

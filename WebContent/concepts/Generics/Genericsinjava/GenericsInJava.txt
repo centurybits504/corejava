@@ -1,0 +1,113 @@
+Generics:
+
+Generics are a facility of generic programming that was added to the java programming language in 2004 as part of J2SE5.0
+
+In case of arrays we can always give the guarantee about the type of the elements.
+For example in String array if we try to add integer, we get compile-time error. 
+So in arrays we always give guarantee of type of the element in the array, because of this TypeCasting is not required while retrieving the elements from array(shown in below).
+
+In case of arrays at the time of retrieval it is not required to perform any TypeCasting. So array's are type-safe to use.
+For example:
+		String[] str = new String[10];
+	    str[0] = "A";
+	    str[1] = "B";
+		String name1 = str[0]; /*TypeCasting is not required*/
+		String name2 = str[1]; /*TypeCasting is not required*/
+
+
+In case of collections we cann't always give the guarantee about the type of the elements inthe collection.
+
+For example, a programmer can add any type of elements inthe collection, compiler don't show any compile-time error.
+/*Until java 1.4 - Creating non-generic list, adding different type of elements and iterating*/	
+				List list = new ArrayList(); // Type of the List is unknown, so we can add any type of elements
+				list.add("A");//String type element
+				list.add("B");//String type element
+				list.add(new Integer(10));//Integer type element
+		
+				String s1= (String)list.get(0);
+				String s2= (String)list.get(1);
+				/*Here we get ClassCastException because 3rd element in list is integer type, while retriving it we're storing in String type. so we get exception */
+				String s3= (String)list.get(2);	
+
+In the above code list have both 'String' & 'Integer' type of elements.
+Due to this we cann't guarantee about the type of the elements while retrieval time.
+
+So we need a way to ensure the type of the elements in the collection have.
+In java 5 "sun microsystems" have introduced a way called "Generics".
+
+/*In java 1.5 - Creating Generic List, adding different type of elements */	
+				List<String> list = new ArrayList<String>(); // Type of the List is String, so we can add only String type of elements
+				list.add("A");//String type element
+				list.add("B");//String type element
+				list.add(new Integer(10));//Integer type element - we get compile-time error here while adding , so no problem while retrieving 
+		
+By using generics,
+	collections can hold only one type of objects(by this we ensure Type-safety of collection) & 
+	eleminate type-casting while retrieving of elements from collection.	
+	
+
+/*Source declaration of ArrayList in 1.4 - a non-generic version */
+Until java 1.4  a non-generic version of ArrayList class is declared as:
+					Class ArrayList{
+						add(Object obj);
+						Object get(int index);
+					}
+/*Source declaration of ArrayList in 1.5 - a generic version */					
+In java 1.5  a generic version of ArrayList class is declared as:
+					Class ArrayList<T>{ /*Here T is type parameter*/
+						add(<T> obj);
+						<T> get(int index);
+					}
+Based on our run-time requirement, type parameter 'T' will be replaced with corresponding provided type.
+
+Generics concept can be applicable to classes, interfaces, constructors, methods and fields.
+In collections we cannot add primitive datatypes.
+
+Some points to remember:
+/*Note :1*/
+Usage of parent class reference to hold child class object is considered as polymorphism.
+Polymorphism concept is applicable only for base-type, but not for parameter-type.
+Example:
+List<String> list = new ArrayList<String>();/*Here base-type is List and parameter-type is String*/
+List<Object> list = new ArrayList<String>();/*Here we get incompatible  types compile-time error*/
+
+/*Note :2*/
+For parameter-type we can use only class (or) interface names, but we cannot use primitive-types.
+Example:
+List<Integer> list = new ArrayList<Integer>;/*no error*/
+List<int> list = new ArrayList<int>;/*compile-time error*/
+
+
+-------------------------
+GenericsListOfStringTest.java
+GenericsListOfStringType.java
+GenericListIntegerType.java
+
+
+------------------
+
+What is the main objective of the Generics concept?
+To provide type-safety to the collections. So that they can hold only a particular type of objects.
+To resolve type-casting problems at the of retrieval.
+
+What is generic type?
+A generic type represents a class (or) that is type-safe. It can on any data type.
+
+What is erasure?
+Creating non-generic version of a generic type by the Java Compiler is called erasure.
+
+Can we add primitive datatypes in the collection?
+No
+
+Why primitive datatypes are not allowed in Collections?
+All collection classes of java, store memory location of the objects they collect. 
+The primitive values do not fit in to the same definition.
+So collections cann't store primitive datatypes.
+
+
+
+
+
+
+
+

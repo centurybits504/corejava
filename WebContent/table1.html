@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style type="text/css">
+td.details-control {
+    background: url('/JavaSampleProject/details_open.png') no-repeat center center;
+    cursor: pointer;
+}
+tr.shown td.details-control {
+    background: url('/JavaSampleProject/details_close.png') no-repeat center center;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+
+<link rel='stylesheet'    href='https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css' type='text/css' media='all' />
+
+<script>
+/* Formatting function for row details - modify as you need */
+function format ( d ) {
+ 	var _length = (Object.keys(d).length);
+ 	
+      // `d` is the original data object for the row
+   var _table = '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">';
+   
+   var _looptr = "";    
+    	for(var i=1;i<_length;i++){
+    		_looptr  = _looptr + '<tr>'+ '<td>'+Object.keys(d)[i] +' :</td>'+'<td><input type="text"   value="'+d[Object.keys(d)[i]] +'"/></td>'+'</tr>'
+    	}
+    	/* '<tr>'+
+            '<td>Full name:</td>'+
+            '<td><input type="text"  value="'+d.name+'"/></td>'+
+        '</tr>'+
+        '<tr>'+
+            '<td>Extension number:</td>'+
+            '<td><input type="text"  value="'+d.extn+'"/></td>'+
+        '</tr>'+
+        '<tr>'+
+            '<td>Extra info:</td>'+
+            '<td>And any further details here (images etc)...</td>'+
+        '</tr>'+ */
+        
+        _looptr = _looptr + '<tr><td><center><input type="button" name="Save" value="Save" /></center></td></tr></table>';
+        
+        return _looptr;
+}
+ 
+$(document).ready(function() {
+    var table = $('#example').DataTable( {
+        "ajax": "/JavaSampleProject/objects1.json",
+        "paging":   false,
+        "ordering": false,
+        "info":     false,
+        "searching":false,
+        "columns": [
+            {
+                "className":      'details-control',
+                "orderable":      false,
+                "data":           null,
+                "defaultContent": ''
+            },
+            { "data": "Stage" }
+             
+        ],
+        "order": [[1, 'asc']]
+    } );
+     
+    // Add event listener for opening and closing details
+    $('#example tbody').on('click', 'td.details-control', function () {
+        var tr = $(this).closest('tr');
+        var row = table.row( tr );
+ 
+        if ( row.child.isShown() ) {
+            // This row is already open - close it
+            row.child.hide();
+            tr.removeClass('shown');
+        }
+        else {
+            // Open this row
+            row.child( format(row.data())).show();
+            tr.addClass('shown');
+        }
+    } );
+} );
+</script>
+</head>
+<body>
+<center>
+<table id="example" class="display" cellspacing="0" width="50%">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                
+                
+            </tr>
+        </thead>
+        
+    </table>
+    
+</center>    
+</body>
+</html>

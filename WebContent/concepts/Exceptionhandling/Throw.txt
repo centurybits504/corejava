@@ -1,0 +1,2 @@
+Throw:
+throw clause is used when the programmer wants to throw an exception explicitly and wants to handle it using catch block.
